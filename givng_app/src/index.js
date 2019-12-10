@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+<<<<<<< HEAD
 import App from './components/App'
+=======
+import App from './components/App';
+>>>>>>> 6e1ad77d57d53887e15060794a466b23c0baa747
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
