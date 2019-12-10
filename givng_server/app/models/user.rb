@@ -1,7 +1,10 @@
 class User < ApplicationRecord
-    has_secure_password
-  
-# attr_accessible :email, :password, :password_confirmation
-  
-# validates_uniqueness_of :email
+  has_secure_password
+  has_many :givngs
+  validates :email, presence: true, uniqueness: true
+  validates   :password, :presence => true,
+              :confirmation => true,
+              :length => {:within => 6..12},
+              :on => :create,
+              :on => :update
 end

@@ -1,0 +1,32 @@
+<%= form_with(model: givng, local: true) do |form| %>
+  <% if givng.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(givng.errors.count, "error") %> prohibited this givng from being saved:</h2>
+
+      <ul>
+        <% givng.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :theme %>
+    <%= form.text_field :theme %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
