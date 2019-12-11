@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from "@reach/router"
-
+import styled from 'styled-components';
 
 export default class NavBar extends React.Component {
 
@@ -11,6 +11,10 @@ export default class NavBar extends React.Component {
     }
 
     render() {
+
+        const NavBar = styled.nav`
+        background-color: white;
+        `
 
         const user = this.props.user;
     
