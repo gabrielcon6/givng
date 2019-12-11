@@ -708,3 +708,358 @@ Entrypoint application = js/application-0b67a3cc2fcde6055024.js js/application-0
 Completed 200 OK in 16773ms (Views: 16625.8ms | ActiveRecord: 2.4ms | Allocations: 22578)
 
 
+Started GET "/users" for ::1 at 2019-12-11 23:40:16 +1100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (13.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:15
+  Rendered users/index.html.erb within layouts/application (Duration: 327.3ms | Allocations: 4313)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 400ms (Views: 363.5ms | ActiveRecord: 13.7ms | Allocations: 16214)
+
+
+Started GET "/" for ::1 at 2019-12-11 23:45:38 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 39.6ms | Allocations: 5074)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 86ms (Views: 68.0ms | ActiveRecord: 1.1ms | Allocations: 13733)
+
+
+Started GET "/login" for ::1 at 2019-12-11 23:47:27 +1100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 12.1ms | Allocations: 508)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 31.5ms | ActiveRecord: 0.0ms | Allocations: 6002)
+
+
+Started POST "/sessions" for ::1 at 2019-12-11 23:47:31 +1100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Zx2rU7qv4owpQ8RAFf+Ib5hs9jE9nDxuyiNRj6AhPC0Bpfrp8lDCBaq5pR56fXZwJ5loBuWRq7Jg9PTUaG1DaQ==", "email"=>"chenhe.elec@gmail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (9.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chenhe.elec@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.2ms | Allocations: 291)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 153ms (Views: 23.6ms | ActiveRecord: 9.0ms | Allocations: 6274)
+
+
+Started POST "/sessions" for ::1 at 2019-12-11 23:47:35 +1100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"a9HWg8jerQUqcfcHhetrUt+tq29Qcd/E41pbYjlViP5CnlVXGM3RqYU4kd7Y4hgHyEKz6PQ2OGi1BcI+MnUmPw==", "email"=>"chenhe.elec@gmail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chenhe.elec@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 291)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 19.8ms | ActiveRecord: 0.2ms | Allocations: 5742)
+
+
+Started POST "/sessions" for ::1 at 2019-12-11 23:47:38 +1100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"5ntVZcbJJHPcNSB2mlmEBQacWAt2A1/SrtUQWK5Qmd7PNNaxFtpY33N8Rq/HUPdQEXNAjNJEuH74iokEpXA3Hw==", "email"=>"chenhe.elec@gmail.com", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chenhe.elec@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 290)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 18.4ms | ActiveRecord: 0.5ms | Allocations: 5736)
+
+
+Started GET "/signup" for ::1 at 2019-12-11 23:47:40 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 798)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 28.7ms | ActiveRecord: 0.0ms | Allocations: 5735)
+
+
+Started POST "/users" for ::1 at 2019-12-11 23:47:43 +1100
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"atNMR3i/rJcv4tkwXx/zuc+vg5epLEz16Y06C8QEETMzKWJW8x7ESFjE+qzIqJVovUYtC8+RI8lWiCggC8LvUg==", "user"=>{"email"=>"chenhe.elec@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+Completed 500 Internal Server Error in 243ms (ActiveRecord: 0.0ms | Allocations: 50260)
+
+
+  
+NoMethodError (undefined method `get_create_user_form_params' for #<UsersController:0x00007f8fed4ce850>):
+  
+app/controllers/users_controller.rb:27:in `create'
+Started GET "/signup" for ::1 at 2019-12-11 23:49:35 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 809)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 26.8ms | ActiveRecord: 0.0ms | Allocations: 5777)
+
+
+Started GET "/signup" for ::1 at 2019-12-11 23:49:37 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 789)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 27.1ms | ActiveRecord: 0.0ms | Allocations: 5721)
+
+
+Started GET "/signup" for ::1 at 2019-12-11 23:49:38 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 789)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 31.7ms | ActiveRecord: 0.0ms | Allocations: 5720)
+
+
+Started GET "/signup" for ::1 at 2019-12-11 23:49:38 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 789)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 30.9ms | ActiveRecord: 0.0ms | Allocations: 5715)
+
+
+Started GET "/login" for ::1 at 2019-12-11 23:49:39 +1100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 299)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.0ms | Allocations: 5195)
+
+
+Started GET "/signup" for ::1 at 2019-12-11 23:49:43 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 11.0ms | Allocations: 789)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 40.2ms | ActiveRecord: 0.0ms | Allocations: 5707)
+
+
+Started GET "/login" for ::1 at 2019-12-11 23:49:43 +1100
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 299)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 34.5ms | ActiveRecord: 0.0ms | Allocations: 5203)
+
+
+Started GET "/signup" for ::1 at 2019-12-11 23:50:11 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 789)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 32.9ms | ActiveRecord: 0.0ms | Allocations: 5711)
+
+
+Started GET "/signup" for ::1 at 2019-12-11 23:50:53 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1116)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 819ms (Views: 816.2ms | ActiveRecord: 0.0ms | Allocations: 7094)
+
+
+Started GET "/signup" for ::1 at 2019-12-11 23:51:13 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 792)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 50.3ms | ActiveRecord: 0.0ms | Allocations: 5724)
+
+
+Started GET "/signup" for ::1 at 2019-12-11 23:51:17 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1119)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 24.0ms | ActiveRecord: 0.0ms | Allocations: 7085)
+
+
+Started GET "/signup" for ::1 at 2019-12-12 00:01:48 +1100
+  [1m[35m (10.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 9.0ms | Allocations: 2953)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 193ms (Views: 130.6ms | ActiveRecord: 1.4ms | Allocations: 18801)
+
+
+Started GET "/signup" for ::1 at 2019-12-12 00:11:40 +1100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/Users/liuhan/seifx01/seifx01-project/project2/project-2/givng_server/app/controllers/users_controller.rb:116: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:116: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:116: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:116: syntax error, unexpected end-of-input, expecting end
+Started GET "/signup" for ::1 at 2019-12-12 00:14:51 +1100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/Users/liuhan/seifx01/seifx01-project/project2/project-2/givng_server/app/controllers/users_controller.rb:119: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:119: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:119: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:119: syntax error, unexpected end-of-input, expecting end
+Started GET "/signup" for ::1 at 2019-12-12 00:15:26 +1100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 876)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 881ms (ActiveRecord: 1.6ms | Allocations: 157479)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0x00007fc900b04228>:0x00007fc902531998>
+Did you mean?  current_page?):
+    10:   </head>
+    11: 
+    12:   <body>
+    13:   <% if current_user %>
+    14:   Logged in as <%= current_user.email %>.
+    15:   <%= link_to "Log Out", logout_path %>
+    16: <% else %>
+  
+app/views/layouts/application.html.erb:13
+Started GET "/signup" for ::1 at 2019-12-12 00:16:26 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1114)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 551ms (ActiveRecord: 0.0ms | Allocations: 153200)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0x00007fc901cf03b0>:0x00007fc901cfa900>
+Did you mean?  current_page?):
+    10:   </head>
+    11: 
+    12:   <body>
+    13: <!--  <% if current_user %>
+    14:   Logged in as <%= current_user.email %>.
+    15:   <%= link_to "Log Out", logout_path %>
+    16: <% else %>
+  
+app/views/layouts/application.html.erb:13
+Started GET "/signup" for ::1 at 2019-12-12 00:16:28 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 796)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 500 Internal Server Error in 565ms (ActiveRecord: 0.0ms | Allocations: 151847)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `current_user' for #<#<Class:0x00007fc901cf03b0>:0x00007fc9025433c8>
+Did you mean?  current_page?):
+    10:   </head>
+    11: 
+    12:   <body>
+    13: <!--  <% if current_user %>
+    14:   Logged in as <%= current_user.email %>.
+    15:   <%= link_to "Log Out", logout_path %>
+    16: <% else %>
+  
+app/views/layouts/application.html.erb:13
+Started GET "/signup" for ::1 at 2019-12-12 00:16:39 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1115)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 33.1ms | ActiveRecord: 0.0ms | Allocations: 6923)
+
+
+Started GET "/signup" for ::1 at 2019-12-12 00:16:55 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1114)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 0.0ms | Allocations: 6908)
+
+
+Started POST "/users" for ::1 at 2019-12-12 00:17:08 +1100
+  
+AbstractController::ActionNotFound (The action 'create' could not be found for UsersController):
+  
+actionpack (6.0.1) lib/abstract_controller/base.rb:131:in `process'
+actionview (6.0.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (6.0.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (6.0.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (6.0.1) lib/action_dispatch/routing/route_set.rb:51:in `dispatch'
+actionpack (6.0.1) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.0.7) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.7) lib/rack/etag.rb:25:in `call'
+rack (2.0.7) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.7) lib/rack/head.rb:12:in `call'
+actionpack (6.0.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.7) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.7) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.1) lib/puma/configuration.rb:228:in `call'
+puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
+puma (4.3.1) lib/puma/server.rb:472:in `process_client'
+puma (4.3.1) lib/puma/server.rb:328:in `block in run'
+puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/users" for ::1 at 2019-12-12 00:17:23 +1100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"kkHQgWpaEi74itXV3lDZayLi5uStgpQtB5EMnoUXvQS7DlNVukluglfDswyDWao+NQ3+YwnFc4FRzpXCjjcTxQ==", "user"=>{"email"=>"chenhe.elec@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:36:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chenhe.elec@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36:in `create'
+  [1m[36mUser Create (1886.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "chenhe.elec@gmail.com"], ["password_digest", "$2a$12$FPi37DOFk.OZYfH./JEdW.6BSErTlSlcF/TwNTWSrZBuEzI/zHZuG"], ["created_at", "2019-12-11 13:17:25.926046"], ["updated_at", "2019-12-11 13:17:25.926046"]]
+  ↳ app/controllers/users_controller.rb:36:in `create'
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:36:in `create'
+Completed 201 Created in 2284ms (Views: 0.9ms | ActiveRecord: 1890.1ms | Allocations: 9998)
+
+
+Started POST "/users" for ::1 at 2019-12-12 00:17:47 +1100
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"kkHQgWpaEi74itXV3lDZayLi5uStgpQtB5EMnoUXvQS7DlNVukluglfDswyDWao+NQ3+YwnFc4FRzpXCjjcTxQ==", "user"=>{"email"=>"chenhe.elec@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:36:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chenhe.elec@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:36:in `create'
+Completed 422 Unprocessable Entity in 431ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 4019)
+
+
