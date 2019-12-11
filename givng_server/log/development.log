@@ -554,3 +554,121 @@ puma (4.3.1) lib/puma/server.rb:681:in `handle_request'
 puma (4.3.1) lib/puma/server.rb:472:in `process_client'
 puma (4.3.1) lib/puma/server.rb:328:in `block in run'
 puma (4.3.1) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (25.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2019-12-11 21:16:11 +1100
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/liuhan/seifx01/seifx01-project/project2/project-2/givng_server/app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end
+Started GET "/" for ::1 at 2019-12-11 21:16:58 +1100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/Users/liuhan/seifx01/seifx01-project/project2/project-2/givng_server/app/controllers/users_controller.rb:62: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:62: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:62: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:62: syntax error, unexpected end-of-input, expecting end
+Started GET "/" for ::1 at 2019-12-11 21:17:02 +1100
+  
+SyntaxError (/Users/liuhan/seifx01/seifx01-project/project2/project-2/givng_server/app/controllers/users_controller.rb:62: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:62: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:62: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:62: syntax error, unexpected end-of-input, expecting end
+Started GET "/" for ::1 at 2019-12-11 21:17:36 +1100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 51.3ms | Allocations: 5356)
+[Webpacker] Compiling...
+Started GET "/" for ::1 at 2019-12-11 21:17:49 +1100
+[Webpacker] Compiled all packs in /Users/liuhan/seifx01/seifx01-project/project2/project-2/givng_server/public/packs
+[Webpacker] Hash: 53154d7baad00c6a1252
+Version: webpack 4.41.2
+Time: 5501ms
+Built at: 12/11/2019 9:17:54 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0b67a3cc2fcde6055024.js    124 KiB  application  [emitted] [immutable]  application
+js/application-0b67a3cc2fcde6055024.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-0b67a3cc2fcde6055024.js js/application-0b67a3cc2fcde6055024.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 13099ms (Views: 12146.9ms | ActiveRecord: 1.0ms | Allocations: 59744)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/" for ::1 at 2019-12-11 21:17:54 +1100
+Started GET "/" for ::1 at 2019-12-11 21:17:54 +1100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/Users/liuhan/seifx01/seifx01-project/project2/project-2/givng_server/app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end
+  
+SyntaxError (/Users/liuhan/seifx01/seifx01-project/project2/project-2/givng_server/app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end
+  
+SyntaxError (/Users/liuhan/seifx01/seifx01-project/project2/project-2/givng_server/app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end
+Started GET "/" for ::1 at 2019-12-11 21:17:57 +1100
+  
+SyntaxError (/Users/liuhan/seifx01/seifx01-project/project2/project-2/givng_server/app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting end
+Started GET "/" for ::1 at 2019-12-11 21:18:08 +1100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+SyntaxError (/Users/liuhan/seifx01/seifx01-project/project2/project-2/givng_server/app/controllers/users_controller.rb:60: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:60: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:60: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:60: syntax error, unexpected end-of-input, expecting end
+Started GET "/" for ::1 at 2019-12-11 21:18:10 +1100
+  
+SyntaxError (/Users/liuhan/seifx01/seifx01-project/project2/project-2/givng_server/app/controllers/users_controller.rb:60: syntax error, unexpected end-of-input, expecting end):
+  
+app/controllers/users_controller.rb:60: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:60: syntax error, unexpected end-of-input, expecting end
+app/controllers/users_controller.rb:60: syntax error, unexpected end-of-input, expecting end
+Started GET "/" for ::1 at 2019-12-11 21:18:29 +1100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 858)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 28.4ms | ActiveRecord: 2.4ms | Allocations: 14294)
+
+
+Started GET "/" for ::1 at 2019-12-11 21:18:36 +1100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 789)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 25.8ms | ActiveRecord: 0.0ms | Allocations: 5733)
+
+

@@ -30,7 +30,8 @@ class UsersController < ApplicationController
     if @user.save
         session[:user_id] = @user.id
         redirect_to root_url, notice: "Thank you for signing up!"
-
+    end 
+  end
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
@@ -56,6 +57,8 @@ class UsersController < ApplicationController
   private
     def get_create_user_form_params
       params.require(:user).permit(:email, :password, :password_confirmation)
-
     end
+
   end
+
+end
