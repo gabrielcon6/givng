@@ -1,22 +1,21 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Carousel } from "react-bootstrap";
-import styled from 'styled-components';
+import styled from "styled-components";
+import "./Carousels.css";
 
-const StyledCarousel = styled.div`
-  ;
-`
+const StyledCarousel = styled.div``;
 
 class Carousels extends React.Component {
   state = {};
   render() {
     return (
       <StyledCarousel>
-        <Carousel style={{zIndex: "-1"}}>
+        <Carousel>
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://c.tadst.com/gfx/750w/christmas.jpg"
+              src="https://d22z712l2oez7l.cloudfront.net/w800-h600/packages/birmingham-26173-the-land-of-snow-christmas-party_4.jpg"
               alt="First slide"
             />
             <Carousel.Caption>
