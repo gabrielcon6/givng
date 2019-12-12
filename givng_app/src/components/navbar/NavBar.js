@@ -1,41 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from "@reach/router"
-import styled from 'styled-components';
 import { Modal, Button, ButtonToolbar} from "react-bootstrap";
-import RegisterForm from './RegisterForm';
+import RegisterForm from '../RegisterForm';
 import { navigate } from '@reach/router';
 import axios from 'axios';
-
-const StyledNavBar = styled.nav`
-    background-color: rgb(250, 195, 42);
-    width: 100vw;
-    float: right;
-    height: 7vh;
-`;
-
-export const StyledNavLinks = styled.p`
-    color: #616161;
-    float: right;
-    margin: 0 1vw;
-    padding: 1rem;
-    cursor: pointer;
-    text-decoration: none;
-    &:hover {
-        background-color: #603e94;
-        color: white;
-        font-size: 1.1rem;
-    }
-`;
-
-const LogoImg = styled.img`
-    padding: 0;
-    margin-top: -10vh;
-    margin-left: -1vw;
-    width: 20vw;
-    height: 35vh;
-    position: absolute;
-    cursor: pointer;
-`
+import { StyledNav, StyledNavLinks, LogoImg} from './StyledNavBar'
 
 class LoginModal extends Component {
   constructor(props) {
@@ -200,7 +169,7 @@ export default class NavBar extends Component {
         return (
             <div>
                 <Link to="/"><LogoImg src={"./givng_logo.png"}/></Link>
-                <StyledNavBar>
+                <StyledNav>
 
                     { !user.isLoggedIn &&
                         <>
@@ -225,7 +194,7 @@ export default class NavBar extends Component {
                       </li>
                     </>
                     }
-                </StyledNavBar>
+                </StyledNav>
             </div>
         );
     }

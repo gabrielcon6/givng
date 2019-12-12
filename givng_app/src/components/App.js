@@ -7,7 +7,7 @@ import { Router, navigate } from "@reach/router";
 import Register from "../register_page/register";
 import Dashboard from "../pages/dashboardPage";
 
-import NavBar from "./NavBar";
+import NavBar from "./navbar/NavBar";
 import { SERVER_URL } from "../config.js";
 import axios from "axios";
 
