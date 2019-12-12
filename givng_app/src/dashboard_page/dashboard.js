@@ -10,11 +10,11 @@ export default class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <h1> What about Givng?</h1>
+        {/* <h1> What about Givng?</h1>
         <br />
         <br />
         <br />
-        <h1> Givng to your loved ones is Givng to yourself, twice!</h1>
+        <h1> Givng to your loved ones is Givng to yourself, twice!</h1> */}
         <Carousels />
       </div>
     );

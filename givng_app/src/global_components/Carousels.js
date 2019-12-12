@@ -1,13 +1,18 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Carousel } from "react-bootstrap";
+import styled from 'styled-components';
+
+const StyledCarousel = styled.div`
+  ;
+`
 
 class Carousels extends React.Component {
   state = {};
   render() {
     return (
-      <div>
-        <Carousel>
+      <StyledCarousel>
+        <Carousel style={{zIndex: "-1"}}>
           <Carousel.Item>
             <img
               className="d-block w-100"
@@ -55,7 +60,7 @@ class Carousels extends React.Component {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-      </div>
+      </StyledCarousel>
     );
   }
 }
