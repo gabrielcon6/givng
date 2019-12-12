@@ -146,7 +146,7 @@ handleCancelSignup() {
   }
 }
   
-class ModalTrigger extends Component {
+class LoginModalTrigger extends Component {
   state = {
     show: false,
   }
@@ -154,10 +154,10 @@ class ModalTrigger extends Component {
     return (
       <ButtonToolbar>
         <div onClick={() => this.setState({ show: true })}>
-          {(this.props.buttonType)}
+          Login
         </div>
   
-        <LoginModal
+        < LoginModal
           show={this.state.show}
           onHide={() => this.setState({ show: false })}
         />
@@ -165,7 +165,26 @@ class ModalTrigger extends Component {
     );
   }
 }
+ 
+class SignUpModalTrigger extends Component {
+  state = {
+    show: false,
+  }
+  render() {
+    return (
+      <ButtonToolbar>
+        <div onClick={() => this.setState({ show: true })}>
+          Sign Up
+        </div>
   
+        < SignUpModal
+          show={this.state.show}
+          onHide={() => this.setState({ show: false })}
+        />
+      </ButtonToolbar>
+    );
+  }
+}
 
 export default class NavBar extends Component {
   
@@ -187,8 +206,8 @@ export default class NavBar extends Component {
                         <>
                             {/* <StyledNavLinks style={{float:'right'}}><Link to="/">Login</Link></StyledNavLinks> */}
                             {/* <StyledNavLinks style={{float:'right'}}><Link to="/register">Register</Link></StyledNavLinks> */}
-                            <StyledNavLinks style={{float:'right'}}><ModalTrigger buttonType={"Login"} /></StyledNavLinks>
-                            <StyledNavLinks style={{float:'right'}}><ModalTrigger buttonType={"Sign Up"} /></StyledNavLinks>
+                            <StyledNavLinks style={{float:'right'}}><LoginModalTrigger /></StyledNavLinks>
+                            <StyledNavLinks style={{float:'right'}}><SignUpModalTrigger /></StyledNavLinks>
                         </>
                     }
                     
