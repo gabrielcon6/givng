@@ -1,5 +1,5 @@
 import React from "react";
-import Carousels from "../global_components/Carousels";
+import Carousels from "../components/Carousels";
 export default class Dashboard extends React.Component {
   constructor(props) {
     super(props);

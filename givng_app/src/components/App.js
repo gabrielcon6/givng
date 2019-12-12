@@ -3,9 +3,9 @@ import "../App.css";
 import React from "react";
 import { Router, navigate } from "@reach/router";
 
-import Landing from "../landing_page/landing";
+// import Landing from "../landing_page/landingPage";
 import Register from "../register_page/register";
-import Dashboard from "../dashboard_page/dashboard";
+import Dashboard from "../pages/dashboardPage";
 
 import NavBar from "./NavBar";
 import { SERVER_URL } from "../config.js";
@@ -94,9 +94,9 @@ export default class App extends React.Component {
         <NavBar user={userProps}></NavBar>
 
         <Router>
-          <Landing path="/" user={userProps} />
+          <Dashboard path="/" user={userProps} />
           <Register path="/register" user={userProps} />
-          <Dashboard path="/dashboard" user={userProps} />
+          {/* <Dashboard path="/dashboard" user={userProps} /> */}
         </Router>
       </>
     );

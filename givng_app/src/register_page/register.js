@@ -1,5 +1,5 @@
 import React from 'react';
-import RegisterForm from './registerForm';
+import RegisterForm from '../components/RegisterForm';
 import { navigate } from '@reach/router';
 import axios from 'axios';
 
