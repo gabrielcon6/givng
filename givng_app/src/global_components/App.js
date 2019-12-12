@@ -7,7 +7,7 @@ import Landing from "../landing_page/landing";
 import Register from "../register_page/register";
 import Dashboard from "../dashboard_page/dashboard";
 
-import NavBar from "../global_components/NavBar";
+import NavBar from "./NavBar";
 import { SERVER_URL } from "../config.js";
 import axios from "axios";
 
