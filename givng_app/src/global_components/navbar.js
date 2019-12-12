@@ -29,7 +29,7 @@ margin-left: -1vw;
 width: 20vw;
 height: 35vh;
 position: absolute;
-
+cursor: pointer;
 `
 export default class NavBar extends Component {
 
