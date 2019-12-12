@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import Carousels from "../components/Carousels";
-export default class Dashboard extends React.Component {
+
+class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -20,3 +21,5 @@ export default class Dashboard extends React.Component {
     );
   }
 }
+
+export default Dashboard;

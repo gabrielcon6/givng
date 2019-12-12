@@ -6,6 +6,7 @@ import { Router, navigate } from "@reach/router";
 // import Landing from "../landing_page/landingPage";
 import Register from "../register_page/register";
 import Dashboard from "../pages/dashboardPage";
+import Home from "../pages/givngPage";
 
 import NavBar from "./navbar/NavBar";
 import { SERVER_URL } from "../config.js";
@@ -96,6 +97,7 @@ export default class App extends React.Component {
         <Router>
           <Dashboard path="/" user={userProps} />
           <Register path="/register" user={userProps} />
+          <Home path="/home" user={userProps} />
           {/* <Dashboard path="/dashboard" user={userProps} /> */}
         </Router>
       </>
