@@ -175,8 +175,8 @@ export default class NavBar extends Component {
                         <>
                             {/* <StyledNavLinks style={{float:'right'}}><Link to="/">Login</Link></StyledNavLinks> */}
                             {/* <StyledNavLinks style={{float:'right'}}><Link to="/register">Register</Link></StyledNavLinks> */}
-                            <StyledNavLinks style={{float:'right'}}><LoginModalTrigger /></StyledNavLinks>
                             <StyledNavLinks style={{float:'right'}}><SignUpModalTrigger /></StyledNavLinks>
+                            <StyledNavLinks style={{float:'right'}}><LoginModalTrigger /></StyledNavLinks>
                         </>
                     }
                     
