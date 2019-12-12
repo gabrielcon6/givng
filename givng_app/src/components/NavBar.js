@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from "@reach/router"
 import styled from 'styled-components';
 import { Modal, Button, ButtonToolbar} from "react-bootstrap";
+import RegisterForm from './RegisterForm';
+import { navigate } from '@reach/router';
+import axios from 'axios';
 
 const StyledNavBar = styled.nav`
     background-color: rgb(250, 195, 42);
@@ -34,7 +37,7 @@ const LogoImg = styled.img`
     cursor: pointer;
 `
 
-class MyVerticallyCenteredModal extends Component {
+class LoginModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -91,8 +94,59 @@ handlePasswordChange = (e) => {
     );
   }
 }
+
+class SignUpModal extends Component {
+  handleSignup(data) {
+    axios.post(`http://localhost:3000/api/users`, {
+        user: {
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            password_confirmation: data.password_confirmation
+        }
+    }).then(response => {
+
+        // TODO: use a toast service, or modal or something
+        // better than an allert.
+        alert('user successfully created, please login');
+
+        // Navigate to the home page.
+        navigate('/');
+
+    });
+}
+
+handleCancelSignup() {
+    // Navigate to the home page.
+    navigate('/');
+}
+    render(){
+    return (
+      <Modal
+        {...this.props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton />
+        <Modal.Body>
+        <div className="container">
+            <RegisterForm
+                onSignup={(data) => this.handleSignup(data)}
+                onCancelClick={() => this.handleCancelSignup()}
+            >               
+            </RegisterForm>
+            </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={this.props.onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+}
   
-class LoginModal extends Component {
+class ModalTrigger extends Component {
   state = {
     show: false,
   }
@@ -100,10 +154,10 @@ class LoginModal extends Component {
     return (
       <ButtonToolbar>
         <div onClick={() => this.setState({ show: true })}>
-          Login
+          {(this.props.buttonType)}
         </div>
   
-        <MyVerticallyCenteredModal
+        <LoginModal
           show={this.state.show}
           onHide={() => this.setState({ show: false })}
         />
@@ -131,9 +185,10 @@ export default class NavBar extends Component {
 
                     { !user.isLoggedIn &&
                         <>
-                            {/* <StyledNavLinks style={{float:'right'}}><Link to="/">Login</Link></StyledNavLinks>
-                            <StyledNavLinks style={{float:'right'}}><Link to="/register">Register</Link></StyledNavLinks> */}
-                            <StyledNavLinks style={{float:'right'}}><LoginModal /></StyledNavLinks>
+                            {/* <StyledNavLinks style={{float:'right'}}><Link to="/">Login</Link></StyledNavLinks> */}
+                            {/* <StyledNavLinks style={{float:'right'}}><Link to="/register">Register</Link></StyledNavLinks> */}
+                            <StyledNavLinks style={{float:'right'}}><ModalTrigger buttonType={"Login"} /></StyledNavLinks>
+                            <StyledNavLinks style={{float:'right'}}><ModalTrigger buttonType={"Sign Up"} /></StyledNavLinks>
                         </>
                     }
                     
