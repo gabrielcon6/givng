@@ -128,9 +128,6 @@ export default class NavBar extends Component {
             <div>
                 <Link to="/"><LogoImg src={"./givng_logo.png"}/></Link>
                 <StyledNavBar>
-                    <StyledNavLinks>Logout</StyledNavLinks>
-                    <StyledNavLinks>Special Dates</StyledNavLinks>
-                    <StyledNavLinks>Favourite Friends</StyledNavLinks>
 
                     { !user.isLoggedIn &&
                         <>
@@ -142,12 +139,17 @@ export default class NavBar extends Component {
                     
 
                     { user.isLoggedIn && user.currentUser && 
-                        <li style={{float:'right', marginRight: '5px'}}>
-                            <span className="app-nav-user-info">
-                                {user.currentUser.name}<br />
-                                <a href="#" onClick={(e)=>this.handleLogoutClick(e)}>logout</a>
-                            </span>
-                        </li>
+                    <>
+                      <StyledNavLinks>Special Dates</StyledNavLinks>
+                      <StyledNavLinks>Favourite Friends</StyledNavLinks>
+                      <StyledNavLinks>Logout</StyledNavLinks>
+                      <li style={{float:'right', marginRight: '5px'}}>
+                          <span className="app-nav-user-info">
+                              {user.currentUser.name}<br />
+                              <a href="#" onClick={(e)=>this.handleLogoutClick(e)}>logout</a>
+                          </span>
+                      </li>
+                    </>
                     }
                 </StyledNavBar>
             </div>
