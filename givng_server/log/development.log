@@ -1366,3 +1366,62 @@ Processing by GivngsController#index as JSON
 Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms | Allocations: 1385)
 
 
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gabe@ga.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGivng Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "givngs" WHERE "givngs"."name" = ? AND "givngs"."user_id" IS NULL LIMIT ?[0m  [["name", "Christmas"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGroup Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."name" = ? AND "groups"."givng_id" IS NULL LIMIT ?[0m  [["name", "Family"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGivng Load (0.1ms)[0m  [1m[34mSELECT "givngs".* FROM "givngs"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGivng Destroy (0.2ms)[0m  [1m[31mDELETE FROM "givngs" WHERE "givngs"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGroup Destroy (0.3ms)[0m  [1m[31mDELETE FROM "groups" WHERE "groups"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gabe@ga.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "gabe@ga.com"], ["password_digest", "$2a$12$h3LYd.C3QEyiFQpyiOyUHeoZYFFwrSqlKxXJmHP0vBPj/thmsbw2y"], ["name", "Gabe"], ["created_at", "2019-12-13 22:58:29.361011"], ["updated_at", "2019-12-13 22:58:29.361011"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mGivng Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "givngs" WHERE "givngs"."name" = ? AND "givngs"."user_id" = ? LIMIT ?[0m  [["name", "Christmas"], ["user_id", 3], ["LIMIT", 1]]
+  [1m[36mGivng Create (0.3ms)[0m  [1m[32mINSERT INTO "givngs" ("name", "theme", "user_id", "created_at", "updated_at", "budget") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Christmas"], ["theme", "Christmas"], ["user_id", 3], ["created_at", "2019-12-13 22:58:29.372904"], ["updated_at", "2019-12-13 22:58:29.372904"], ["budget", 10000.0]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGivng Load (0.1ms)[0m  [1m[34mSELECT "givngs".* FROM "givngs" WHERE "givngs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGroup Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."name" = ? AND "groups"."givng_id" = ? LIMIT ?[0m  [["name", "Family"], ["givng_id", 2], ["LIMIT", 1]]
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("name", "budget", "givng_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Family"], ["budget", 10000.0], ["givng_id", 2], ["created_at", "2019-12-13 22:58:29.379367"], ["updated_at", "2019-12-13 22:58:29.379367"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPerson Create (0.3ms)[0m  [1m[32mINSERT INTO "people" ("name", "person_budget", "is_bought", "group_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Mom"], ["person_budget", 9000.0], ["is_bought", 0], ["group_id", 2], ["created_at", "2019-12-13 22:58:29.388417"], ["updated_at", "2019-12-13 22:58:29.388417"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/people.json" for ::1 at 2019-12-14 09:59:45 +1100
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PeopleController#index as JSON
+  Parameters: {"email"=>"ann@gmail.com", "password"=>"[FILTERED]", "name"=>"Ann", "person"=>{"name"=>"Ann"}}
+  Rendering people/index.json.jbuilder
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  ↳ app/views/people/index.json.jbuilder:1
+  Rendered people/_person.json.jbuilder (Duration: 1.2ms | Allocations: 605)
+  Rendered people/index.json.jbuilder (Duration: 10.2ms | Allocations: 6702)
+Completed 200 OK in 37ms (Views: 14.8ms | ActiveRecord: 0.7ms | Allocations: 9565)
+
+
