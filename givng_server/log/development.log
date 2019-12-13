@@ -1335,3 +1335,34 @@ Processing by GivngsController#index as JSON
 Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.2ms | Allocations: 1403)
 
 
+Started GET "/givngs.json" for ::1 at 2019-12-13 12:19:56 +1100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GivngsController#index as JSON
+  Rendering givngs/index.json.jbuilder
+  [1m[36mGivng Load (0.8ms)[0m  [1m[34mSELECT "givngs".* FROM "givngs"[0m
+  ↳ app/views/givngs/index.json.jbuilder:1
+  Rendered givngs/_givng.json.jbuilder (Duration: 0.7ms | Allocations: 128)
+  Rendered givngs/index.json.jbuilder (Duration: 5.0ms | Allocations: 1021)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 0.8ms | Allocations: 1408)
+
+
+Started GET "/givngs.json" for ::1 at 2019-12-13 12:20:58 +1100
+Processing by GivngsController#index as JSON
+  Rendering givngs/index.json.jbuilder
+  [1m[36mGivng Load (0.1ms)[0m  [1m[34mSELECT "givngs".* FROM "givngs"[0m
+  ↳ app/views/givngs/index.json.jbuilder:1
+  Rendered givngs/_givng.json.jbuilder (Duration: 0.3ms | Allocations: 128)
+  Rendered givngs/index.json.jbuilder (Duration: 1.8ms | Allocations: 999)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.1ms | Allocations: 1385)
+
+
+Started GET "/givngs.json" for ::1 at 2019-12-13 12:21:42 +1100
+Processing by GivngsController#index as JSON
+  Rendering givngs/index.json.jbuilder
+  [1m[36mGivng Load (0.1ms)[0m  [1m[34mSELECT "givngs".* FROM "givngs"[0m
+  ↳ app/views/givngs/index.json.jbuilder:1
+  Rendered givngs/_givng.json.jbuilder (Duration: 0.4ms | Allocations: 128)
+  Rendered givngs/index.json.jbuilder (Duration: 2.1ms | Allocations: 999)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms | Allocations: 1385)
+
+
