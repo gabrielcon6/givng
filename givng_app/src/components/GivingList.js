@@ -13,6 +13,7 @@ class Givngs extends Component {
         const serverURL = `http://localhost:3005/givngs.json`;
         axios.get(serverURL).then(res => {
           const myData = res.data;
+          console.log(myData)
           this.setState({
             givngList: myData
           });
@@ -22,12 +23,14 @@ class Givngs extends Component {
       render() {
         const myGivngList = this.state.givngList.map((givng, index) => (
           <ul key={index}>
-            <li>Givng: {givng.name}</li>
+            <li>{givng.name}</li>
           </ul>
         ));
     
         return (
           <div>
+              <br />
+              <br />
               <br />
               <br />
               <br />
