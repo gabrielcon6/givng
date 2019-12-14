@@ -16,6 +16,7 @@ gabe = User.create(email: 'gabe@ga.com', password_digest: BCrypt::Password.creat
 xmas_gabe = Givng.create(name: 'Christmas', theme: 'Christmas', user_id: gabe.id, budget: 10000, date: "2019-12-25")
 xmas_gabe = Givng.create(name: 'Easter', theme: 'Easter', user_id: gabe.id, budget: 200, date: "2020-04-12")
 xmas_family = Group.create(name: 'Family', budget: 10000, givng_id: xmas_gabe.id)
+xmas_friend = Group.create(name: 'Friend', budget: 5000, givng_id: xmas_gabe.id)
 xmas_person = Person.create(name: 'Mom', person_budget: 9000, is_bought: false, group_id: xmas_family.id)
 
 puts '--------> seed has been planted  <------------'

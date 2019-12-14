@@ -29,34 +29,14 @@ class Groups
     render() {
         const givngElements = this.state.givngList.map((givngList, index) => {
             return (
-              <tbody id="myTable" key={givngList.id}>
-                <div class="d-flex flex-row justify-content-around my-3 px-5 text-center flex-wrap">
-                  <div class="d-flex callOuts flex-column p-4 m-2 flex-fill">
+              <div key={givngList.id}>
+                
                     <h3>{givngList.name}</h3>
                     <p>{givngList.budget}</p>
                     <a href="#" class="btn btn-outline-info">
                       Learn More
                     </a>
-                  </div>
-                  <div class="d-flex callOuts flex-column p-4 m-2 flex-fill">
-                    <h3>{givngList.name}</h3>
-                    <p>{givngList.budget}</p>
-                    <a
-                      href="#"
-                      class="btn btn-outline-info"
-                    >
-                      Learn More
-                    </a>
-                  </div>
-                  <div class="d-flex callOuts flex-column p-4 m-2 flex-fill">
-                    <h3>{givngList.name}</h3>
-                    <p>{givngList.budget}</p>
-                    <a href="#" class="btn btn-outline-info">
-                      Learn More
-                    </a>
-                  </div>
-                </div>
-              </tbody>
+              </div>
             );
         });
         return (
@@ -64,6 +44,8 @@ class Groups
             <Container>
               <h4>Groups</h4>
               {givngElements}
+              <br />
+              <button>Add a new group</button>
             </Container>
           </div>
         );
