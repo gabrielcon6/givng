@@ -86,7 +86,7 @@ class LoginModal extends Component {
 
             <div className="clearfix">
               <button className="loginBtn" onClick={() => this.onLoginClick()}>
-                Login Up
+                Login
               </button>
             </div>
           </div>
