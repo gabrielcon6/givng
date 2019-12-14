@@ -78,7 +78,7 @@ export default class App extends React.Component {
         <Router>
           <HomePage path="/" user={userProps} />
           <DashboardPage path="dashboard" user={userProps} />
-          <GivngDetailsPage path="givings/:givingId" user={userProps} />
+          <GivngDetailsPage path="givngs/:givngId" user={userProps} />
 
           {/* <Dashboard path="/" user={userProps} />
           <Register path="/register" user={userProps} />
