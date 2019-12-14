@@ -45,7 +45,7 @@ class GivngDetailList
         return (<div>
             
             <h4>Givngs</h4>
-            
+            <container>
                 <table>
                     <thead>
                         <tr>
@@ -57,7 +57,7 @@ class GivngDetailList
                     </thead>
                     {givngElements}
                 </table>
-            
+            </container>
         </div> );
     }
 }
