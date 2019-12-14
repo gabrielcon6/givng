@@ -5,6 +5,7 @@ class Givng < ApplicationRecord
         message: "should happen once per user" }
     validates :name, length: { :within => 2..12}
     validates :budget, presence: true
+    validates :date, presence: true
     validates_numericality_of :budget, :on => :create
     validates_numericality_of :budget, :on => :update
     validates :budget, :numericality => { :greater_than => 0 }

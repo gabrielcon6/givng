@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Card, CardDeck } from "react-bootstrap";
+import { Link } from "@reach/router";
 
 
 class Givngs extends Component {
@@ -24,21 +25,22 @@ class Givngs extends Component {
     
       render() {
         const myGivngList = this.state.givngList.map((givng, index) => (
-            <CardDeck key={index}>
-                <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
-                    <Card.Body>
-                        <Card.Title>{givng.name}</Card.Title>
-                        <Card.Text>
-                            This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.
-                        </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                        <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
+        <Link to="/">
+          <CardDeck key={index}>
+              <Card>
+                  <Card.Img variant="top" src="holder.js/100px160" />
+                  <Card.Body>
+                      <Card.Title>{givng.name}</Card.Title>
+                      <Card.Text>
+                          {givng.date}
+                      </Card.Text>
+                  </Card.Body>
+                  <Card.Footer>
+                      <small className="text-muted">Budget: $ {givng.budget}</small>
+                  </Card.Footer>
+              </Card>
             </CardDeck>
+        </Link>            
         ));
     
         return (
@@ -51,6 +53,20 @@ class Givngs extends Component {
               <br />
               <h1>Your existing Givngs:</h1>
               <div>{myGivngList}</div>
+              <CardDeck>
+                <Card>
+                    <Card.Img variant="top" src="holder.js/100px160" />
+                    <Card.Body>
+                        <Card.Title></Card.Title>
+                        <Card.Text>
+                            + Group
+                        </Card.Text>
+                    </Card.Body>
+                    <Card.Footer>
+                        <small className="text-muted">Last updated 3 mins ago</small>
+                    </Card.Footer>
+                </Card>
+            </CardDeck>
           </div>
         );
       }
