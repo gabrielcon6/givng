@@ -1919,3 +1919,359 @@ Processing by GivngsController#index as JSON
 Completed 200 OK in 32ms (Views: 16.6ms | ActiveRecord: 1.1ms | Allocations: 11798)
 
 
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "givngs"[0m
+  [1m[35m (770.4ms)[0m  [1m[35mCREATE TABLE "givngs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "theme" varchar, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "budget" decimal, "date" date)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "groups"[0m
+  [1m[35m (51.3ms)[0m  [1m[35mCREATE TABLE "groups" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "budget" decimal, "givng_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "people"[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "people" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "person_budget" decimal, "is_bought" boolean, "group_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "password_digest" varchar, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191214020322)[0m
+  [1m[35m (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20191208065103),
+(20191208065531),
+(20191208065911),
+(20191208070053),
+(20191208071457);
+
+[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-12-14 02:19:35.808438"], ["updated_at", "2019-12-14 02:19:35.808438"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "b747c891a7d5a5059fd8d0008f086489f64492de"], ["created_at", "2019-12-14 02:19:35.820936"], ["updated_at", "2019-12-14 02:19:35.820936"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "givngs"[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "givngs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "theme" varchar, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "budget" decimal, "date" date)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "groups"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "groups" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "budget" decimal, "givng_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "people"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "people" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "person_budget" decimal, "is_bought" boolean, "group_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "password_digest" varchar, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191214020322)[0m
+  [1m[35m (2.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20191208065103),
+(20191208065531),
+(20191208065911),
+(20191208070053),
+(20191208071457);
+
+[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-12-14 02:19:35.871487"], ["updated_at", "2019-12-14 02:19:35.871487"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2019-12-14 02:19:35.879114"], ["key", "environment"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "b747c891a7d5a5059fd8d0008f086489f64492de"], ["created_at", "2019-12-14 02:19:35.901606"], ["updated_at", "2019-12-14 02:19:35.901606"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mGivng Load (0.2ms)[0m  [1m[34mSELECT "givngs".* FROM "givngs"[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gabe@ga.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "gabe@ga.com"], ["password_digest", "$2a$12$dV9XE16Tt40YsyBA7j6dsevZn6xRytIZjFIGDifd68YeZlkRmDZVm"], ["name", "Gabe"], ["created_at", "2019-12-14 02:19:36.361494"], ["updated_at", "2019-12-14 02:19:36.361494"]]
+  [1m[35m (1947.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGivng Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "givngs" WHERE "givngs"."name" = ? AND "givngs"."user_id" = ? LIMIT ?[0m  [["name", "Christmas"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGivng Create (0.8ms)[0m  [1m[32mINSERT INTO "givngs" ("name", "theme", "user_id", "created_at", "updated_at", "budget", "date") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Christmas"], ["theme", "Christmas"], ["user_id", 1], ["created_at", "2019-12-14 02:19:38.361373"], ["updated_at", "2019-12-14 02:19:38.361373"], ["budget", 10000.0], ["date", "2019-12-25"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGivng Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "givngs" WHERE "givngs"."name" = ? AND "givngs"."user_id" = ? LIMIT ?[0m  [["name", "Easter"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGivng Create (0.4ms)[0m  [1m[32mINSERT INTO "givngs" ("name", "theme", "user_id", "created_at", "updated_at", "budget", "date") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Easter"], ["theme", "Easter"], ["user_id", 1], ["created_at", "2019-12-14 02:19:38.380397"], ["updated_at", "2019-12-14 02:19:38.380397"], ["budget", 200.0], ["date", "2020-04-12"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGivng Load (0.2ms)[0m  [1m[34mSELECT "givngs".* FROM "givngs" WHERE "givngs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGroup Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."name" = ? AND "groups"."givng_id" = ? LIMIT ?[0m  [["name", "Family"], ["givng_id", 2], ["LIMIT", 1]]
+  [1m[36mGroup Create (0.3ms)[0m  [1m[32mINSERT INTO "groups" ("name", "budget", "givng_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Family"], ["budget", 10000.0], ["givng_id", 2], ["created_at", "2019-12-14 02:19:38.398712"], ["updated_at", "2019-12-14 02:19:38.398712"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPerson Create (0.4ms)[0m  [1m[32mINSERT INTO "people" ("name", "person_budget", "is_bought", "group_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Mom"], ["person_budget", 9000.0], ["is_bought", 0], ["group_id", 1], ["created_at", "2019-12-14 02:19:38.416711"], ["updated_at", "2019-12-14 02:19:38.416711"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (560.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGivng Load (0.4ms)[0m  [1m[34mSELECT "givngs".* FROM "givngs"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGivng Destroy (0.3ms)[0m  [1m[31mDELETE FROM "givngs" WHERE "givngs"."id" = ?[0m  [["id", 1]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGivng Destroy (0.3ms)[0m  [1m[31mDELETE FROM "givngs" WHERE "givngs"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGroup Destroy (0.6ms)[0m  [1m[31mDELETE FROM "groups" WHERE "groups"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Destroy (0.3ms)[0m  [1m[31mDELETE FROM "people" WHERE "people"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gabe@ga.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "gabe@ga.com"], ["password_digest", "$2a$12$w8lh/.wiRBtjA1fqu6KFzeOKWyGCHM464xwVdqXKED4N6jDBAdXWG"], ["name", "Gabe"], ["created_at", "2019-12-14 02:19:50.286492"], ["updated_at", "2019-12-14 02:19:50.286492"]]
+  [1m[35m (1902.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGivng Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "givngs" WHERE "givngs"."name" = ? AND "givngs"."user_id" = ? LIMIT ?[0m  [["name", "Christmas"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mGivng Create (0.4ms)[0m  [1m[32mINSERT INTO "givngs" ("name", "theme", "user_id", "created_at", "updated_at", "budget", "date") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Christmas"], ["theme", "Christmas"], ["user_id", 2], ["created_at", "2019-12-14 02:19:52.209084"], ["updated_at", "2019-12-14 02:19:52.209084"], ["budget", 10000.0], ["date", "2019-12-25"]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGivng Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "givngs" WHERE "givngs"."name" = ? AND "givngs"."user_id" = ? LIMIT ?[0m  [["name", "Easter"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mGivng Create (0.4ms)[0m  [1m[32mINSERT INTO "givngs" ("name", "theme", "user_id", "created_at", "updated_at", "budget", "date") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Easter"], ["theme", "Easter"], ["user_id", 2], ["created_at", "2019-12-14 02:19:52.220772"], ["updated_at", "2019-12-14 02:19:52.220772"], ["budget", 200.0], ["date", "2020-04-12"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGivng Load (0.3ms)[0m  [1m[34mSELECT "givngs".* FROM "givngs" WHERE "givngs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGroup Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."name" = ? AND "groups"."givng_id" = ? LIMIT ?[0m  [["name", "Family"], ["givng_id", 4], ["LIMIT", 1]]
+  [1m[36mGroup Create (0.4ms)[0m  [1m[32mINSERT INTO "groups" ("name", "budget", "givng_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Family"], ["budget", 10000.0], ["givng_id", 4], ["created_at", "2019-12-14 02:19:52.233238"], ["updated_at", "2019-12-14 02:19:52.233238"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPerson Create (0.3ms)[0m  [1m[32mINSERT INTO "people" ("name", "person_budget", "is_bought", "group_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Mom"], ["person_budget", 9000.0], ["is_bought", 0], ["group_id", 2], ["created_at", "2019-12-14 02:19:52.242550"], ["updated_at", "2019-12-14 02:19:52.242550"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "givngs"[0m
+  [1m[35m (1142.7ms)[0m  [1m[35mCREATE TABLE "givngs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "theme" varchar, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "budget" decimal, "date" date)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "groups"[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE "groups" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "budget" decimal, "givng_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "people"[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "people" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "person_budget" decimal, "is_bought" boolean, "group_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "password_digest" varchar, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191214020322)[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20191208065103),
+(20191208065531),
+(20191208065911),
+(20191208070053),
+(20191208071457);
+
+[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-12-14 02:20:41.869398"], ["updated_at", "2019-12-14 02:20:41.869398"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "b747c891a7d5a5059fd8d0008f086489f64492de"], ["created_at", "2019-12-14 02:20:41.880997"], ["updated_at", "2019-12-14 02:20:41.880997"]]
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "givngs"[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "givngs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "theme" varchar, "user_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "budget" decimal, "date" date)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "groups"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "groups" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "budget" decimal, "givng_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "people"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "people" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "person_budget" decimal, "is_bought" boolean, "group_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "password_digest" varchar, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20191214020322)[0m
+  [1m[35m (2.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20191208065103),
+(20191208065531),
+(20191208065911),
+(20191208070053),
+(20191208071457);
+
+[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-12-14 02:20:41.933830"], ["updated_at", "2019-12-14 02:20:41.933830"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2019-12-14 02:20:41.943504"], ["key", "environment"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "b747c891a7d5a5059fd8d0008f086489f64492de"], ["created_at", "2019-12-14 02:20:41.952483"], ["updated_at", "2019-12-14 02:20:41.952483"]]
+  [1m[35m (32.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mGivng Load (0.2ms)[0m  [1m[34mSELECT "givngs".* FROM "givngs"[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  [1m[36mPerson Load (0.2ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gabe@ga.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "gabe@ga.com"], ["password_digest", "$2a$12$lJRU4m42tcK4UM0KMpDFc.RII3N9Ad6rYc60MeEy5LGsQGdYy9IXm"], ["name", "Gabe"], ["created_at", "2019-12-14 02:20:42.414297"], ["updated_at", "2019-12-14 02:20:42.414297"]]
+  [1m[35m (1856.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGivng Exists? (5.9ms)[0m  [1m[34mSELECT 1 AS one FROM "givngs" WHERE "givngs"."name" = ? AND "givngs"."user_id" = ? LIMIT ?[0m  [["name", "Christmas"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGivng Create (0.8ms)[0m  [1m[32mINSERT INTO "givngs" ("name", "theme", "user_id", "created_at", "updated_at", "budget", "date") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Christmas"], ["theme", "Christmas"], ["user_id", 1], ["created_at", "2019-12-14 02:20:44.353156"], ["updated_at", "2019-12-14 02:20:44.353156"], ["budget", 10000.0], ["date", "2019-12-25"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mGivng Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "givngs" WHERE "givngs"."name" = ? AND "givngs"."user_id" = ? LIMIT ?[0m  [["name", "Easter"], ["user_id", 1], ["LIMIT", 1]]
+  [1m[36mGivng Create (0.7ms)[0m  [1m[32mINSERT INTO "givngs" ("name", "theme", "user_id", "created_at", "updated_at", "budget", "date") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Easter"], ["theme", "Easter"], ["user_id", 1], ["created_at", "2019-12-14 02:20:44.383597"], ["updated_at", "2019-12-14 02:20:44.383597"], ["budget", 200.0], ["date", "2020-04-12"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGivng Load (0.3ms)[0m  [1m[34mSELECT "givngs".* FROM "givngs" WHERE "givngs"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGroup Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."name" = ? AND "groups"."givng_id" = ? LIMIT ?[0m  [["name", "Family"], ["givng_id", 2], ["LIMIT", 1]]
+  [1m[36mGroup Create (0.8ms)[0m  [1m[32mINSERT INTO "groups" ("name", "budget", "givng_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Family"], ["budget", 10000.0], ["givng_id", 2], ["created_at", "2019-12-14 02:20:44.412101"], ["updated_at", "2019-12-14 02:20:44.412101"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPerson Create (0.5ms)[0m  [1m[32mINSERT INTO "people" ("name", "person_budget", "is_bought", "group_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Mom"], ["person_budget", 9000.0], ["is_bought", 0], ["group_id", 1], ["created_at", "2019-12-14 02:20:44.439581"], ["updated_at", "2019-12-14 02:20:44.439581"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGivng Load (0.3ms)[0m  [1m[34mSELECT "givngs".* FROM "givngs"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGivng Destroy (0.3ms)[0m  [1m[31mDELETE FROM "givngs" WHERE "givngs"."id" = ?[0m  [["id", 1]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGivng Destroy (0.5ms)[0m  [1m[31mDELETE FROM "givngs" WHERE "givngs"."id" = ?[0m  [["id", 2]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGroup Destroy (0.3ms)[0m  [1m[31mDELETE FROM "groups" WHERE "groups"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPerson Load (0.3ms)[0m  [1m[34mSELECT "people".* FROM "people"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPerson Destroy (0.5ms)[0m  [1m[31mDELETE FROM "people" WHERE "people"."id" = ?[0m  [["id", 1]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gabe@ga.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "gabe@ga.com"], ["password_digest", "$2a$12$1E/85UGrsx3nTLLFmwpQ5.25NEKmwv/CLNcdvgAjLF5m.ehvErB22"], ["name", "Gabe"], ["created_at", "2019-12-14 02:21:08.351005"], ["updated_at", "2019-12-14 02:21:08.351005"]]
+  [1m[35m (1871.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGivng Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "givngs" WHERE "givngs"."name" = ? AND "givngs"."user_id" = ? LIMIT ?[0m  [["name", "Christmas"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mGivng Create (0.9ms)[0m  [1m[32mINSERT INTO "givngs" ("name", "theme", "user_id", "created_at", "updated_at", "budget", "date") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Christmas"], ["theme", "Christmas"], ["user_id", 2], ["created_at", "2019-12-14 02:21:10.299443"], ["updated_at", "2019-12-14 02:21:10.299443"], ["budget", 10000.0], ["date", "2019-12-25"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mGivng Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "givngs" WHERE "givngs"."name" = ? AND "givngs"."user_id" = ? LIMIT ?[0m  [["name", "Easter"], ["user_id", 2], ["LIMIT", 1]]
+  [1m[36mGivng Create (0.7ms)[0m  [1m[32mINSERT INTO "givngs" ("name", "theme", "user_id", "created_at", "updated_at", "budget", "date") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Easter"], ["theme", "Easter"], ["user_id", 2], ["created_at", "2019-12-14 02:21:10.319842"], ["updated_at", "2019-12-14 02:21:10.319842"], ["budget", 200.0], ["date", "2020-04-12"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGivng Load (0.2ms)[0m  [1m[34mSELECT "givngs".* FROM "givngs" WHERE "givngs"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mGroup Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "groups" WHERE "groups"."name" = ? AND "groups"."givng_id" = ? LIMIT ?[0m  [["name", "Family"], ["givng_id", 4], ["LIMIT", 1]]
+  [1m[36mGroup Create (0.7ms)[0m  [1m[32mINSERT INTO "groups" ("name", "budget", "givng_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Family"], ["budget", 10000.0], ["givng_id", 4], ["created_at", "2019-12-14 02:21:10.334271"], ["updated_at", "2019-12-14 02:21:10.334271"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPerson Create (0.4ms)[0m  [1m[32mINSERT INTO "people" ("name", "person_budget", "is_bought", "group_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Mom"], ["person_budget", 9000.0], ["is_bought", 0], ["group_id", 2], ["created_at", "2019-12-14 02:21:10.344468"], ["updated_at", "2019-12-14 02:21:10.344468"]]
+  [1m[35m (14.6ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/api/auth/get_token" for ::1 at 2019-12-14 13:22:35 +1100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#get_token as HTML
+  Parameters: {"email"=>"henryhe@hitv.com.au", "password"=>"[FILTERED]", "user"=>{"email"=>"henryhe@hitv.com.au"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "henryhe@hitv.com.au"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `get_token'
+Completed 401 Unauthorized in 12ms (Views: 0.4ms | ActiveRecord: 0.9ms | Allocations: 1393)
+
+
+Started POST "/api/auth/get_token" for ::1 at 2019-12-14 13:22:59 +1100
+Processing by UsersController#get_token as HTML
+  Parameters: {"email"=>"henryhe@hitv.com.au", "password"=>"[FILTERED]", "user"=>{"email"=>"henryhe@hitv.com.au"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "henryhe@hitv.com.au"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `get_token'
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 798)
+
+
+Started POST "/api/auth/get_token" for ::1 at 2019-12-14 13:23:01 +1100
+Processing by UsersController#get_token as HTML
+  Parameters: {"email"=>"henryhe@hitv.com.au", "password"=>"[FILTERED]", "user"=>{"email"=>"henryhe@hitv.com.au"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "henryhe@hitv.com.au"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `get_token'
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 737)
+
+
+Started POST "/api/users" for ::1 at 2019-12-14 13:24:28 +1100
+Processing by UsersController#create_user as HTML
+  Parameters: {"user"=>{"name"=>"Chen", "email"=>"chenhe.elec@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:36:in `create_user'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chenhe.elec@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36:in `create_user'
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "chenhe.elec@gmail.com"], ["password_digest", "$2a$12$BnFkKX31K57LF5ZbfRvZvebWznVmcJ4RHUmY6aw45dsdSQ/vObIBW"], ["name", "Chen"], ["created_at", "2019-12-14 02:24:29.345249"], ["updated_at", "2019-12-14 02:24:29.345249"]]
+  ↳ app/controllers/users_controller.rb:36:in `create_user'
+  [1m[35m (1656.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:36:in `create_user'
+Completed 201 Created in 2030ms (Views: 0.8ms | ActiveRecord: 1659.1ms | Allocations: 7715)
+
+
+Started POST "/api/auth/get_token" for ::1 at 2019-12-14 13:24:44 +1100
+Processing by UsersController#get_token as HTML
+  Parameters: {"email"=>"chenhe.elec@gmail.com", "password"=>"[FILTERED]", "user"=>{"email"=>"chenhe.elec@gmail.com"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "chenhe.elec@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `get_token'
+Completed 200 OK in 355ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 915)
+
+
