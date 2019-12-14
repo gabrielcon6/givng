@@ -34,7 +34,7 @@ class Groups
                   <div class="d-flex callOuts flex-column p-4 m-2 flex-fill">
                     <h3>{givngList.name}</h3>
                     <p>{givngList.budget}</p>
-                    <a href="/bmi_calculator" class="btn btn-outline-info">
+                    <a href="#" class="btn btn-outline-info">
                       Learn More
                     </a>
                   </div>
@@ -42,7 +42,7 @@ class Groups
                     <h3>{givngList.name}</h3>
                     <p>{givngList.budget}</p>
                     <a
-                      href="/body_measurement_public"
+                      href="#"
                       class="btn btn-outline-info"
                     >
                       Learn More
@@ -51,7 +51,7 @@ class Groups
                   <div class="d-flex callOuts flex-column p-4 m-2 flex-fill">
                     <h3>{givngList.name}</h3>
                     <p>{givngList.budget}</p>
-                    <a href="/warriors_gallery" class="btn btn-outline-info">
+                    <a href="#" class="btn btn-outline-info">
                       Learn More
                     </a>
                   </div>

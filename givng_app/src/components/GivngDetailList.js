@@ -10,54 +10,33 @@ class GivngDetailList
     componentDidMount() {
         let self = this;
 
-        fetch(SERVER_URL + "/givngs.json") 
-            .then(response => response.json())
-            .then(json => {
-                self.setState(state => {
-                    console.log("json :", json);
+        fetch(SERVER_URL + "/givngs.json")
+          .then(response => response.json())
+          .then(json => {
+            self.setState(state => {
+              console.log("json :", json);
 
-                    return {
-                        ...state,
-                        givngList: [...json]
-                    };
-                });
+              return {
+                ...state,
+                givngList: [...json]
+              };
             });
+          });
     }
     render() { 
-        const givngElements = this.state.givngList.map((givngList, index) => {
+  
+        const givngTitle = this.state.givngList.map((givngList, index) => {
             return (
-                <tbody id="myTable" key={givngList.id}>
-                    <tr>
-                        <td>
-                            {givngList.date
-                                .split("-")
-                                .reverse()
-                                .join("/")}
-                        </td>
-                        <td>{givngList.budget}</td>
-                        <td>{givngList.theme}</td>
-                        
-                    </tr>
-                </tbody>
-                // </Fragment>
-            );
-        });
+                <>
+                <h1>{givngList.theme}</h1>
+                <h2>Total Budget: {givngList.budget}</h2>
+                </>
+            )
+        })
         return (<div>
+            {givngTitle}
             
-            <h4>Givngs</h4>
-            <container>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Budget</th>
-                            <th>Theme</th>
-                           
-                        </tr>
-                    </thead>
-                    {givngElements}
-                </table>
-            </container>
+            
         </div> );
     }
 }
