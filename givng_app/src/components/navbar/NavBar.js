@@ -24,16 +24,18 @@ class LoginModal extends Component {
       .then(response => {
         // TODO: use a toast service, or modal or something
         // better than an allert.
-        alert("Login");
+        // alert("Login");
         // Navigate to the home page.
-        navigate("/");
+
         console.log(response);
         console.log(response.data.token);
         sessionStorage.setItem("auth", JSON.stringify(response.data));
+        navigate("/dashboard");
       })
       .catch(err => {
         console.error(err);
       });
+    this.props.onHide();
   }
 
   handleEmailChange = e => {
@@ -109,7 +111,7 @@ class SignUpModal extends Component {
       .then(response => {
         // TODO: use a toast service, or modal or something
         // better than an allert.
-        alert("user successfully created, please login");
+        // alert("user successfully created, please login");
         // Navigate to the home page.
         navigate("/");
         console.log(response);
@@ -117,10 +119,11 @@ class SignUpModal extends Component {
       .catch(err => {
         console.error(err);
       });
+    this.props.onHide();
   }
   handleCancelSignup() {
     // Navigate to the home page.
-    navigate("/");
+    navigate("/home");
   }
   render() {
     return (
@@ -218,7 +221,7 @@ export default class NavBar extends Component {
               <StyledNavLinks>Logout</StyledNavLinks>
               <li style={{ float: "right", marginRight: "5px" }}>
                 <span className="app-nav-user-info">
-                  {user.currentUser.name}
+                  {user.currentUser.email}
                   <br />
                   <a href="#" onClick={e => this.handleLogoutClick(e)}>
                     logout

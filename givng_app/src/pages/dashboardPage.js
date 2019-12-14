@@ -1,14 +1,17 @@
 import React, { Component } from "react";
-import Carousels from "../components/Carousels";
+import GivingList from "../components/GivingList";
+import { Redirect } from "@reach/router";
 
-class Dashboard extends Component {
+class DashboardPage extends Component {
   render() {
     return (
       <div>
-        <Carousels />
+        {!this.props.user.isLoggedIn && <Redirect to="/" noThrow />}
+        dashboard page works
+        <GivingList />
       </div>
     );
   }
 }
 
-export default Dashboard;
+export default DashboardPage;

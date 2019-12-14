@@ -3,14 +3,15 @@ import { Router, navigate } from "@reach/router";
 
 // import Landing from "../landing_page/landingPage";
 import Register from "../register_page/register";
-import Dashboard from "../pages/dashboardPage";
-import Home from "../pages/givngPage";
+import DashboardPage from "../pages/dashboardPage";
+import HomePage from "../pages/homePage";
 
 import NavBar from "./navbar/NavBar";
 import { SERVER_URL } from "../config.js";
 import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import GivngDetailsPage from "../pages/givngDetailsPage";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -39,26 +40,8 @@ export default class App extends React.Component {
           currentUser: response.data,
           isLoggedIn: true
         });
-
-        // now that login has occured, navigate to the home page
-        navigate("/");
       });
   }
-
-  //   axios.post(`http://localhost:3000/api/users`, {
-  //     user: {
-  //         name: 'Aaron Cox',
-  //         email: 'aaron@ga.com.au',
-  //         password: 'abc123',
-  //         password_confirmation: 'abc123'
-  //     }
-  // }).then(response => {
-  //     console.log('Successfully created user: ')
-  //     console.log(response);
-  // }).catch(err => {
-  //     console.log('Failed to create user with error: ')
-  //     console.log(err);
-  // });
 
   handleLogin(email, password) {
     axios
@@ -93,9 +76,14 @@ export default class App extends React.Component {
         <NavBar user={userProps}></NavBar>
 
         <Router>
-          <Dashboard path="/" user={userProps} />
+          <HomePage path="/" user={userProps} />
+          <DashboardPage path="dashboard" user={userProps} />
+          <GivngDetailsPage path="givings/:givingId" user={userProps} />
+
+          {/* <Dashboard path="/" user={userProps} />
           <Register path="/register" user={userProps} />
           <Home path="/home" user={userProps} />
+          <Home path="/dashboard" user={userProps} /> */}
           {/* <Dashboard path="/dashboard" user={userProps} /> */}
         </Router>
       </>
