@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
 
 # will be used to register a new user
-  def create
+  def create_user
       userParams = params.require(:user)
         .permit(:name, :email, :password, :password_confirmation)
       user = User.new(userParams);

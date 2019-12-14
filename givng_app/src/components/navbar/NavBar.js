@@ -15,9 +15,28 @@ class LoginModal extends Component {
     };
 }
 
-onLoginClick() {
+onLoginClick(data) {
+  axios
+  .post(`http://localhost:3005/api/auth/get_token`, {
+    user: {
+      email: data.email,
+      password: data.password,
+    }
+  })
+  .then(response => {
+    // TODO: use a toast service, or modal or something
+    // better than an allert.
+    alert("user successfully created, please login");
+    // Navigate to the home page.
+    navigate("/");
+    console.log(response);
+  }).catch(err => {
+    console.error(err);
+  })
+
     // TODO: validate inputs
     this.props.login(this.state.email, this.state.password);
+    console.log(this.props.login);
 }
 
 handleEmailChange = (e) => {
@@ -66,25 +85,27 @@ handlePasswordChange = (e) => {
 
 class SignUpModal extends Component {
   handleSignup(data) {
-    axios.post(`http://localhost:3000/api/users`, {
+    axios
+      .post(`http://localhost:3005/api/users`, {
         user: {
-            name: data.name,
-            email: data.email,
-            password: data.password,
-            password_confirmation: data.password_confirmation
+          name: data.name,
+          email: data.email,
+          password: data.password,
+          password_confirmation: data.password_confirmation
         }
-    }).then(response => {
-
+      })
+      .then(response => {
         // TODO: use a toast service, or modal or something
         // better than an allert.
-        alert('user successfully created, please login');
-
+        alert("user successfully created, please login");
         // Navigate to the home page.
-        navigate('/');
+        navigate("/");
+        console.log(response);
+      }).catch(err => {
+        console.error(err);
+      })
 
-    });
-}
-
+  }
 handleCancelSignup() {
     // Navigate to the home page.
     navigate('/');
