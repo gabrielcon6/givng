@@ -24,15 +24,17 @@ class LoginModal extends Component {
       .then(response => {
         // TODO: use a toast service, or modal or something
         // better than an allert.
-        // alert("Login");
+        alert("Login");
         // Navigate to the home page.
 
         console.log(response);
         console.log(response.data.token);
         sessionStorage.setItem("auth", JSON.stringify(response.data));
-        navigate("/dashboard");
+        // navigate("/dashboard");
+        window.location = "/dashboard";
       })
       .catch(err => {
+        alert("Wrong Password, try again!");
         console.error(err);
       });
     this.props.onHide();
