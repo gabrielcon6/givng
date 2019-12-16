@@ -1,8 +1,6 @@
 import React from "react";
-import { Router, navigate } from "@reach/router";
+import { Router } from "@reach/router";
 
-// import Landing from "../landing_page/landingPage";
-import Register from "../register_page/register";
 import DashboardPage from "../pages/dashboardPage";
 import HomePage from "../pages/homePage";
 
