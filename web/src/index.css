@@ -1,0 +1,8 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+.modal-content {
+  background-color: #11ffee00 !important; /* Fully transparent */
+  border: 0 !important;
+}

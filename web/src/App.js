@@ -10,6 +10,7 @@ import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import GivngDetailsPage from "./pages/givngDetailsPage";
+import "./index.css"
 
 export default class App extends Component {
   constructor(props) {
