@@ -1,17 +1,17 @@
-import React from "react";
+import React, { Component } from "react";
 import { Router } from "@reach/router";
 
-import DashboardPage from "../pages/dashboardPage";
-import HomePage from "../pages/homePage";
+import DashboardPage from "./pages/dashboardPage";
+import HomePage from "./pages/homePage";
 
-import NavBar from "./navbar/NavBar";
-import { SERVER_URL } from "../config.js";
+import NavBar from "./components/navbar/NavBar";
+import { SERVER_URL } from "./config.js";
 import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import GivngDetailsPage from "../pages/givngDetailsPage";
+import GivngDetailsPage from "./pages/givngDetailsPage";
 
-export default class App extends React.Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     let auth = JSON.parse(sessionStorage.getItem("auth"));
