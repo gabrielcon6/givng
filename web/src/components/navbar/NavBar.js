@@ -7,7 +7,6 @@ import { navigate } from "@reach/router";
 import axios from "axios";
 import { StyledNav, StyledNavLinks, LogoImg } from "./StyledNavBar";
 import { SERVER_URL } from "../../config";
-// import "./StyledLoginForm.js"
 
 class SignUpModal extends Component {
   handleSignup(data) {

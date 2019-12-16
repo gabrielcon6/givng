@@ -54,7 +54,16 @@ export const Input = styled.input`
 `;
 
 export const BottomButtons = styled.input`
-  background: #28d;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 0.05rem;
+  border-style: solid;
+  padding: 0.9rem;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+  background: rgb(0, 4, 7);
   border-color: transparent;
   color: #fff;
   cursor: pointer;
