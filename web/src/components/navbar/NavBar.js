@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import { Modal, Button, ButtonToolbar } from "react-bootstrap";
 import RegisterForm from "../RegisterForm";
-import LoginForm from "../login_form/LoginForm";
+import LoginForm from "../LoginForm";
 import { navigate } from "@reach/router";
 import axios from "axios";
 import { StyledNav, StyledNavLinks, LogoImg } from "./StyledNavBar";

@@ -1,98 +1,110 @@
-import React from 'react';
-import { Modal, Button, ButtonToolbar} from "react-bootstrap";
+import React, { Component } from "react";
+import axios from "axios";
+import { SERVER_URL } from "../config";
+import { Modal, ButtonToolbar } from "react-bootstrap";
+import { Login, LoginTriangle, LoginHeader, LoginContainer, P, Input, BottomButtons } from "./StyledForm";
 
-
-function MyVerticallyCenteredModal(props) {
-    return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <div className="container">
-                <h1>Login</h1>
-
-                
-                <label htmlFor="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required
-                    // value={this.state.email} onChange={this.handleEmailChange}  
-                    />
-
-                <label htmlFor="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required 
-                    // value={this.state.password} onChange={this.handlePasswordChange} 
-                    />
-
-                <div className="clearfix">
-                    <button className="loginBtn" onClick={() => this.onLoginClick() }>Login Up</button>
-                </div>
-            </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
-  
-  function App() {
-    const [modalShow, setModalShow] = React.useState(false);
-  
-    return (
-      <ButtonToolbar>
-        <Button variant="primary" onClick={() => setModalShow(true)}>
-          Launch vertically centered modal
-        </Button>
-  
-        <MyVerticallyCenteredModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-        />
-      </ButtonToolbar>
-    );
-  }
-  
-  
-export default class LoginForm extends React.Component {
-
+class LoginModal extends Component {
     constructor(props) {
-        super(props);
-        this.state = {
-            email: '',
-            password: ''
-        };
+      super(props);
+      this.state = {
+        email: "",
+        password: ""
+      };
     }
-
+  
     onLoginClick() {
-        // TODO: validate inputs
-        this.props.login(this.state.email, this.state.password);
+      axios
+        .post(`${SERVER_URL}/api/auth/get_token`, {
+          email: this.state.email,
+          password: this.state.password
+        })
+        .then(response => {
+          // TODO: use a toast service, or modal or something
+          // better than an allert.
+          alert("Login");
+          // Navigate to the home page.
+  
+          console.log(response);
+          console.log(response.data.token);
+          sessionStorage.setItem("auth", JSON.stringify(response.data));
+          // navigate("/dashboard");
+          window.location = "/dashboard";
+        })
+        .catch(err => {
+          alert("Wrong Password, try again!");
+          console.error(err);
+        });
+      this.props.onHide();
     }
-
-    handleEmailChange = (e) => {
-        this.setState({email: e.target.value});
-    }
-
-    handlePasswordChange = (e) => {
-        this.setState({password: e.target.value});
-    }
-
+  
+    handleEmailChange = e => {
+      this.setState({ email: e.target.value });
+    };
+  
+    handlePasswordChange = e => {
+      this.setState({ password: e.target.value });
+    };
     render() {
-        return (
-            <div>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <App />
-            </div>
-            );
+      return (
+        <Modal
+          {...this.props}
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Body>
+            <Login>
+                <LoginTriangle />
+                <LoginHeader>Log in</LoginHeader>
+                <LoginContainer>
+                    <label htmlFor="email"></label>
+                    <P><Input
+                    type="text"
+                    placeholder="Enter Email"
+                    name="email"
+                    required
+                    value={this.state.email}
+                    onChange={this.handleEmailChange}
+                    /></P>
+        
+                    <label htmlFor="psw"></label>
+                    <P><Input
+                    type="password"
+                    placeholder="Enter Password"
+                    name="psw"
+                    required
+                    value={this.state.password}
+                    onChange={this.handlePasswordChange}
+                    /></P>
+        
+                    <div className="clearfix">
+                    <P><BottomButtons type="submit" value="Log in" className="loginBtn" onClick={() => this.onLoginClick()}></BottomButtons></P>
+                    <P><BottomButtons type="submit" value="Close"onClick={this.props.onHide}></BottomButtons></P>
+                    </div>
+                </LoginContainer>
+            </Login>
+          </Modal.Body>
+        </Modal>
+      );
     }
-}
+  }
+  
+class LoginForm extends Component {
+    state = {
+      show: false
+    };
+    render() {
+      return (
+        <ButtonToolbar>
+          <div onClick={() => this.setState({ show: true })}>Create a Givng</div>
+  
+          <LoginModal
+            show={this.state.show}
+            onHide={() => this.setState({ show: false })}
+          />
+        </ButtonToolbar>
+      );
+    }
+  }
+  
+  export default LoginForm;
