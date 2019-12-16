@@ -104,7 +104,7 @@ class LoginModal extends Component {
 class SignUpModal extends Component {
   handleSignup(data) {
     axios
-      .post(`http://localhost:3005/api/users`, {
+      .post(`${ SERVER_URL }/api/users`, {
         user: {
           name: data.name,
           email: data.email,
