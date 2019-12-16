@@ -1,4 +1,4 @@
-class UsersController < ApiController
+class UsersController < ApplicationController 
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authorize_request, only: [
         :get_by_id, :update_user, :delete_user
@@ -65,11 +65,12 @@ class UsersController < ApiController
 
   def get_token
      # Get the user by email
+        puts ('AAAAAAA' + params[:email])
+        puts ('BBBBBBB' + ( params[:password] ))
         user = User.find_by_email(params[:email])
  
         # return unauthorized if the user was not found
         if !user
-          console.log('user not found') 
             render json: { error: 'unauthorized' }, status: :unauthorized
             return
         end
@@ -77,11 +78,10 @@ class UsersController < ApiController
         # if the user is not authenticated via the authenticate method
         # then return unauthorized
         if !user.authenticate( params[:password] )
-          console.log('wrong password')
             render json: { error: 'unauthorized' }, status: :unauthorized
             return
         end
- 
+
         # if our code gets here, we can generate a token and response.
         # JWT's include an expiry, we will expire the token in 24 hours
         token = jwt_encode({user_id: user.id}, 24.hours.from_now)

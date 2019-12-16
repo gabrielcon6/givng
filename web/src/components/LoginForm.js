@@ -25,13 +25,13 @@ function MyVerticallyCenteredModal(props) {
                     // value={this.state.email} onChange={this.handleEmailChange}  
                     />
 
-                <label htmlFor="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required 
+                <label htmlFor="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required 
                     // value={this.state.password} onChange={this.handlePasswordChange} 
                     />
 
                 <div className="clearfix">
-                    <button className="loginBtn" onClick={() => this.onLoginClick() }>Login Up</button>
+                    <button className="loginBtn" onClick={() => this.onLoginClick() }>Login</button>
                 </div>
             </div>
         </Modal.Body>
