@@ -67,8 +67,6 @@ class UsersController < ApplicationController
 
   def get_token
      # Get the user by email
-        puts ('AAAAAAA' + params[:email])
-        puts ('BBBBBBB' + ( params[:password] ))
         user = User.find_by_email(params[:email])
  
         # return unauthorized if the user was not found
@@ -87,6 +85,8 @@ class UsersController < ApplicationController
         # if our code gets here, we can generate a token and response.
         # JWT's include an expiry, we will expire the token in 24 hours
         token = jwt_encode({user_id: user.id}, 24.hours.from_now)
+        puts('USER:' + user.to_s)
+        puts('TOKEN:' + token)
         render json: {token: token, exp: 24, username: user.email, userId: user.id},
                status: :ok
  

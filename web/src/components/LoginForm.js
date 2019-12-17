@@ -5,6 +5,7 @@ import { Modal, ButtonToolbar } from "react-bootstrap";
 import { Login, LoginTriangle, LoginHeader, LoginContainer, P, Input, BottomButtons } from "./StyledForm";
 
 class LoginModal extends Component {
+  
     constructor(props) {
       super(props);
       this.state = {
@@ -14,27 +15,7 @@ class LoginModal extends Component {
     }
   
     onLoginClick() {
-      axios
-        .post(`${SERVER_URL}/api/auth/get_token`, {
-          email: this.state.email,
-          password: this.state.password
-        })
-        .then(response => {
-          // TODO: use a toast service, or modal or something
-          // better than an allert.
-          alert("Login");
-          // Navigate to the home page.
-  
-          console.log(response);
-          console.log(response.data.token);
-          sessionStorage.setItem("auth", JSON.stringify(response.data));
-          // navigate("/dashboard");
-          window.location = "/dashboard";
-        })
-        .catch(err => {
-          alert("Wrong Password, try again!");
-          console.error(err);
-        });
+      this.props.user.user.login();
       this.props.onHide();
     }
   
@@ -71,18 +52,18 @@ class LoginModal extends Component {
                     onChange={this.handleEmailChange}
                     /></P>
         
-                    <label htmlFor="psw"></label>
+                    <label htmlFor="password"></label>
                     <P><Input
                     type="password"
                     placeholder="Enter Password"
-                    name="psw"
+                    name="password"
                     required
                     value={this.state.password}
                     onChange={this.handlePasswordChange}
                     /></P><br />
         
                     <div className="clearfix">
-                    <P><BottomButtons type="submit" value="Log in" className="loginBtn" onClick={() => this.onLoginClick()}></BottomButtons></P>< br/>
+                    <P><BottomButtons type="submit" value="Log in" className="loginBtn" onClick={() => this.props.login(this.state.email, this.state.password)}></BottomButtons></P>< br/>
                     </div>
                 </LoginContainer>
             </Login>
@@ -104,6 +85,7 @@ class LoginForm extends Component {
           <LoginModal
             show={this.state.show}
             onHide={() => this.setState({ show: false })}
+            login={this.props.user.login}
           />
         </ButtonToolbar>
       );

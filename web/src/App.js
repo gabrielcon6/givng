@@ -28,6 +28,9 @@ export default class App extends Component {
 
   getUser() {
     let auth = JSON.parse(sessionStorage.getItem("auth"));
+    console.log('-aaa-----')
+    console.log(auth)
+    console.log('------')
     if (!auth) return;
 
     axios
@@ -35,6 +38,7 @@ export default class App extends Component {
         headers: { Authorization: `Bearer ${auth.token}` }
       })
       .then(response => {
+        console.log('TEST 2 RESPONSE'+response.headers.Authorization)
         this.setState({
           currentUser: response.data,
           isLoggedIn: true
@@ -50,10 +54,13 @@ export default class App extends Component {
       })
       .then(response => {
         sessionStorage.setItem("auth", JSON.stringify(response.data));
+        console.log('---++++---')
+        console.log(response)
+        console.log('---++++---')
         this.getUser();
       })
       .catch(err => {
-        // todo some error
+        alert(err)
       });
   }
 
@@ -78,12 +85,6 @@ export default class App extends Component {
           <HomePage path="/" user={userProps} />
           <DashboardPage path="dashboard" user={userProps} />
           <GivngDetailsPage path="givngs/:givngId" user={userProps} />
-
-          {/* <Dashboard path="/" user={userProps} />
-          <Register path="/register" user={userProps} />
-          <Home path="/home" user={userProps} />
-          <Home path="/dashboard" user={userProps} /> */}
-          {/* <Dashboard path="/dashboard" user={userProps} /> */}
         </Router>
       </>
     );

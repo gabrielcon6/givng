@@ -15,6 +15,7 @@ class GivngList extends Component {
       date: [],
       budget: []
     };
+    console.log(this.state.givngList)
   }
 
   changeHandler = (e) => {
@@ -55,7 +56,6 @@ class GivngList extends Component {
     .get(`${SERVER_URL}/givngs.json`)
     .then(res => {
       const myData = res.data;
-      console.log(myData);
       this.setState({
         givngList: myData
       });
