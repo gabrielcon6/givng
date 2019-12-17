@@ -43,6 +43,12 @@ class GivngList extends Component {
       })
   }
 
+  removeHandler = () => {
+    console.log(this.props.givng_id);
+    axios
+    .delete(`${SERVER_URL}/givngs/5.json`)
+  }
+  
   componentDidMount() {
   
     axios
@@ -58,13 +64,18 @@ class GivngList extends Component {
 
   render() {
     const myGivngList = this.state.givngList.map((givng, index) => (
-      <Link to={`/givngs/${givng.id}`}>
-        <ul key={index}>
-              <li>{givng.name}</li>
-              <li>{givng.date}</li>
-              <li>Budget: $ {givng.budget}</li>
-        </ul>
-      </Link>
+      <>
+        <Link to={`/givngs/${givng.id}`}>
+          <ul key={index}>
+                <li>{givng.name}</li>
+                <li>{givng.date}</li>
+                <li>Budget: $ {givng.budget}</li>
+          </ul>
+        </Link>
+              <form givng_id={givng.id} onSubmit={this.removeHandler}>
+                <button type="submit">Delete</button>
+              </form>
+      </>
     ));
       const { name, theme, date, budget} = this.state
     return (
@@ -77,12 +88,12 @@ class GivngList extends Component {
           <Card>
             <Card.Body>
               <Card.Title></Card.Title>
-              <Card.Text>+ Group</Card.Text>
-              <form onSubmit={this.submitHandler}><input type="text" name="name" value={name} onChange={this.changeHandler}></input>
-                <input type="text" name="theme" value={theme} onChange={this.changeHandler}></input>
-                <input type="date" name="date" value={date} onChange={this.changeHandler}></input>
-                <input type="decimal" name="budget" value={budget} onChange={this.changeHandler}></input>
-              <button typle="submit">Submit</button></form>
+              <Card.Text>Add a New GIVNG:</Card.Text>
+              <form onSubmit={this.submitHandler}><input type="text" placeholder="name" name="name" value={name} onChange={this.changeHandler}></input>
+                <input type="text" option="theme" name="theme" value={theme} onChange={this.changeHandler}></input>
+                <input type="date" placeholder="date" name="date" value={date} onChange={this.changeHandler}></input>
+                <input type="decimal" placeholder="budget" name="budget" value={budget} onChange={this.changeHandler}></input><br />
+              <button type="submit">Submit</button></form>
             </Card.Body>
           </Card>
         </CardDeck>

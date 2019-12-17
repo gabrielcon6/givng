@@ -12,6 +12,7 @@ class GivngsController < ApiController
   # GET /givngs/1
   # GET /givngs/1.json
   def show
+    render json: @givng
   end
 
   # GET /givngs/new
@@ -66,12 +67,21 @@ class GivngsController < ApiController
 
   # DELETE /givngs/1
   # DELETE /givngs/1.json
+  # def destroy
+  #   @givng.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to givngs_url, notice: 'Givng was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
+
   def destroy
     @givng.destroy
-    respond_to do |format|
-      format.html { redirect_to givngs_url, notice: 'Givng was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    if @givng.destroy
+      head :no_content, status: :ok
+    else
+      render json: @givng.errors, status: :unprocessable_entity
+    end      
   end
 
   private
