@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { Component } from "react";
 import { Login, LoginTriangle, LoginHeader, LoginContainer, P, Input, BottomButtons } from "./StyledForm";
+import { SERVER_URL } from "../config";
+import { Modal, ButtonToolbar } from "react-bootstrap";
+import { navigate } from "@reach/router";
+import axios from "axios";
 
-export default class RegisterForm extends React.Component {
+
+class SigUpContent extends Component {
 
     constructor(props) {
         super(props);
@@ -9,7 +14,7 @@ export default class RegisterForm extends React.Component {
             name: '',
             email: '',
             password: '',
-            password_confirmation: ''
+            password_confirmation: '',
         };
     }
 
@@ -38,7 +43,11 @@ export default class RegisterForm extends React.Component {
         return (
             <Login>
             <LoginTriangle />
-            <LoginHeader>Sign Up</LoginHeader>
+            <LoginHeader>
+                <Modal.Header closeButton>
+                    Sign Up
+                </Modal.Header>
+            </LoginHeader>
             <LoginContainer>
                 <label htmlFor="name"></label>
                 <P><Input
@@ -70,14 +79,81 @@ export default class RegisterForm extends React.Component {
                 placeholder="Repeat Password"
                 name="psw-repeat"
                 required value={this.state.password_confirmation} onChange={this.handleConfirmPasswordChange}
-                /></P>
+                /></P><br />
     
                 <div className="clearfix">
-                <P><BottomButtons type="submit" value="Register" className="loginBtn" onClick={() => this.onSignupClick() }></BottomButtons></P>
-                <P><BottomButtons type="submit" value="Close"onClick={this.props.onHide}></BottomButtons></P>
+                <P><BottomButtons type="submit" value="Register" className="loginBtn" onClick={() => this.onSignupClick() }></BottomButtons></P><br />
                 </div>
             </LoginContainer>
         </Login>
 );
     }
 }
+
+class SignUpModal extends Component {
+    handleSignup(data) {
+      axios
+        .post(`${SERVER_URL}/api/users`, {
+          user: {
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            password_confirmation: data.password_confirmation
+          }
+        })
+        .then(response => {
+          // TODO: use a toast service, or modal or something
+          // better than an allert.
+          // alert("user successfully created, please login");
+          // Navigate to the home page.
+          navigate("/");
+          console.log(response);
+        })
+        .catch(err => {
+          console.error(err);
+        });
+      this.props.onHide();
+    }
+    handleCancelSignup() {
+      // Navigate to the home page.
+      navigate("/home");
+    }
+    render() {
+      return (
+        <Modal
+          {...this.props}
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Body>
+            <div className="container">
+              <SigUpContent
+                onSignup={data => this.handleSignup(data)}
+                onCancelClick={() => this.handleCancelSignup()}
+              ></SigUpContent>
+            </div>
+          </Modal.Body>
+        </Modal>
+      );
+    }
+  }
+
+class RegisterForm extends Component {
+    state = {
+        show: false
+    };
+    render() {
+        return (
+        <ButtonToolbar>
+            <div onClick={() => this.setState({ show: true })}>Register</div>
+    
+            <SignUpModal
+            show={this.state.show}
+            onHide={() => this.setState({ show: false })}
+            />
+        </ButtonToolbar>
+        );
+    }
+    }
+
+export default RegisterForm;

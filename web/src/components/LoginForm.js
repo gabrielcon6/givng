@@ -55,7 +55,11 @@ class LoginModal extends Component {
           <Modal.Body>
             <Login>
                 <LoginTriangle />
-                <LoginHeader>Log in</LoginHeader>
+                <LoginHeader>
+                  <Modal.Header closeButton>
+                      Login
+                  </Modal.Header>
+                </LoginHeader>
                 <LoginContainer>
                     <label htmlFor="email"></label>
                     <P><Input
@@ -75,11 +79,10 @@ class LoginModal extends Component {
                     required
                     value={this.state.password}
                     onChange={this.handlePasswordChange}
-                    /></P>
+                    /></P><br />
         
                     <div className="clearfix">
-                    <P><BottomButtons type="submit" value="Log in" className="loginBtn" onClick={() => this.onLoginClick()}></BottomButtons></P>
-                    <P><BottomButtons type="submit" value="Close"onClick={this.props.onHide}></BottomButtons></P>
+                    <P><BottomButtons type="submit" value="Log in" className="loginBtn" onClick={() => this.onLoginClick()}></BottomButtons></P>< br/>
                     </div>
                 </LoginContainer>
             </Login>

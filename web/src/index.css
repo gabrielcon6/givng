@@ -6,3 +6,7 @@ body {
   background-color: #11ffee00 !important; /* Fully transparent */
   border: 0 !important;
 }
+
+.modal-header .close {
+  color: white;
+}

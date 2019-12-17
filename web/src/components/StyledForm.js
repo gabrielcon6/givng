@@ -19,7 +19,7 @@ export const LoginHeader = styled.h2`
 export const P = styled.p`
   margin-top: 0;
   margin-bottom: 0;
-  padding: 0.9rem;
+  padding: 0 1rem;
 `;
 
 export const LoginTriangle = styled.div`
@@ -32,7 +32,8 @@ export const LoginTriangle = styled.div`
 
 export const LoginContainer = styled.form`
   background: #ebebeb;
-  padding: 0.9rem;
+  padding: 0 0.9rem;
+  margin: 0;
 `;
 
 export const Input = styled.input`
