@@ -1,11 +1,11 @@
 class GivngsController < ApiController
   before_action :set_givng, only: [:show, :edit, :update, :destroy]
 
+
   # GET /givngs
   # GET /givngs.json
   def index
     @givngs = Givng.all
-    
     render json: @givngs
   end
 
@@ -26,16 +26,27 @@ class GivngsController < ApiController
   # POST /givngs
   # POST /givngs.json
   def create
-    @givng = Givng.new(givng_params)
+    # ATTEMPT 1
+    # @givng = Givng.new(givng_params)
 
-    respond_to do |format|
-      if @givng.save
-        format.html { redirect_to @givng, notice: 'Givng was successfully created.' }
-        format.json { render :show, status: :created, location: @givng }
-      else
-        format.html { render :new }
-        format.json { render json: @givng.errors, status: :unprocessable_entity }
-      end
+    # respond_to do |format|
+    #   if @givng.save
+    #     # format.html { redirect_to @givng, notice: 'Givng was successfully created.' }
+    #     format.json { render :show, status: :created, location: @givng }
+    #   else
+    #     # format.html { render :new }
+    #     format.json { render json: @givng.errors, status: :unprocessable_entity }
+    #   end
+    # end
+
+
+    # ATTEMPT 2
+    @givng = Givng.new(givng_params)
+  
+    if @givng.save
+      render json: @givng, status: :created
+    else
+      render json: @givng.errors, status: :unprocessable_entity
     end
   end
 
@@ -71,6 +82,6 @@ class GivngsController < ApiController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def givng_params
-      params.require(:givng).permit(:name, :theme, :user_id)
+      params.require(:givng).permit(:name, :theme, :user_id, :date, :budget)
     end
 end

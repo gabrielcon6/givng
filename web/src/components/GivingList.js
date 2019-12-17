@@ -12,7 +12,7 @@ class GivngList extends Component {
       // name: this.props.match.params.flightId,
       name: [],
       theme: [],
-      userId: 2,
+      userId: 1,
       date: [],
       budget: []
     };
