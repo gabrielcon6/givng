@@ -10,13 +10,13 @@ class GivngList extends Component {
     this.state = {
       givngList: []
     };
+    console.log(this.state.givngList)
   }
 
   componentDidMount() {
   
     axios.get(`${SERVER_URL}/givngs.json`).then(res => {
       const myData = res.data;
-      console.log(myData);
       this.setState({
         givngList: myData
       });
