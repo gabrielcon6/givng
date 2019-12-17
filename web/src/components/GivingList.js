@@ -9,10 +9,9 @@ class GivngList extends Component {
     super(props);
     this.state = {
       givngList: [],
-      // name: this.props.match.params.flightId,
       name: [],
       theme: [],
-      userId: 1,
+      userId: 1,// THIS IS HARDCODED - SHOULD ACCEPT PARAMS - USER ID
       date: [],
       budget: []
     };
@@ -59,22 +58,15 @@ class GivngList extends Component {
 
   render() {
     const myGivngList = this.state.givngList.map((givng, index) => (
-      <Link to="/">
-        <CardDeck key={index}>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
-            <Card.Body>
-              <Card.Title>{givng.name}</Card.Title>
-              <Card.Text>{givng.date}</Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Budget: $ {givng.budget}</small>
-            </Card.Footer>
-          </Card>
-        </CardDeck>
+      <Link to={`/givngs/${givng.id}`}>
+        <ul key={index}>
+              <li>{givng.name}</li>
+              <li>{givng.date}</li>
+              <li>Budget: $ {givng.budget}</li>
+        </ul>
       </Link>
     ));
-      const { userId, name, theme, date, budget} = this.state
+      const { name, theme, date, budget} = this.state
     return (
       <div>
         <br />
@@ -83,7 +75,6 @@ class GivngList extends Component {
         <div>{myGivngList}</div>
         <CardDeck>
           <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
             <Card.Body>
               <Card.Title></Card.Title>
               <Card.Text>+ Group</Card.Text>
@@ -93,9 +84,6 @@ class GivngList extends Component {
                 <input type="decimal" name="budget" value={budget} onChange={this.changeHandler}></input>
               <button typle="submit">Submit</button></form>
             </Card.Body>
-            <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
           </Card>
         </CardDeck>
       </div>
