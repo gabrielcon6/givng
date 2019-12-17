@@ -99,7 +99,7 @@ class LoginForm extends Component {
     render() {
       return (
         <ButtonToolbar>
-          <div onClick={() => this.setState({ show: true })}>Create a Givng</div>
+          <div onClick={() => this.setState({ show: true })}>Create a Givng List</div>
   
           <LoginModal
             show={this.state.show}
