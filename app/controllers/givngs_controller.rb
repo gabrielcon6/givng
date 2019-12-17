@@ -5,6 +5,8 @@ class GivngsController < ApiController
   # GET /givngs.json
   def index
     @givngs = Givng.all
+    
+    render json: @givngs
   end
 
   # GET /givngs/1
