@@ -19,12 +19,15 @@ export const Banner = styled.div`
 export const WrappedContainer = styled.div`
     height: 30vh;
     width: 100vw;
-    background-color: ${props => props.background};
-    /* vertical-align: middle; */
+    background-color: ${props => props.background || "white"};
     text-align: center;
     display: table;
     padding: 4vh 0;
+    color: ${props => props.colorPrimary ? "#2B2D42" : "black"};
+`;
 
+export const H1 = styled.h1`
+    font-weight: "400";
 `;
 
 export const InnerContainer = styled.div`
@@ -35,7 +38,7 @@ export const InnerContainer = styled.div`
 `;
 
 export const Title = styled.div`
-    color: ${props => props.color};
+    color: ${props => props.primary ? "white" : "black"};
     font-weight: 200;
     font-size: 3rem;
     letter-spacing: 2px;
@@ -46,7 +49,7 @@ export const Title = styled.div`
 
 export const Text = styled.div`
     color: ${props => props.color};
-    font-weight: ${props => props.fontWeight};
+    font-weight: ${props => props.primary ? "400" : "200"};
     font-size: 2rem;
     letter-spacing: 1px;
     display: table-cell; 
@@ -94,10 +97,10 @@ export const Footer = styled.div`
 `;
 
 export const Icon = styled.div`
-    background-color: ${props => props.background};
+    background-color: ${props => props.backPrimary ? "#2B2D42" : "white"};
     width: 2.5vw;
     height: 5vh;
-    color: ${props => props.color};
+    color: ${props => props.colorPrimary ? "white" : "black"};
     border-radius: 50%;
     display: inline-block;    
     margin-right: 1vw;
@@ -109,4 +112,9 @@ export const Icon = styled.div`
 
 export const IconText = styled.div`
     display: inline-block;    
+`;
+
+export const FooterText = styled.p`
+    color: white;
+    padding: 0 0 1vh;
 `;
