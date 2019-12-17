@@ -17,7 +17,7 @@ class HomeContent extends React.Component {
             <InnerContainer>
                 <Text primary>
                     <Icon backPrimary colorPrimary><FontAwesomeIcon icon={faList} style={{padding: "0.3rem"}}/></Icon> 
-                    <IconText> Easy & free gift lists organiser.</IconText><br/>
+                    <IconText> Easy & free <span style={{fontWeight: "600"}}> gift lists organiser</span>.</IconText><br/>
                     <Icon backPrimary colorPrimary><FontAwesomeIcon icon={faUsers} style={{padding: "0.3rem"}}/></Icon> 
                     <IconText> Lists for different groups of people & dates.</IconText><br/>
                     <Icon backPrimary colorPrimary><FontAwesomeIcon icon={faDollarSign} style={{padding: "0.3rem"}}/></Icon> 
