@@ -102,6 +102,9 @@ export const Icon = styled.div`
     display: inline-block;    
     margin-right: 1vw;
     text-align: center;
+    &:hover {
+        color: white;
+    }
 `;
 
 export const IconText = styled.div`
