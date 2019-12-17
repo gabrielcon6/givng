@@ -3,7 +3,7 @@ import React from "react";
 import { SERVER_URL } from "../config";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container } from "react-bootstrap";
-import People from "./people";
+import People from "./People";
 import { StyledDiv, Title, Budget } from "./StyledGroups";
 
 class Groups extends React.Component {

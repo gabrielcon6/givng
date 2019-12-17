@@ -8,13 +8,47 @@ class GivngList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      givngList: []
+      givngList: [],
+      // name: this.props.match.params.flightId,
+      name: [],
+      theme: [],
+      userId: 2,
+      date: [],
+      budget: []
     };
+  }
+
+  changeHandler = (e) => {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
+  submitHandler = (e) => {
+    e.preventDefault()
+    const givngPost = {
+      givng: {
+        name: this.state.name,
+        theme: this.state.theme,
+        user_id: this.state.userId,
+        date: this.state.date,
+        budget: this.state.budget
+      }
+    }
+    console.log(givngPost)
+    axios
+      .post(`${SERVER_URL}/givngs.json`, givngPost)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   componentDidMount() {
   
-    axios.get(`${SERVER_URL}/givngs.json`).then(res => {
+    axios
+    .get(`${SERVER_URL}/givngs.json`)
+    .then(res => {
       const myData = res.data;
       console.log(myData);
       this.setState({
@@ -40,16 +74,12 @@ class GivngList extends Component {
         </CardDeck>
       </Link>
     ));
-
+      const { userId, name, theme, date, budget} = this.state
     return (
       <div>
         <br />
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <h1>Your existing Givngs:</h1>
+        <h1 style={{textAlign: "center"}}>Your existing Givngs:</h1>
         <div>{myGivngList}</div>
         <CardDeck>
           <Card>
@@ -57,6 +87,11 @@ class GivngList extends Component {
             <Card.Body>
               <Card.Title></Card.Title>
               <Card.Text>+ Group</Card.Text>
+              <form onSubmit={this.submitHandler}><input type="text" name="name" value={name} onChange={this.changeHandler}></input>
+                <input type="text" name="theme" value={theme} onChange={this.changeHandler}></input>
+                <input type="date" name="date" value={date} onChange={this.changeHandler}></input>
+                <input type="decimal" name="budget" value={budget} onChange={this.changeHandler}></input>
+              <button typle="submit">Submit</button></form>
             </Card.Body>
             <Card.Footer>
               <small className="text-muted">Last updated 3 mins ago</small>
