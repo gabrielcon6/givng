@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all
-Givng.destroy_all 
-Group.destroy_all # Remove every row from the planes table 
-Person.destroy_all 
+# User.destroy_all
+# Givng.destroy_all 
+# Group.destroy_all # Remove every row from the planes table 
+# Person.destroy_all 
 
 
 gabe = User.create(email: 'a@a.com', password_digest: BCrypt::Password.create('a'), name: 'Gabe')

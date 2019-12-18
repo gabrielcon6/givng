@@ -67,7 +67,6 @@ export const CardContent = styled.div`
 
 
 export const CardImage = styled.div`
-  background-image: url("https://images.unsplash.com/photo-1543934638-bd2e138430c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
   height: 30vh;
   background-position: center center;
   background-repeat: no-repeat;
@@ -92,35 +91,19 @@ export const CardImage = styled.div`
 `;
 
 
-// .card__image--flowers {
-//   background-image: url("https://images.unsplash.com/photo-1543934638-bd2e138430c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
-// }
-
-// .card__image--river {
-//   background-image: url(https://unsplash.it/800/600?image=11);
-// }
-
-// .card__image--record {
-//   background-image: url(https://unsplash.it/800/600?image=39);
-// }
-
-// .card__image--fence {
-//   background-image: url(https://unsplash.it/800/600?image=59);
-// }
-
-
 export const CardTitle = styled.div`
   color: #696969;
-  font-size: 1.25rem;
-  font-weight: 300;
-  letter-spacing: 2px;
+  font-size: 1.4rem;
+  font-weight: 200;
+  letter-spacing: 0.4rem;
+  margin-bottom: 1.5vh;
   text-transform: uppercase;
   padding: 1vh;
 `;
 
 export const CardText = styled.p`
   flex: 1 1 auto;
-  font-size: 0.875rem;
+  font-size: 1.1rem;
   line-height: 1.5;
   margin-bottom: 1.25rem;
   color: #999999;
@@ -129,4 +112,12 @@ export const CardText = styled.p`
 export const BottomContainer = styled.div`
   height: 20vh;
   background-color: grey;
+`;
+
+export const Title = styled.h1`
+    font-weight: 200;
+    font-size: 2.5rem;
+    letter-spacing: 0.8rem;
+    text-align: center;
+    margin: 1.5vh 0;
 `;

@@ -3,8 +3,8 @@ import axios from "axios";
 import { Card, CardDeck } from "react-bootstrap";
 import { Link } from "@reach/router";
 import { SERVER_URL } from "../config";
-import { StyledCards, CardsItem, MyCard, CardImage, CardTitle, CardContent, CardText, MyButton } from "./StyledGivngList.js"
-
+import { Title, StyledCards, CardsItem, MyCard, CardImage, CardTitle, CardContent, CardText, MyButton } from "./StyledGivngList.js"
+import "../index.css"
 
 class GivngList extends Component {
   constructor(props) {
@@ -68,7 +68,7 @@ class GivngList extends Component {
       <StyledCards key={index}>
         <CardsItem>
           <MyCard>
-            <CardImage {...givng.theme}></CardImage>
+            <CardImage className={`${givng.theme}`}></CardImage>
             <CardContent>
               <CardTitle>{givng.name}</CardTitle>
               <CardText>{givng.date}</CardText>
@@ -89,10 +89,10 @@ class GivngList extends Component {
       <div className="Hi" style={{textAlign: "center"}}>
         <br />
         <br />
-        <h1 style={{textAlign: "center"}}>Your existing Givngs:</h1>
+        <Title>Your existing Givngs:</Title>
         <div style={{display: "inline-flex"}}>{myGivngList}</div>
-        <CardDeck>
-          <Card>
+        <CardDeck >
+          <Card style={{backgroundColor: "#DFE3E8"}}>
             <Card.Body>
               <Card.Title></Card.Title>
               <Card.Text>Add a New GIVNG:</Card.Text>
