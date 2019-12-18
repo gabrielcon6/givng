@@ -5,7 +5,7 @@ import { SERVER_URL } from "../config";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Jumbotron } from "react-bootstrap";
 import People from "./People";
-import { StyledDiv, Title, Budget } from "./styles/StyledGroups";
+import { StyledDiv, Title, Budget } from "../styles/StyledGroups";
 
 
 class Groups extends React.Component {

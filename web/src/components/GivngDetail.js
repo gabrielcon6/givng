@@ -1,5 +1,5 @@
 import React from "react";
-import { StyledContainer } from "./StyledGivngDetailList";
+import { StyledContainer } from "../styles/StyledGivngDetailList";
 
 class GivngDetail extends React.Component {
 
