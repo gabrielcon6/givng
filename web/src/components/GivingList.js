@@ -3,6 +3,7 @@ import axios from "axios";
 import { Card, CardDeck } from "react-bootstrap";
 import { Link } from "@reach/router";
 import { SERVER_URL } from "../config";
+import "./giving-list.css"
 
 class GivngList extends Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class GivngList extends Component {
   removeHandler = () => {
     console.log(this.props.givng_id);
     axios
-    .delete(`${SERVER_URL}/givngs/5.json`)
+    .delete(`${SERVER_URL}/givngs/5.json`) // THIS IS HARDCODED - SHOULD ACCEPT PARAMS - GIVNG ID
   }
   
   componentDidMount() {
@@ -64,26 +65,32 @@ class GivngList extends Component {
 
   render() {
     const myGivngList = this.state.givngList.map((givng, index) => (
-      <>
-        <Link to={`/givngs/${givng.id}`}>
-          <ul key={index}>
-                <li>{givng.name}</li>
-                <li>{givng.date}</li>
-                <li>Budget: $ {givng.budget}</li>
-          </ul>
-        </Link>
+      <ul class="cards" key={index}>
+        <li class="cards__item">
+          <div class="card">
+            <div class="card__image card__image--flowers"></div>
+            <div class="card__content">
+              <div class="card__title">{givng.name}</div>
+              <p class="card__text">{givng.date}</p>
+              <p class="card__text">{givng.budget}</p>
+              <button class="btn btn--block card__btn"><Link to={`/givngs/${givng.id}`}>Access</Link></button>
               <form givng_id={givng.id} onSubmit={this.removeHandler}>
-                <button type="submit">Delete</button>
+                <button type="submit" class="btn btn--block card__btn"><Link to={`/givngs/${givng.id}`}>Delete</Link></button>
               </form>
-      </>
+            </div>
+          </div>
+        </li>
+      </ul>
     ));
-      const { name, theme, date, budget} = this.state
+
+    const { name, theme, date, budget} = this.state
+
     return (
-      <div>
+      <div className="Hi" style={{textAlign: "center"}}>
         <br />
         <br />
         <h1 style={{textAlign: "center"}}>Your existing Givngs:</h1>
-        <div>{myGivngList}</div>
+        <div style={{display: "inline-flex"}}>{myGivngList}</div>
         <CardDeck>
           <Card>
             <Card.Body>
