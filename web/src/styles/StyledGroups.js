@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const StyledDiv = styled.div`
   border: 1px solid black;
   border-radius: 5px;
-  margin: 8px;
+  margin: 1vh 20vw;
   padding: 5px;
-  width: 50%;
+  text-align: center;
 `;
 
 export const Title = styled.h3`
@@ -16,3 +16,8 @@ export const Budget = styled.h3`
   font-size: 25px;
   color: blue;
 `;
+
+export const StyledContainer = styled.div`
+
+text-align: center;
+`
