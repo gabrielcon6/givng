@@ -58,11 +58,12 @@ class UsersController < ApplicationController
       # the user_id param comes from our route
       user = User.find(params[:user_id])
         
-      if user
-           render json: user, status: :ok
-      else
-          render json: { errors: 'User not found' }, status: :not_found
-      end
+        if user
+            render json: { id: user.id, name: user.name, email: user.email},
+                   status: :ok
+        else
+            render json: { errors: 'User not found' }, status: :not_found
+        end
   end
 
   def get_token
@@ -85,10 +86,11 @@ class UsersController < ApplicationController
         # if our code gets here, we can generate a token and response.
         # JWT's include an expiry, we will expire the token in 24 hours
         token = jwt_encode({user_id: user.id}, 24.hours.from_now)
-        puts('USER:' + user.to_s)
+        puts('USER:' + user.to_json)
         puts('TOKEN:' + token)
         render json: {token: token, exp: 24, username: user.email, userId: user.id},
                status: :ok
+        return
  
   end
   # PATCH/PUT /users/1

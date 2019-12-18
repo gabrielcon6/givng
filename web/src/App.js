@@ -28,9 +28,6 @@ export default class App extends Component {
 
   getUser() {
     let auth = JSON.parse(sessionStorage.getItem("auth"));
-    console.log('-aaa-----')
-    console.log(auth)
-    console.log('------')
     if (!auth) return;
 
     axios
@@ -38,7 +35,6 @@ export default class App extends Component {
         headers: { Authorization: `Bearer ${auth.token}` }
       })
       .then(response => {
-        console.log('TEST 2 RESPONSE'+response.headers.Authorization)
         this.setState({
           currentUser: response.data,
           isLoggedIn: true
@@ -53,10 +49,7 @@ export default class App extends Component {
         password: password
       })
       .then(response => {
-        sessionStorage.setItem("auth", JSON.stringify(response.data));
-        console.log('---++++---')
-        console.log(response)
-        console.log('---++++---')
+        sessionStorage.setItem('auth', JSON.stringify(response.data));
         this.getUser();
       })
       .catch(err => {

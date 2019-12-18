@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { SERVER_URL } from "../config";
 import { Modal, ButtonToolbar } from "react-bootstrap";
 import { Login, LoginTriangle, LoginHeader, LoginContainer, P, Input, BottomButtons } from "./StyledForm";
 
