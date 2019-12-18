@@ -97,7 +97,11 @@ class GivngList extends Component {
               <Card.Title></Card.Title>
               <Card.Text>Add a New GIVNG:</Card.Text>
               <form onSubmit={this.submitHandler}><input type="text" placeholder="name" name="name" value={name} onChange={this.changeHandler}></input>
-                <input type="text" option="theme" name="theme" value={theme} onChange={this.changeHandler}></input>
+                <select type="text" name="theme" value={theme} onChange={this.changeHandler}>
+                  <option value="Christmas">Christmas</option>
+                  <option value="Birthdays List">Birthdays List</option> 
+                  <option value="Other">Other</option> 
+                </select>
                 <input type="date" placeholder="date" name="date" value={date} onChange={this.changeHandler}></input>
                 <input type="decimal" placeholder="budget" name="budget" value={budget} onChange={this.changeHandler}></input><br />
               <button type="submit">Submit</button></form>
