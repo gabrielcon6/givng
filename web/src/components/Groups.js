@@ -2,14 +2,24 @@ import React from "react";
 
 import { SERVER_URL } from "../config";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
+import { Container, Jumbotron } from "react-bootstrap";
 import People from "./People";
 import { StyledDiv, Title, Budget } from "./StyledGroups";
 
 class Groups extends React.Component {
-  state = {
-    givngList: []
-  };
+  constructor() {
+    super();
+    this.state = {
+      givngList: [],
+      isHidden: true
+    };
+  }
+
+  toggleHidden() {
+    this.setState({
+      isHidden: !this.state.isHidden
+    });
+  }
   componentDidMount() {
     let self = this;
 
@@ -29,15 +39,19 @@ class Groups extends React.Component {
   render() {
     const givngElements = this.state.givngList.map((givngList, index) => {
       return (
-        <StyledDiv key={givngList.id}>
-          <Title>{givngList.name}</Title>
-          <Budget>{givngList.budget}</Budget>
-          <a href="#" class="btn btn-outline-info">
-            Learn More
-          </a>
-
-          <People />
-        </StyledDiv>
+        <Jumbotron>
+          <StyledDiv key={index}>
+            <Title>{givngList.name}</Title>
+            <Budget>{givngList.budget}</Budget>
+            <button
+              class="btn btn-outline-info"
+              onClick={this.toggleHidden.bind(this)}
+            >
+              Learn More
+            </button>
+            {!this.state.isHidden && <People />}
+          </StyledDiv>
+        </Jumbotron>
       );
     });
     return (
