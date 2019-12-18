@@ -14,7 +14,7 @@ export const Banner = styled.div`
     justify-content: center;
     vertical-align: middle;
     display: table;
-    `;
+`;
 
 export const WrappedContainer = styled.div`
     height: 30vh;
@@ -28,6 +28,9 @@ export const WrappedContainer = styled.div`
 
 export const H1 = styled.h1`
     font-weight: "400";
+    @media (max-width: 450px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const InnerContainer = styled.div`
@@ -44,7 +47,13 @@ export const Title = styled.div`
     letter-spacing: 2px;
     display: table-cell; 
     vertical-align: middle; 
-    text-align: center; 
+    text-align: middle; 
+    @media (max-height: 750px) {
+    padding-left: 10vw;
+  }
+    @media (max-width: 450px) {
+    text-shadow: 2px 2px 5px black;
+  }
 `;
 
 export const Text = styled.div`
@@ -54,6 +63,11 @@ export const Text = styled.div`
     letter-spacing: 1px;
     display: table-cell; 
     vertical-align: middle;
+    @media (max-width: 450px) {
+    font-size: 1rem;
+    line-height: 5vh;
+    text-align: center;
+    }
 `;
 
 export const Image = styled.img`
@@ -61,36 +75,6 @@ export const Image = styled.img`
     width: 100vw;
 `;
 
-// export const ButtonLogin = styled.button`
-//     margin-top: 3vh;
-//     background:transparent;
-//     color:#5DBCD2;
-//     border:none;
-//     padding:10px 30px;
-//     border-radius:20px;
-//     box-shadow:0 0 0 1px #5DBCD2 inset;
-//     outline:none;
-//     font-weight:normal;
-//     -webkit-transition:all 200ms ease-out;
-//     &:hover {
-//     box-shadow:0 0 0 3px #5DBCD2 inset;
-//     -webkit-transition:none;
-//     }
-//     &:active {
-//     color:#EEE;
-//     background: #5DBCD2;
-//   }
-// `
-
-
-
-// export const BottomContainer = styled.div`
-//     height: 30vh;
-//   background-color: #DFE3E8;
-//   /* justify-content: center; */
-//     /* display: flex; */
-//     vertical-align: middle;
-// `
 export const Footer = styled.div`
     background-color: #2B2D42;
     vertical-align: middle;
@@ -108,6 +92,19 @@ export const Icon = styled.div`
     &:hover {
         color: white;
     }
+    @media (max-height: 750px) {
+    /* padding-left: 10vw; */
+    height: 6vh;
+    width: 3vw;
+  }
+    @media (max-width: 450px) {
+    width: 12vw;
+    height: 6vh;
+    font-weight: bold;
+    font-size: 1.5rem;
+    background-color: ${props => props.backPrimary ? "white" : "#DFE3E8"};
+    color: black;
+        }
 `;
 
 export const IconText = styled.div`
@@ -117,4 +114,7 @@ export const IconText = styled.div`
 export const FooterText = styled.p`
     color: white;
     padding: 0 0 1vh;
+    @media (max-width: 450px) {
+    font-size: 0.8rem;
+        }
 `;
