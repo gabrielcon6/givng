@@ -7,68 +7,75 @@ import { Container, Jumbotron } from "react-bootstrap";
 import People from "./People";
 import { StyledDiv, Title, Budget } from "./StyledGroups";
 
+
 class Groups extends React.Component {
   constructor() {
     super();
     this.state = {
-      groupList: [],
-      isHidden: true
+      expandedGroups: []
     };
   }
 
-  toggleHidden() {
-    this.setState({
-      isHidden: !this.state.isHidden
-    });
+  toggleHidden(groupId) {
+    // make a copy of our expandedGroups state variable
+    const expandedGroups = [...this.state.expandedGroups];
+
+    //                    0   1   2
+    // expandedGroups = [ 10, 12, 3]
+    // indexOf(12) => 1
+    // indexOf(13) => -1
+
+
+    // Add / remove the item from the expandedGroup array
+    const index = expandedGroups.indexOf(groupId);
+    if( index >= 0)  expandedGroups.splice(index, 1);
+    else  expandedGroups.push(groupId);
+      
+    // update state
+    this.setState({  expandedGroups: expandedGroups });
   }
   componentDidMount() {
-    let self = this;
-
-    fetch(SERVER_URL + "/groups.json")
-      .then(response => response.json())
-      .then(json => {
-        self.setState(state => {
-          console.log("json :", json);
-
-          return {
-            ...state,
-            groupList: [...json]
-          };
-        });
-      });
+    
   }
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+
   submitHandler = e => {
     e.preventDefault();
-    const groupPost = {
-      group: {
-        name: this.state.name,
-        budget: this.state.budget,
-        givng_id: 6,
-        date: this.state.date
-      }
-    };
-    console.log(groupPost);
-    axios
-      .post(`${SERVER_URL}/groups.json`, groupPost)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+
+    this.props.onAddNewGivng({
+      name: this.state.name,
+      budget: this.state.budget,
+      date: this.state.date
+    });
   };
+
+  handleDeleteGroupClick = groupId => {
+    this.props.onDeleteGroup(groupId);
+  }
+
+  onAddPerson = (groupId, person) => {
+    person.group_id = groupId;
+    this.props.onAddPerson(person);
+  }
+
   render() {
-    const groupElements = this.state.groupList.map((groupList, index) => {
+      console.log(this.props);
+      const groupElements = this.props.groups.map((group, index) => {
       return (
         // <Jumbotron>
           <StyledDiv key={index}>
-            <Title>{groupList.name}</Title>
-            <Budget>{groupList.budget}</Budget>
-            <button className="btn btn-outline-info" onClick={this.toggleHidden.bind(this)}> Learn More </button>
-            {!this.state.isHidden && <People />}
+            <Title>{group.name}</Title>
+            <Budget>{group.budget}</Budget>
+            <button className="btn btn-outline-info" onClick={() => this.toggleHidden(group.id)}> Learn More </button>
+            <button className="btn btn-outline-info" onClick={() => this.handleDeleteGroupClick(group.id)}> Delete </button>
+            {this.state.expandedGroups.includes(group.id) && <People 
+              people={group.people}
+              onAddPerson={(person) => this.onAddPerson(group.id, person)}
+              onDeletePerson={this.props.onDeletePerson}
+            
+            />}
           </StyledDiv>
         // </Jumbotron>
       );
@@ -81,12 +88,36 @@ class Groups extends React.Component {
           {groupElements}
           <br />
           <form onSubmit={this.submitHandler}>
-            Name: <input type="text" placeholder="Name" name="name" value={name} onChange={this.changeHandler} ></input>
-            Budget: <input type="decimal" placeholder="Budget" name="budget" value={budget} onChange={this.changeHandler} ></input>
-            Date: <input type="date" placeholder="Date" name="date" value={date} onChange={this.changeHandler} ></input>
-            <button type="submit" className="btn btn-primary ">Add a new group</button>
+            Name:{" "}
+            <input
+              type="text"
+              placeholder="Name"
+              name="name"
+              value={name}
+              onChange={this.changeHandler}
+            ></input>
+            Budget:{" "}
+            <input
+              type="decimal"
+              placeholder="Budget"
+              name="budget"
+              value={budget}
+              onChange={this.changeHandler}
+            ></input>
+            Date:{" "}
+            <input
+              type="date"
+              placeholder="Date"
+              name="date"
+              value={date}
+              onChange={this.changeHandler}
+            ></input>
+            <button type="submit" className="btn btn-primary ">
+              Add a new group
+            </button>
           </form>
         </Container>
+        
       </div>
     );
   }

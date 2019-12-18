@@ -12,7 +12,11 @@ class GivngsController < ApiController
   # GET /givngs/1
   # GET /givngs/1.json
   def show
-    render json: @givng
+    @givng = Givng.find(params[:id])
+    # how do we include people for the group???
+    # render json: event.to_json(include: {users: {include: :profile} })
+    render :json => @givng.to_json(include: {groups: {include: :people}})
+    #render :json => @givng, :include => [:groups] 
   end
 
   # GET /givngs/new

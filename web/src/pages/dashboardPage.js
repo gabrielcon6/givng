@@ -6,8 +6,9 @@ class DashboardPage extends Component {
   render() {
     return (
       <div>
-        {!this.props.user.isLoggedIn && <Redirect to="/" noThrow />}
+        {/* {!this.props.user.isLoggedIn && <Redirect to="/" noThrow />} */}
         dashboard page works
+        
         <GivingList />
       </div>
     );

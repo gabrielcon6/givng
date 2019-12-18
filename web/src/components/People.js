@@ -12,51 +12,32 @@ class People extends React.Component {
     ]
   };
   componentDidMount() {
-    let self = this;
 
-    fetch(SERVER_URL + "/people.json")
-      .then(response => response.json())
-      .then(json => {
-        self.setState(state => {
-          console.log("json :", json);
-
-          return {
-            ...state,
-            peopleList: [...json]
-          };
-        });
-      });
   }
  
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  submitHandler = e => {
+  addNewPerson = e => {
     e.preventDefault();
-    const peoplePost = {
-      people: {
-        name: this.state.name,
-        person_budget: this.state.budget,
-        group_id: 5,
-        is_bought: false
-      }
-    };
-    console.log(peoplePost);
-    axios
-      .post(`${SERVER_URL}/people.json`, peoplePost)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+
+    this.props.onAddPerson({
+      name: this.state.name,
+      person_budget: this.state.budget,
+      is_bought: false
+    });
+    
   };
   render() {
-    const peopleElements = this.state.peopleList.map((peopleList, index) => {
+     console.log(this.props);
+      const peopleElements = this.props.people.map((person, index) => {
       return (
         <div key={index}>
-          <h2>{peopleList.name}</h2>
-          <h3>{peopleList.person_budget}</h3>
+          <h2>{person.name}</h2>
+          <h3>{person.person_budget}</h3>
+          <button className="btn btn-primary" onClick={() => this.props.onDeletePerson(person.id)}>
+            Delete people
+          </button>
         </div>
       );
     });
@@ -82,11 +63,10 @@ const { name, budget } = this.state;
             value={budget}
             onChange={this.changeHandler}
           ></input>
-          
-
-          <button type="submit" className="btn btn-primary ">
+          <button className="btn btn-primary" onClick={this.addNewPerson}>
             Add people
           </button>
+          
         </form>
       </div>
     );
