@@ -1,6 +1,57 @@
 import styled from "styled-components";
-// import { Link } from "@reach/router";
 
+export const CardsParent = styled.div`
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-content: stretch;
+`;
+
+export const StyledCards = styled.ul`
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* list-style: none; */
+  margin: 0;
+  padding: 0;
+  width: 25%;
+
+  /* width: 40vw; */
+  &::before {
+    box-sizing: border-box;
+  }
+  &::after {
+    box-sizing: border-box;
+  }
+`;
+export const CardsItem = styled.li`
+  /* display: flex; */
+  list-style-type: none;
+  padding: 1rem;
+  width: 100%;
+
+  /* @media(min-width: 40rem) {
+    width: 50%;
+  }
+  @media(min-width: 56rem) {
+    width: 33.3333%;
+  } */
+`;
+
+export const MyCard = styled.div`
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+  /* display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 100%;
+  max-width: 100%;  */
+  &:hover {
+    .CardImage {
+      filter: contrast(100%);
+    }
+  }
+`;
 
 export const MyButton = styled.button`
   background-color: white;
@@ -14,52 +65,13 @@ export const MyButton = styled.button`
   width: 100%;
 `;
 
-export const StyledCards = styled.ul`
-  /* display: flex; */
-  flex-wrap: wrap;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  /* width: 40vw; */
-  &::before {
-    box-sizing: border-box;
-  }
-  &::after {
-    box-sizing: border-box;
-  }
-`;
 
-export const CardsItem = styled.li`
-  display: flex;
-  padding: 1rem;
-  /* @media(min-width: 40rem) {
-    width: 50%;
-  }
-  @media(min-width: 56rem) {
-    width: 33.3333%;
-  } */
-`;
 
-export const MyCard = styled.div`
-  background-color: white;
-  border-radius: 0.25rem;
-  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  min-width: 20vw;
-  max-width: 35vw;
-  &:hover {
-    .CardImage {
-      filter: contrast(100%);
-    }
-  }
-`;
 
 export const CardContent = styled.div`
-  display: flex;
+  /* display: flex; */
   flex: 1 1 auto;
-  flex-direction: column;
+  /* flex-direction: column; */
   padding: 1rem;
   min-width: 15vw;
   min-height: 10vw;
