@@ -47,7 +47,7 @@ class Groups extends React.Component {
     this.props.onAddNewGivng({
       name: this.state.name,
       budget: this.state.budget,
-      date: this.state.date
+
     });
   };
 
@@ -104,14 +104,7 @@ class Groups extends React.Component {
               value={budget}
               onChange={this.changeHandler}
             ></input>
-            Date:{" "}
-            <input
-              type="date"
-              placeholder="Date"
-              name="date"
-              value={date}
-              onChange={this.changeHandler}
-            ></input>
+           
             <button type="submit" className="btn btn-primary ">
               Add a new group
             </button>
