@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import HomeContent from "../components/home_content/HomeContent";
+import HomeContent from "../components/HomeContent";
 import { Redirect } from "@reach/router";
 
 class HomePage extends Component {

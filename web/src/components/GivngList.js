@@ -3,7 +3,8 @@ import axios from "axios";
 import { Card, CardDeck } from "react-bootstrap";
 import { Link } from "@reach/router";
 import { SERVER_URL } from "../config";
-import { Title, StyledCards, CardsItem, MyCard, CardImage, CardTitle, CardContent, CardText, MyButton } from "./StyledGivngList.js"
+import { Title, StyledCards, CardsItem, MyCard, CardImage, CardTitle, CardContent, CardText, MyButton } 
+  from "../styles/StyledGivngList.js"
 import "../index.css"
 
 class GivngList extends Component {

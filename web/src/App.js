@@ -4,7 +4,7 @@ import { Router } from "@reach/router";
 import DashboardPage from "./pages/dashboardPage";
 import HomePage from "./pages/homePage";
 
-import NavBar from "./components/navbar/NavBar";
+import NavBar from "./components/NavBar";
 import { SERVER_URL } from "./config.js";
 import axios from "axios";
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Login, LoginTriangle, LoginHeader, LoginContainer, P, Input, BottomButtons } from "./StyledForm";
+import { Login, LoginTriangle, LoginHeader, LoginContainer, P, Input, BottomButtons } 
+  from "../styles/StyledForm";
 import { SERVER_URL } from "../config";
 import { Modal, ButtonToolbar } from "react-bootstrap";
 import { navigate } from "@reach/router";

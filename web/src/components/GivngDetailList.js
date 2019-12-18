@@ -1,9 +1,10 @@
-import React from "react";
+import React { Component } from "react";
 import axios from 'axios';
 import { SERVER_URL } from "../config";
 // import { Container } from "react-bootstrap";
-import { StyledContainer } from "./StyledGivngDetailList";
-class GivngDetailList extends React.Component {
+import { StyledContainer } from "../styles/StyledGivngDetailList";
+
+class GivngDetailList extends Component {
   state = {
     givngList: []
   };

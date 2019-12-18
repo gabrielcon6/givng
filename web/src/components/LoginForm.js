@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Modal, ButtonToolbar } from "react-bootstrap";
-import { Login, LoginTriangle, LoginHeader, LoginContainer, P, Input, BottomButtons } from "./StyledForm";
+import { Login, LoginTriangle, LoginHeader, LoginContainer, P, Input, BottomButtons } 
+  from "../styles/StyledForm";
 
 class LoginModal extends Component {
   

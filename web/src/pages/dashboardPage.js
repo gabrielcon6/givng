@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GivingList from "../components/GivingList";
+import GivngList from "../components/GivngList";
 import { Redirect } from "@reach/router";
 
 class DashboardPage extends Component {
@@ -9,7 +9,7 @@ class DashboardPage extends Component {
         {/* {!this.props.user.isLoggedIn && <Redirect to="/" noThrow />} */}
         dashboard page works
         
-        <GivingList />
+        <GivngList />
       </div>
     );
   }
