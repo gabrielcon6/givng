@@ -17,7 +17,7 @@ export default class NavBar extends Component {
       <div>
         <StyledNav>
           <Link to="/">
-            <LogoImg src={"./givng_logo7.png"} />
+            <LogoImg src={"./givng_logo1.png"} />
           </Link>
             {!user.isLoggedIn && (
               <>
