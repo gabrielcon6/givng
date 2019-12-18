@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Banner, Title, Icon, IconText, Text, WrappedContainer, H1, InnerContainer, Footer, FooterText } 
     from './StyledHomeContent';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faList, faUsers, faDollarSign, faEnvelopeOpenText, faHandHoldingUsd } from '@fortawesome/free-solid-svg-icons';
+import { faList, faUsers, faEnvelopeOpenText, faHandHoldingUsd } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 class HomeContent extends React.Component {
