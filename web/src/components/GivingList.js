@@ -3,7 +3,8 @@ import axios from "axios";
 import { Card, CardDeck } from "react-bootstrap";
 import { Link } from "@reach/router";
 import { SERVER_URL } from "../config";
-import "./giving-list.css"
+import { StyledCards, CardsItem, MyCard, CardImage, CardTitle, CardContent, CardText, MyButton, BottomContainer } from "./StyledGivngList.js"
+
 
 class GivngList extends Component {
   constructor(props) {
@@ -16,7 +17,6 @@ class GivngList extends Component {
       date: [],
       budget: []
     };
-    console.log(this.state.givngList)
   }
 
   changeHandler = (e) => {
@@ -65,22 +65,22 @@ class GivngList extends Component {
 
   render() {
     const myGivngList = this.state.givngList.map((givng, index) => (
-      <ul class="cards" key={index}>
-        <li class="cards__item">
-          <div class="card">
-            <div class="card__image card__image--flowers"></div>
-            <div class="card__content">
-              <div class="card__title">{givng.name}</div>
-              <p class="card__text">{givng.date}</p>
-              <p class="card__text">{givng.budget}</p>
-              <button class="btn btn--block card__btn"><Link to={`/givngs/${givng.id}`}>Access</Link></button>
+      <StyledCards key={index}>
+        <CardsItem>
+          <MyCard>
+            <CardImage {...givng.theme}></CardImage>
+            <CardContent>
+              <CardTitle>{givng.name}</CardTitle>
+              <CardText>{givng.date}</CardText>
+              <CardText>Budget: $ {givng.budget}</CardText>
+              <MyButton ><Link to={`/givngs/${givng.id}`}>acess your list</Link></MyButton>
               <form givng_id={givng.id} onSubmit={this.removeHandler}>
-                <button type="submit" class="btn btn--block card__btn"><Link to={`/givngs/${givng.id}`}>Delete</Link></button>
+                <button type="submit" className="btn btn--block card__btn">Delete</button>
               </form>
-            </div>
-          </div>
-        </li>
-      </ul>
+            </CardContent>
+          </MyCard>
+        </CardsItem>
+      </StyledCards>
     ));
 
     const { name, theme, date, budget} = this.state
@@ -98,9 +98,9 @@ class GivngList extends Component {
               <Card.Text>Add a New GIVNG:</Card.Text>
               <form onSubmit={this.submitHandler}><input type="text" placeholder="name" name="name" value={name} onChange={this.changeHandler}></input>
                 <select type="text" name="theme" value={theme} onChange={this.changeHandler}>
-                  <option value="Christmas">Christmas</option>
-                  <option value="Birthdays List">Birthdays List</option> 
-                  <option value="Other">Other</option> 
+                  <option>Christmas</option>
+                  <option>Birthdays List</option> 
+                  <option>Other</option> 
                 </select>
                 <input type="date" placeholder="date" name="date" value={date} onChange={this.changeHandler}></input>
                 <input type="decimal" placeholder="budget" name="budget" value={budget} onChange={this.changeHandler}></input><br />
@@ -108,6 +108,7 @@ class GivngList extends Component {
             </Card.Body>
           </Card>
         </CardDeck>
+        {/* <BottomContainer /> */}
       </div>
     );
   }

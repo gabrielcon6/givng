@@ -8,7 +8,7 @@ export const StyledNav = styled.nav`
     position: fixed;
 `;
 
-export const StyledNavLinks = styled.p`
+export const StyledNavLinks = styled.div`
     color: white;
     float: right;
     margin: 0 1vw;
@@ -28,4 +28,8 @@ export const LogoImg = styled.img`
     height: 15vh;
     position: fixed;
     cursor: pointer;
-`
+    @media (max-width: 450px) {
+    width: 25vw;
+    height: 10vh;  
+    }
+`;
