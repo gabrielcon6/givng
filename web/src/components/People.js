@@ -1,6 +1,6 @@
 import React from "react";
 import { SERVER_URL } from "../config";
-import Axios from "axios";
+import axios from "axios";
 
 class People extends React.Component {
   state = {
@@ -27,71 +27,67 @@ class People extends React.Component {
         });
       });
   }
-  handlePeopleEntered(event) {
-    const newPeople = event.target.value.toUpperCase();
-    this.setState({ name: newPeople });
-  }
-  handleBudgetEntered(event) {
-    const newBudget = event.target.value.toUpperCase();
-    this.setState({ person_budget: newBudget });
-  }
-
-  handleAddPeople(data) {
-    Axios.post(`http://localhost:3005/people.json`, {
+ 
+  changeHandler = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  submitHandler = e => {
+    e.preventDefault();
+    const peoplePost = {
       people: {
-        name: data.name,
-        budget: data.person_budget
+        name: this.state.name,
+        person_budget: this.state.budget,
+        group_id: 5,
+        is_bought: false
       }
-    })
-      .then(response => {
-        // TODO: use a toast service, or modal or something
-        // better than an allert.
-        alert("user successfully created, please login");
-        // Navigate to the home page.
-        console.log(response);
+    };
+    console.log(peoplePost);
+    axios
+      .post(`${SERVER_URL}/people.json`, peoplePost)
+      .then(res => {
+        console.log(res);
       })
-      .catch(err => {
-        console.error(err);
+      .catch(error => {
+        console.log(error);
       });
-    this.props.onHide();
-  }
-  handleNameChange = e => {
-    this.setState({ name: e.target.value });
   };
-
-  handleBudgetChange = e => {
-    this.setState({ budget: e.target.value });
-  };
-
   render() {
     const peopleElements = this.state.peopleList.map((peopleList, index) => {
       return (
-        <div key={peopleList.id}>
+        <div key={index}>
           <h2>{peopleList.name}</h2>
           <h3>{peopleList.person_budget}</h3>
         </div>
       );
     });
-
+const { name, budget } = this.state;
     return (
       <div>
         {peopleElements}
 
-        <label id="From">
-          New People
+        <form onSubmit={this.submitHandler}>
+          Name:{" "}
           <input
             type="text"
-            onChange={event => this.handlePeopleEntered(event)}
-          />
-        </label>
-        <label id="From">
-          Budget
+            placeholder="Name"
+            name="name"
+            value={name}
+            onChange={this.changeHandler}
+          ></input>
+          Budget:{" "}
           <input
-            type="text"
-            onChange={event => this.handleBudgetEntered(event)}
-          />
-        </label>
-        <button onClick={() => this.handleAddPeople()}>Add</button>
+            type="decimal"
+            placeholder="Budget"
+            name="budget"
+            value={budget}
+            onChange={this.changeHandler}
+          ></input>
+          
+
+          <button type="submit" className="btn btn-primary ">
+            Add people
+          </button>
+        </form>
       </div>
     );
   }
