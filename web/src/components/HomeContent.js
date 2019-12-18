@@ -11,17 +11,17 @@ class HomeContent extends React.Component {
     return (
         <Container>
         <Banner>
-            <Title primary >Give joy to your loved ones.</Title>
+            <Title primary >Give joy to your loved ones</Title>
         </Banner>
         <WrappedContainer colorPrimary>
             <InnerContainer>
                 <Text primary>
                     <Icon backPrimary colorPrimary><FontAwesomeIcon icon={faList} style={{padding: "0.3rem"}}/></Icon> 
-                    <IconText> Easy & free <span style={{fontWeight: "600"}}> gift lists organiser</span>.</IconText><br/>
+                    <IconText> Easy and free <span style={{fontWeight: "600"}}> gift organiser</span></IconText><br/>
                     <Icon backPrimary colorPrimary><FontAwesomeIcon icon={faUsers} style={{padding: "0.3rem"}}/></Icon> 
-                    <IconText> Lists for different groups of people & dates.</IconText><br/>
+                    <IconText> Create gift lists for different people and dates</IconText><br/>
                     <Icon backPrimary colorPrimary><FontAwesomeIcon icon={faHandHoldingUsd} style={{padding: "0.3rem"}}/></Icon> 
-                    <IconText> Split the budget amongst people.</IconText>
+                    <IconText> Easily manage the budget between people </IconText>
                 </Text>
             </InnerContainer>
         </WrappedContainer>
@@ -29,11 +29,11 @@ class HomeContent extends React.Component {
         <WrappedContainer background={"#DFE3E8"}>
             <InnerContainer>
                 <Text fontWeight={"200"}>
-                    <H1> Starting </H1>
-                    <Icon>1</Icon><IconText>Create an Account</IconText><br />
-                    <Icon>2</Icon><IconText>Add a Givng List for a Special Event</IconText> <br />
-                    <Icon>3</Icon><IconText>Create Groups of People Inside of the Lists</IconText> <br />
-                    <Icon>4</Icon><IconText>Define Budget for Each Group</IconText> <br />
+                    <H1> Getting Started </H1>
+                    <Icon>1</Icon><IconText>Create an account</IconText><br />
+                    <Icon>2</Icon><IconText>Add a Givng list for a special event</IconText> <br />
+                    <Icon>3</Icon><IconText>Create groups of people inside of the lists</IconText> <br />
+                    <Icon>4</Icon><IconText>Define budget for each group</IconText> <br />
                     <Icon>5</Icon><IconText>Start your Givings!</IconText> <br />
                 </Text>
             </InnerContainer>

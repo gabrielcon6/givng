@@ -3,7 +3,8 @@ import axios from "axios";
 import { Card, CardDeck } from "react-bootstrap";
 import { Link } from "@reach/router";
 import { SERVER_URL } from "../config";
-import { CardsParent, Title, StyledCards, CardsItem, MyCard, CardImage, CardTitle, CardContent, CardText, MyButton } 
+import { CardsParent, Title, StyledCards, CardsItem, MyCard, CardImage, CardTitle,
+   CardContent, CardText, MyButton, Input, BottomContainer, Select, BottomButtons } 
   from "../styles/StyledGivngList.js"
 import "../index.css"
 
@@ -90,26 +91,28 @@ class GivngList extends Component {
       <div className="Hi" style={{textAlign: "center"}}>
         <br />
         <br />
-        <Title>Your existing Givngs:</Title>
+        <Title>Your existing Givngs</Title>
         <CardsParent>{myGivngList}</CardsParent>
         <CardDeck >
-          <Card style={{backgroundColor: "#DFE3E8"}}>
+          <Card style={{backgroundColor: "#DFE3E8", marginTop: "4vh"}}>
             <Card.Body>
-              <Card.Title></Card.Title>
-              <Card.Text>Add a New GIVNG:</Card.Text>
-              <form onSubmit={this.submitHandler}><input type="text" placeholder="name" name="name" value={name} onChange={this.changeHandler}></input>
-                <select type="text" name="theme" value={theme} onChange={this.changeHandler}>
+              <Card.Title style={{letterSpacing: "0.3rem"}}>Add a New GIVNG</Card.Title>
+              <Card.Text>
+              <form onSubmit={this.submitHandler}>
+                <Input type="text" placeholder="name" name="name" value={name} onChange={this.changeHandler}></Input><br />
+                <Select type="text" name="theme" value={theme} onChange={this.changeHandler}>
                   <option>Christmas</option>
                   <option>Birthdays List</option> 
                   <option>Other</option> 
-                </select>
-                <input type="date" placeholder="date" name="date" value={date} onChange={this.changeHandler}></input>
-                <input type="decimal" placeholder="budget" name="budget" value={budget} onChange={this.changeHandler}></input><br />
-              <button type="submit">Submit</button></form>
+                </Select>< br/>
+                <Input type="date" placeholder="date" name="date" value={date} onChange={this.changeHandler}></Input> <br />
+                <Input type="decimal" placeholder="budget" name="budget" value={budget} onChange={this.changeHandler}></Input><br />
+              <BottomButtons type="submit">Submit</BottomButtons></form>
+              </Card.Text>
             </Card.Body>
           </Card>
         </CardDeck>
-        {/* <BottomContainer /> */}
+        <BottomContainer />
       </div>
     );
   }

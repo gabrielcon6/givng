@@ -146,7 +146,7 @@ class RegisterForm extends Component {
     render() {
         return (
         <ButtonToolbar>
-            <div onClick={() => this.setState({ show: true })}>Register</div>
+            <div style={{letterSpacing: "0.1rem"}} onClick={() => this.setState({ show: true })}>Register</div>
     
             <SignUpModal
             show={this.state.show}

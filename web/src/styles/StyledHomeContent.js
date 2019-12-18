@@ -44,7 +44,7 @@ export const Title = styled.div`
     color: ${props => props.primary ? "white" : "black"};
     font-weight: 200;
     font-size: 3rem;
-    letter-spacing: 2px;
+    letter-spacing: 0.35rem;
     display: table-cell; 
     vertical-align: middle; 
     text-align: middle; 

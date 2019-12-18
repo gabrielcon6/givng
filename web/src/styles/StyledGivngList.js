@@ -122,8 +122,8 @@ export const CardText = styled.p`
 `;
 
 export const BottomContainer = styled.div`
-  height: 20vh;
-  background-color: grey;
+  height: 10vh;
+  background-color: white;
 `;
 
 export const Title = styled.h1`
@@ -132,4 +132,53 @@ export const Title = styled.h1`
     letter-spacing: 0.8rem;
     text-align: center;
     margin: 1.5vh 0;
+`;
+
+export const Input = styled.input`
+  border-radius: 0.4rem;
+  border: 0.05rem solid grey;
+  min-width: 10vw;
+  max-width: 20vw;
+  min-height: 3.5vh;
+  max-height: 5vh;
+  margin: 0.5rem;
+  text-align: center;
+`; 
+
+export const Select = styled.select`
+  border-radius: 0.4rem;
+  border: 0.05rem solid grey;
+  min-width: 10vw;
+  max-width: 20vw;
+  min-height: 3.5vh;
+  max-height: 5vh;
+  margin: 0.5rem;
+  text-align: center;
+`;
+
+export const BottomButtons = styled.button`
+  box-sizing: border-box;
+  border-width: 0.05rem;
+  border-style: solid;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+  background: rgb(0, 4, 7);
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+  min-width: 7vw;
+  max-width: 15vw;
+  min-height: 3.5vh;
+  max-height: 5vh;
+  letter-spacing: 0.3rem;
+  margin-top: 1vh;
+
+  &:hover {
+  background: white;
+  color: black;
+  border: 0.05rem black solid;};
+  &:focus {
+    border-color: #2B2D42;
+  };
 `;
