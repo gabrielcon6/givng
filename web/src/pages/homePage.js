@@ -6,7 +6,8 @@ class HomePage extends Component {
   render() {
     return (
       <>
-        {this.props.user.isLoggedIn && <Redirect to="/dashboard" noThrow />}
+      
+        {(this.props.user.isLoggedIn && <Redirect to="/dashboard" noThrow />)}
         <HomeContent />
       </>
     );

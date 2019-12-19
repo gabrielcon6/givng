@@ -27,7 +27,7 @@ export default class NavBar extends Component {
                   <RegisterForm />
                 </StyledNavLinks>
                 <StyledNavLinks style={{ float: "right" }}>
-                  <LoginForm hello="hello" user={user}/>
+                  {/* <LoginForm hello="hello" user={user}/> */}
                 </StyledNavLinks>
               </>
             )}

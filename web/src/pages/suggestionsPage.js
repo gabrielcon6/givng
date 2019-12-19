@@ -17,6 +17,7 @@ export default class SuggestionsPage extends Component {
     });
     console.log(this.props);
     console.log(this.state.data)
+    console.log(this.props.suggestionBud)
   }
 
   render() {
