@@ -2,20 +2,12 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
-  /* text-align: center; */
-  /* justify-content: center; */
-  /* margin: 0 auto; */
   width: 100vw;
-  /* display:flex; */
   display: flex;
   flex: 1;
-  /* flex-wrap: wrap; */
-  /* list-style: none; */
   margin: 0;
   padding: 0;
   justify-content: center;
-
-  /* width: 20vw; */
   &::before {
     box-sizing: border-box;
   }
@@ -35,18 +27,10 @@ export const Title = styled.h1`
 
 export const CardsParent = styled.div`
   display: flex;
-  /* justify-content: center; */
-  /* align-content: stretch; */
   flex: 1;
-  /* overflow-y:auto; */
-  /* flex-direction:column; */
-  /* align-items:center; */
   flex-direction: row;
   flex-wrap: wrap;
   justify-content:center;
-
-  /* justify-content: space-between; */
-
 `;
 
 export const CardsItem = styled.div`
@@ -56,14 +40,10 @@ export const CardsItem = styled.div`
   padding: 1rem;
   max-width: 25vw;
   justify-content:center;
-
-
-  /* @media(min-width: 40rem) {
-    width: 50%;
+  margin: 20px;
+  &:nth-child() {
+    flex: 1 0 21%;
   }
-  @media(min-width: 56rem) {
-    width: 33.3333%;
-  } */
 `;
 
 export const MyCard = styled.div`
@@ -71,6 +51,8 @@ export const MyCard = styled.div`
   border-radius: 0.25rem;
   box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
   width: 100%;
+  text-align: center;
+  
   &:hover {
     .CardImage {
       filter: contrast(100%);
@@ -100,7 +82,6 @@ export const CardContent = styled.div`
   padding: 1rem;
   min-width: 15vw;
   min-height: 10vw;
-justify-content: center;
 `;
 
 
@@ -182,9 +163,12 @@ export const BottomButtons = styled.button`
   outline: 0;
   font-family: inherit;
   font-size: 0.95em;
-  background: rgb(0, 4, 7);
+  background: ${props => props.primary ? "white" : "rgb(0, 4, 7)"};
+  /* background: rgb(0, 4, 7); */
   border-color: transparent;
-  color: #fff;
+  /* border-color: transparent; */
+  color: ${props => props.primary ? "black" : "#fff"};
+  /* color: #fff; */
   cursor: pointer;
   min-width: 7vw;
   max-width: 15vw;
@@ -194,8 +178,8 @@ export const BottomButtons = styled.button`
   margin-top: 1vh;
 
   &:hover {
-  background: white;
-  color: black;
+  background: ${props => props.delete ? "red" : "white"};;
+  color: ${props => props.delete ? "white" : "black"};;
   border: 0.05rem black solid;};
   &:focus {
     border-color: #2B2D42;
