@@ -31,11 +31,14 @@ class People extends React.Component {
   };
   render() {
      console.log(this.props);
+     {console.log(this.props.groupBudget)}
+     let size = this.props.people.length
+     let groupBudget = this.props.groupBudget
       const peopleElements = this.props.people.map((person, index) => {
       return (
         <div key={index}>
           <h3>{person.name}</h3>
-          <h3>{person.person_budget}</h3>
+          <h3>{groupBudget/size}</h3>
           <Link to="/suggestions" ><button className="btn btn-outline-primary">Gift Suggestion</button></Link>
           
           <button className="btn btn-outline-primary" onClick={() => this.props.onDeletePerson(person.id)}>
@@ -58,14 +61,14 @@ const { name, budget } = this.state;
             value={name}
             onChange={this.changeHandler}
           ></input>
-          Budget:{" "}
+          {/* Budget:{" "}
           <input
             type="decimal"
             placeholder="Budget"
             name="budget"
             value={budget}
             onChange={this.changeHandler}
-          ></input>
+          ></input> */}
           <button className="btn btn-outline-primary" onClick={this.addNewPerson}>
             Add people
           </button>

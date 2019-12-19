@@ -74,6 +74,7 @@ class Groups extends React.Component {
               people={group.people}
               onAddPerson={(person) => this.onAddPerson(group.id, person)}
               onDeletePerson={this.props.onDeletePerson}
+              groupBudget={group.budget}
             
             />}
           </StyledDiv>
