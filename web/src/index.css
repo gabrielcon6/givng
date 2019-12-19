@@ -1,24 +1,35 @@
 body {
     font-family: 'Montserrat', sans-serif;
+    /* display:flex; */
+    /* flex:1; */
   }
 
-.Christmas {
+  html {
+    /* display:flex; */
+    /* width:100%; */
+    /* height:100%; */
+
+  }
+
+.Christmas, .xmas, .christmas {
     background-image: url(https://images.unsplash.com/photo-1543934638-bd2e138430c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
 }
 
-.Other {
+.Other, .other {
     background-image: url(https://images.pexels.com/photos/842876/pexels-photo-842876.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
 }
 
-.Easter {
+.Easter, .easter {
     background-image: url(https://images.pexels.com/photos/2072158/pexels-photo-2072158.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
 }
 
-.Birthdays {
+.Birthdays, .bday, .birthday {
     background-image: url(https://images.pexels.com/photos/1729797/pexels-photo-1729797.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
 }
 
-
+.card {
+  font-family: 'Montserrat', sans-serif !important;
+}
   
 .modal-content {
   background-color: #11ffee00 !important; /* Fully transparent */
@@ -28,4 +39,19 @@ body {
 .modal-header .close {
   color: white;
 }
+
+/* .givnglist {
+  display: flex;
+  flex-flow: column wrap;
+  height: 100%;
+  flex-wrap: nowrap;
+
+} */
+
+*,
+*::before,
+*::after { 
+  box-sizing: border-box;
+}
+
 

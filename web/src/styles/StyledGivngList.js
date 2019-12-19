@@ -1,27 +1,21 @@
 import styled from "styled-components";
 
-export const CardsParent = styled.div`
-  display: flex;
-  justify-content: center;
-  /* align-content: stretch; */
-  flex: 1;
-  /* overflow-y:auto; */
-  /* flex-direction:column; */
-  /* align-items:center; */
-  flex-direction: row;
-  flex-wrap: wrap;
 
-`;
-
-export const StyledCards = styled.ul`
+export const Container = styled.div`
+  /* text-align: center; */
+  /* justify-content: center; */
+  /* margin: 0 auto; */
+  width: 100vw;
+  /* display:flex; */
   display: flex;
   flex: 1;
   /* flex-wrap: wrap; */
   /* list-style: none; */
   margin: 0;
   padding: 0;
+  justify-content: center;
 
-  /* width: 40vw; */
+  /* width: 20vw; */
   &::before {
     box-sizing: border-box;
   }
@@ -29,12 +23,38 @@ export const StyledCards = styled.ul`
     box-sizing: border-box;
   }
 `;
-export const CardsItem = styled.li`
+
+export const Title = styled.h1`
+  padding-top: 10vh;
+  font-weight: 200;
+  font-size: 2.5rem;
+  letter-spacing: 0.8rem;
+  text-align: center;
+  margin: 1.5vh 0;
+`;
+
+export const CardsParent = styled.div`
+  display: flex;
+  /* justify-content: center; */
+  /* align-content: stretch; */
+  flex: 1;
+  /* overflow-y:auto; */
+  /* flex-direction:column; */
+  /* align-items:center; */
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:center;
+
+  /* justify-content: space-between; */
+
+`;
+
+export const CardsItem = styled.div`
   display: flex;
   list-style-type: none;
   flex: 1;
   padding: 1rem;
-  width: 25vw;
+  max-width: 25vw;
   justify-content:center;
 
 
@@ -50,7 +70,7 @@ export const MyCard = styled.div`
   background-color: white;
   border-radius: 0.25rem;
   box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
-  width: 25vw;
+  width: 100%;
   &:hover {
     .CardImage {
       filter: contrast(100%);
@@ -80,6 +100,7 @@ export const CardContent = styled.div`
   padding: 1rem;
   min-width: 15vw;
   min-height: 10vw;
+justify-content: center;
 `;
 
 
@@ -131,13 +152,6 @@ export const BottomContainer = styled.div`
   background-color: white;
 `;
 
-export const Title = styled.h1`
-    font-weight: 200;
-    font-size: 2.5rem;
-    letter-spacing: 0.8rem;
-    text-align: center;
-    margin: 1.5vh 0;
-`;
 
 export const Input = styled.input`
   border-radius: 0.4rem;

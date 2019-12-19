@@ -6,6 +6,7 @@ export const StyledNav = styled.nav`
     float: right;
     height: 6.5vh;
     position: fixed;
+    z-index: 20;
 `;
 
 export const StyledNavLinks = styled.div`
