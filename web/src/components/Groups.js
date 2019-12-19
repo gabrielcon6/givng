@@ -3,9 +3,9 @@ import React from "react";
 import axios from "axios";
 import { SERVER_URL } from "../config";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Jumbotron } from "react-bootstrap";
+// import { Container, Jumbotron } from "react-bootstrap";
 import People from "./People";
-import { StyledDiv, Title, Budget } from "../styles/StyledGroups";
+import { StyledDiv, Title, Budget, StyledContainer } from "../styles/StyledGroups";
 
 
 class Groups extends React.Component {
@@ -69,7 +69,7 @@ class Groups extends React.Component {
             <Title>{group.name}</Title>
             <Budget>{group.budget}</Budget>
             <button className="btn btn-outline-info" onClick={() => this.toggleHidden(group.id)}> Learn More </button>
-            <button className="btn btn-outline-info" onClick={() => this.handleDeleteGroupClick(group.id)}> Delete </button>
+            <button className="btn btn-outline-info" onClick={() => this.handleDeleteGroupClick(group.id)}> Delete Group</button>
             {this.state.expandedGroups.includes(group.id) && <People 
               people={group.people}
               onAddPerson={(person) => this.onAddPerson(group.id, person)}
@@ -80,13 +80,11 @@ class Groups extends React.Component {
         // </Jumbotron>
       );
     });
-    const { name, date, budget } = this.state;
+    const { name, budget } = this.state;
     return (
       <div>
-        <Container>
-          <h4>Groups</h4>
-          {groupElements}
-          <br />
+        <StyledContainer>
+          
           <form onSubmit={this.submitHandler}>
             Name:{" "}
             <input
@@ -104,12 +102,15 @@ class Groups extends React.Component {
               value={budget}
               onChange={this.changeHandler}
             ></input>
-           
-            <button type="submit" className="btn btn-primary ">
+
+            <button type="submit" className="btn btn-outline-primary ">
               Add a new group
             </button>
           </form>
-        </Container>
+          {groupElements}
+          <br />
+          
+        </StyledContainer>
         
       </div>
     );

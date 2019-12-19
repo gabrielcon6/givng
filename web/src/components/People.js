@@ -33,9 +33,9 @@ class People extends React.Component {
       const peopleElements = this.props.people.map((person, index) => {
       return (
         <div key={index}>
-          <h2>{person.name}</h2>
+          <h3>{person.name}</h3>
           <h3>{person.person_budget}</h3>
-          <button className="btn btn-primary" onClick={() => this.props.onDeletePerson(person.id)}>
+          <button className="btn btn-outline-primary" onClick={() => this.props.onDeletePerson(person.id)}>
             Delete people
           </button>
         </div>
@@ -63,7 +63,7 @@ const { name, budget } = this.state;
             value={budget}
             onChange={this.changeHandler}
           ></input>
-          <button className="btn btn-primary" onClick={this.addNewPerson}>
+          <button className="btn btn-outline-primary" onClick={this.addNewPerson}>
             Add people
           </button>
           
