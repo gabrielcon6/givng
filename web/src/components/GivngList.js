@@ -3,7 +3,7 @@ import axios from "axios";
 import { Card, CardDeck } from "react-bootstrap";
 import { Link } from "@reach/router";
 import { SERVER_URL } from "../config";
-import { CardsParent, Title, StyledCards, CardsItem, MyCard, CardImage, CardTitle,
+import { CardsParent, Title, StyledCards, CardsItem, MyCard, CardImage, CardTitle, Select,
    CardContent, CardText, MyButton, Input, BottomContainer, BottomButtons, Container, SubContainer } 
   from "../styles/StyledGivngList.js"
 import "../index.css"
@@ -102,12 +102,12 @@ class GivngList extends Component {
               <Card.Text>
               <form onSubmit={this.submitHandler}>
                 <Input type="text" placeholder="name" name="name" value={name} onChange={this.changeHandler}></Input><br />
-                {/* <Select type="text" name="theme" value={theme} onChange={this.changeHandler}>
+                <Select type="text" name="theme" value={theme} onChange={this.changeHandler}>
                   <option>Christmas</option>
                   <option>Birthdays List</option> 
                   <option>Other</option> 
-                </Select>< br/> */}
-                <Input type="text" placeholder="theme: i.e 'Christmas" name="theme" value={theme} onChange={this.changeHandler}></Input> <br />
+                </Select>< br/>
+                {/* <Input type="text" placeholder="theme: i.e 'Christmas" name="theme" value={theme} onChange={this.changeHandler}></Input> <br /> */}
                 <Input type="date" placeholder="date" name="date" value={date} onChange={this.changeHandler}></Input> <br />
                 <Input type="decimal" placeholder="budget" name="budget" value={budget} onChange={this.changeHandler}></Input><br />
               <BottomButtons type="submit">Submit</BottomButtons></form>
