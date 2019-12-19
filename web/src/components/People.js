@@ -36,7 +36,7 @@ class People extends React.Component {
         <div key={index}>
           <h3>{person.name}</h3>
           <h3>{person.person_budget}</h3>
-          <Link to="/suggestions" ><button className="btn btn-outline-primary" onClick={() => this.props.onGetSuggestion()}>Gift Suggestion</button></Link>
+          <Link to="/suggestions" ><button className="btn btn-outline-primary">Gift Suggestion</button></Link>
           
           <button className="btn btn-outline-primary" onClick={() => this.props.onDeletePerson(person.id)}>
             Delete people
