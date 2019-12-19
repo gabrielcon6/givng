@@ -30,6 +30,8 @@ class People extends React.Component {
      {console.log(this.props.groupBudget)}
      let size = this.props.people.length
      let groupBudget = this.props.groupBudget
+     let suggestionBud = groupBudget/size
+     console.log(suggestionBud)
       const peopleElements = this.props.people.map((person, index) => {
       return (
         <div key={index}>
