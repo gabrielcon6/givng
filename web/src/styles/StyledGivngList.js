@@ -2,18 +2,24 @@ import styled from "styled-components";
 
 export const CardsParent = styled.div`
   display: flex;
-  height: 100%;
   justify-content: center;
-  align-content: stretch;
+  /* align-content: stretch; */
+  flex: 1;
+  /* overflow-y:auto; */
+  /* flex-direction:column; */
+  /* align-items:center; */
+  flex-direction: row;
+  flex-wrap: wrap;
+
 `;
 
 export const StyledCards = styled.ul`
-  /* display: flex; */
+  display: flex;
+  flex: 1;
   /* flex-wrap: wrap; */
   /* list-style: none; */
   margin: 0;
   padding: 0;
-  width: 25%;
 
   /* width: 40vw; */
   &::before {
@@ -24,10 +30,13 @@ export const StyledCards = styled.ul`
   }
 `;
 export const CardsItem = styled.li`
-  /* display: flex; */
+  display: flex;
   list-style-type: none;
+  flex: 1;
   padding: 1rem;
-  width: 100%;
+  width: 25vw;
+  justify-content:center;
+
 
   /* @media(min-width: 40rem) {
     width: 50%;
@@ -41,11 +50,7 @@ export const MyCard = styled.div`
   background-color: white;
   border-radius: 0.25rem;
   box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
-  /* display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  min-width: 100%;
-  max-width: 100%;  */
+  width: 25vw;
   &:hover {
     .CardImage {
       filter: contrast(100%);
