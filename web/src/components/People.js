@@ -1,7 +1,8 @@
 import React from "react";
 import { SERVER_URL } from "../config";
 import axios from "axios";
-
+import SuggestionsPage from "../pages/suggestionsPage";
+import { Link } from "@reach/router";
 class People extends React.Component {
   state = {
     peopleList: [
@@ -35,6 +36,8 @@ class People extends React.Component {
         <div key={index}>
           <h3>{person.name}</h3>
           <h3>{person.person_budget}</h3>
+          <Link to="/suggestions" ><button className="btn btn-outline-primary" onClick={() => this.props.onGetSuggestion()}>Gift Suggestion</button></Link>
+          
           <button className="btn btn-outline-primary" onClick={() => this.props.onDeletePerson(person.id)}>
             Delete people
           </button>
@@ -44,7 +47,7 @@ class People extends React.Component {
 const { name, budget } = this.state;
     return (
       <div>
-        {peopleElements}
+        
 
         <form onSubmit={this.submitHandler}>
           Name:{" "}
@@ -66,7 +69,7 @@ const { name, budget } = this.state;
           <button className="btn btn-outline-primary" onClick={this.addNewPerson}>
             Add people
           </button>
-          
+          {peopleElements}
         </form>
       </div>
     );

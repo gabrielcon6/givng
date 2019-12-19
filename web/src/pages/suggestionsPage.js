@@ -15,10 +15,12 @@ export default class SuggestionsPage extends Component {
     this.setState({
         data: response.products,
     });
+    console.log(this.props);
     console.log(this.state.data)
   }
 
   render() {
+    
     const myDatabase = 
     this.state.data.map(s => (
       <Fragment key={s.id}>
@@ -32,7 +34,8 @@ export default class SuggestionsPage extends Component {
     ));
     return (
       <div style={{paddingTop: "10vh", textAlign: "center"}}>
-        <h1>Gifts Suggestions</h1>< br/>
+        <h1>Gifts Suggestions</h1>
+        <h2>Budget: {}</h2>< br />
         <ul>{myDatabase}</ul>
       </div>
     );
