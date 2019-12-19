@@ -1,8 +1,4 @@
-import React from "react";
-import { SERVER_URL } from "../config";
-import axios from "axios";
-import SuggestionsPage from "../pages/suggestionsPage";
-import { Link } from "@reach/router";
+import React, { Route } from "react";
 class People extends React.Component {
   state = {
     peopleList: [
@@ -39,7 +35,7 @@ class People extends React.Component {
         <div key={index}>
           <h3>{person.name}</h3>
           <h3>{groupBudget/size}</h3>
-          <Link to="/suggestions" ><button className="btn btn-outline-primary">Gift Suggestion</button></Link>
+          <Route path={`/suggestions`} budget={groupBudget/size}><button className="btn btn-outline-primary">Gift Suggestion</button></Route>
           
           <button className="btn btn-outline-primary" onClick={() => this.props.onDeletePerson(person.id)}>
             Delete people

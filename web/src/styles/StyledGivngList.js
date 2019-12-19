@@ -178,10 +178,11 @@ export const BottomButtons = styled.button`
   margin-top: 1vh;
 
   &:hover {
-  background: ${props => props.delete ? "red" : "white"};;
-  color: ${props => props.delete ? "white" : "black"};;
-  border: 0.05rem black solid;};
+  background: white;
+  color: ${props => props.delete ? "red" : "black"};
+  border: ${props => props.delete ? "0.05rem red solid" : "0.05rem black solid"};
   &:focus {
     border-color: #2B2D42;
-  };
+  }
+ }
 `;
