@@ -1,11 +1,11 @@
 import React from "react";
 
-import axios from "axios";
-import { SERVER_URL } from "../config";
+// import axios from "axios";
+// import { SERVER_URL } from "../config";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import { Container, Jumbotron } from "react-bootstrap";
 import People from "./People";
-import { StyledDiv, Title, Budget, StyledContainer } from "../styles/StyledGroups";
+import { StyledDiv, Title, Budget, Person } from "../styles/StyledGroups";
 import { BottomButtons, Input, MiddleContainer } from "../styles/StyledGivngList.js"
 
 class Groups extends React.Component {
@@ -67,9 +67,9 @@ class Groups extends React.Component {
         // <Jumbotron>
           <StyledDiv key={index}>
             <Title>{group.name}</Title>
-            <Budget>{group.budget}</Budget>
-            <button className="btn btn-outline-info" onClick={() => this.toggleHidden(group.id)}> View List </button>
-            <button className="btn btn-outline-info" onClick={() => this.handleDeleteGroupClick(group.id)}> Delete </button>
+            <Budget> ${group.budget}0</Budget>
+            <BottomButtons primary onClick={() => this.toggleHidden(group.id)}> View List </BottomButtons>
+            <BottomButtons primary delete onClick={() => this.handleDeleteGroupClick(group.id)}> Delete </BottomButtons>
             {this.state.expandedGroups.includes(group.id) && <People 
               people={group.people}
               onAddPerson={(person) => this.onAddPerson(group.id, person)}
@@ -85,8 +85,9 @@ class Groups extends React.Component {
     return (
       <div>
         <MiddleContainer>
-          
-          <form onSubmit={this.submitHandler}>
+        {groupElements}
+
+          <form onSubmit={this.submitHandler} style={{paddingTop: "5vh"}}>
             Name:{" "}
             <Input
               type="text"
@@ -108,7 +109,6 @@ class Groups extends React.Component {
               Add a new group
             </BottomButtons>
           </form>
-          {groupElements}
           <br />
           
         </MiddleContainer>

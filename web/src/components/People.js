@@ -1,15 +1,21 @@
-import React, { Route } from "react";
-import { SERVER_URL } from "../config";
-import axios from "axios";
+import React from "react";
+// import { SERVER_URL } from "../config";
+// import axios from "axios";
 import { Link } from "@reach/router";
+import { PeopleTitle, Budget, PeopleContainer, Person, XButton, XPerson, Underline } from "../styles/StyledGroups"
+import { BottomButtons, Input, MiddleContainer } from "../styles/StyledGivngList.js"
+
 class People extends React.Component {
+  
   state = {
     peopleList: [
       {
         name: "",
         person_budget: ""
-      }
-    ]
+      },
+    ],
+    groupBudget: this.props.groupBudget,
+    size: this.props.people.length
   };
   componentDidMount() {
 
@@ -32,50 +38,42 @@ class People extends React.Component {
      console.log(this.props);
      let size = this.props.people.length
      let groupBudget = this.props.groupBudget
-     let suggestionBud = groupBudget/size
       const peopleElements = this.props.people.map((person, index) => {
       return (
         <div key={index}>
-          <h3>{person.name}</h3>
-          <h3>{groupBudget/size}</h3>
+          <XPerson>
+      <Person>{person.name}  <b>$</b> {Math.round(((groupBudget/size) + 0.00001) * 100) / 100}</Person> 
+          <XButton onClick={() => this.props.onDeletePerson(person.id)}>x</XButton>
+          </XPerson>
           {/* <Link to="/suggestions" ><button className="btn btn-outline-primary">Gift Suggestion</button></Link> */}
-          <Link to={`/suggestions/${groupBudget/size}`}><button className="btn btn-outline-primary">Gift Suggestion</button></Link>
           {/* <Route path="/suggestions" budget={groupBudget/size}><button className="btn btn-outline-primary">Gift Suggestion</button></Route> */}
-
-          <button className="btn btn-outline-primary" onClick={() => this.props.onDeletePerson(person.id)}>
-            Delete Person
-          </button>
         </div>
       );
     });
 const { name, budget } = this.state;
+
     return (
-      <div>
-        
+      <PeopleContainer>
+        {/* <PeopleTitle>List of <br></br>People</PeopleTitle> */}
+        {peopleElements}
+        <Link to={`/suggestions/${this.state.groupBudget/this.state.size}`}><BottomButtons primary style={{marginBottom: "4vh"}}>Gift Suggestion</BottomButtons></Link>
 
         <form onSubmit={this.submitHandler}>
           Name:{" "}
-          <input
+          <Input
             type="text"
             placeholder="Name"
             name="name"
             value={name}
             onChange={this.changeHandler}
-          ></input>
-          {/* Budget:{" "}
-          <input
-            type="decimal"
-            placeholder="Budget"
-            name="budget"
-            value={budget}
-            onChange={this.changeHandler}
-          ></input> */}
-          <button className="btn btn-outline-primary" onClick={this.addNewPerson}>
+          ></Input>
+          <BottomButtons onClick={this.addNewPerson}>
             Add Person
-          </button>
-          {peopleElements}
+          </BottomButtons>
         </form>
-      </div>
+          <Underline></Underline>
+
+      </PeopleContainer>
     );
   }
 }
