@@ -1,8 +1,8 @@
 class UsersController < ApiController 
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
- # before_action :authorize_request, only: [
-  #      :get_by_id, :update_user, :delete_user
-  #  ]
+  before_action :authorize_request, only: [
+        :get_by_id, :update_user, :delete_user
+    ]
 
   # GET /users
   # GET /users.json

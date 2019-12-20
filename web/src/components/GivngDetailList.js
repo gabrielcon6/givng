@@ -1,4 +1,4 @@
-import React { Component } from "react";
+import React, { Component } from "react";
 import axios from 'axios';
 import { SERVER_URL } from "../config";
 // import { Container } from "react-bootstrap";
