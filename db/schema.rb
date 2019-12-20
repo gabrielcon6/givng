@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_12_15_062431) do
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
-    t.decimal "budget"
+    t.decimal "budget", precision: 10, scale: 2
     t.integer "givng_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

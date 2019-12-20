@@ -21,31 +21,23 @@ export default class NavBar extends Component {
           </Link>
             {!user.isLoggedIn && (
               <>
-                {/* <StyledNavLinks style={{float:'right'}}><Link to="/">Login</Link></StyledNavLinks> */}
+                <StyledNavLinks style={{float:'right'}}><Link to="/login">Login</Link></StyledNavLinks>
                 {/* <StyledNavLinks style={{float:'right'}}><Link to="/register">Register</Link></StyledNavLinks> */}
                 <StyledNavLinks style={{ float: "right" }}>
                   <RegisterForm />
-                </StyledNavLinks>
-                <StyledNavLinks style={{ float: "right" }}>
-                  {/* <LoginForm hello="hello" user={user}/> */}
                 </StyledNavLinks>
               </>
             )}
 
             {user.isLoggedIn && user.currentUser && (
               <>
-                <StyledNavLinks>Special Dates</StyledNavLinks>
-                <StyledNavLinks>Favourite Friends</StyledNavLinks>
-                <StyledNavLinks>Logout</StyledNavLinks>
-                <li style={{ float: "right", marginRight: "5px" }}>
-                  <span className="app-nav-user-info">
-                    {user.currentUser.email}
-                    <br />
-                    <a href="#" onClick={e => this.handleLogoutClick(e)}>
-                      logout
-                    </a>
-                  </span>
-                </li>
+                {/* <StyledNavLinks>Special Dates</StyledNavLinks>
+                <StyledNavLinks>Favourite Friends</StyledNavLinks> */}
+                <StyledNavLinks>
+                    <div onClick={e => this.handleLogoutClick(e)}>
+                      Logout
+                    </div>
+                </StyledNavLinks>
               </>
             )}
         </StyledNav>

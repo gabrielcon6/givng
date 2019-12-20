@@ -8,17 +8,20 @@ import { CardsParent, Title, StyledCards, CardsItem, MyCard, CardImage, CardTitl
   from "../styles/StyledGivngList.js"
 import "../index.css"
 
+
 class GivngList extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
       givngList: [],
       name: [],
       theme: [],
-      userId: 1,// THIS IS HARDCODED - SHOULD ACCEPT PARAMS - USER ID
+      userId:[],// THIS IS HARDCODED - SHOULD ACCEPT PARAMS - USER ID
       date: [],
       budget: []
     };
+    console.log(this.props.userProps.currentUser.id + 'SEILAAA')
   }
 
   changeHandler = (e) => {
@@ -59,7 +62,7 @@ class GivngList extends Component {
   }
   
   componentDidMount() {
-  
+    // this.setState({userId: {this.props.userProps.currentUser.id}})
     axios
     .get(`${SERVER_URL}/givngs.json`)
     .then(res => {

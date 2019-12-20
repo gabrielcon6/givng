@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Router } from "@reach/router";
+import { Router, Redirect } from "@reach/router";
 
 import DashboardPage from "./pages/dashboardPage";
 import HomePage from "./pages/homePage";
 import SuggestionsPage from "./pages/suggestionsPage";
-import LoginForm from "./pages/LoginForm";
+import LoginForm from "./components/LoginForm";
 
 import NavBar from "./components/NavBar";
 import { SERVER_URL } from "./config.js";
@@ -51,6 +51,7 @@ export default class App extends Component {
         password: password
       })
       .then(response => {
+        console.log('response:' + response)
         sessionStorage.setItem('auth', JSON.stringify(response.data));
         this.getUser();
       })
@@ -78,7 +79,7 @@ export default class App extends Component {
 
         <Router>
           <HomePage path="/" user={userProps} />
-          {/* <LoginForm path="/login" user={userProps} /> */}
+          <LoginForm path="/login" user={userProps} />
           <DashboardPage path="dashboard" user={userProps} />
           <GivngDetailsPage path="givngs/:givngId" user={userProps} />
           <SuggestionsPage path="suggestions/:budget" user={userProps} />
