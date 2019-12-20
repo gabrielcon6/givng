@@ -37,9 +37,6 @@ class People extends React.Component {
       return (
         <div key={index}>
           <h3>{person.name}</h3>
-          <h3>{(suggestionBud.toFixed(2))}</h3>
-          <Link to="/suggestions" suggestionBud={suggestionBud} ><button className="btn btn-outline-primary">Gift Suggestion</button></Link>
-          
           <h3>{groupBudget/size}</h3>
           {/* <Link to="/suggestions" ><button className="btn btn-outline-primary">Gift Suggestion</button></Link> */}
           <Link to={`/suggestions/${groupBudget/size}`}><button className="btn btn-outline-primary">Gift Suggestion</button></Link>
