@@ -1,7 +1,6 @@
-import React from "react";
+import React, { Route } from "react";
 import { SERVER_URL } from "../config";
 import axios from "axios";
-import SuggestionsPage from "../pages/suggestionsPage";
 import { Link } from "@reach/router";
 class People extends React.Component {
   state = {
@@ -31,11 +30,9 @@ class People extends React.Component {
   };
   render() {
      console.log(this.props);
-     {console.log(this.props.groupBudget)}
      let size = this.props.people.length
      let groupBudget = this.props.groupBudget
      let suggestionBud = groupBudget/size
-     console.log(suggestionBud)
       const peopleElements = this.props.people.map((person, index) => {
       return (
         <div key={index}>
@@ -43,6 +40,11 @@ class People extends React.Component {
           <h3>{(suggestionBud.toFixed(2))}</h3>
           <Link to="/suggestions" suggestionBud={suggestionBud} ><button className="btn btn-outline-primary">Gift Suggestion</button></Link>
           
+          <h3>{groupBudget/size}</h3>
+          {/* <Link to="/suggestions" ><button className="btn btn-outline-primary">Gift Suggestion</button></Link> */}
+          <Link to={`/suggestions/${groupBudget/size}`}><button className="btn btn-outline-primary">Gift Suggestion</button></Link>
+          {/* <Route path="/suggestions" budget={groupBudget/size}><button className="btn btn-outline-primary">Gift Suggestion</button></Route> */}
+
           <button className="btn btn-outline-primary" onClick={() => this.props.onDeletePerson(person.id)}>
             Delete people
           </button>

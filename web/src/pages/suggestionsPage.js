@@ -1,18 +1,20 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Link } from "@reach/router";
-import { Container, CardsItem, MyCard, CardsImage, CardContent, CardTitle, CardImage, CardText, MyButton } from "../styles/StyledGivngList"
+import { Container, CardsItem, MyCard, CardContent, CardTitle, CardText, MyButton } from "../styles/StyledGivngList"
 
 export default class SuggestionsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: [],
+      this_budget: this.props.budget
     };
   }
 
   async componentDidMount() {
     const api_key ='aEMUHyG8DBAXmpLf1GACP4bG';
-    const data = await fetch(`https://api.bestbuy.com/v1/products(regularPrice<=22)?apiKey=${api_key}&sort=regularPrice.dsc&show=categoryPath.name,addToCartUrl,image,name,regularPrice,type&pageSize=15&format=json`)
+    console.log(this.state.this_budget)
+    const data = await fetch(`https://api.bestbuy.com/v1/products(regularPrice<=${this.state.this_budget})?apiKey=${api_key}&sort=regularPrice.dsc&show=categoryPath.name,addToCartUrl,image,name,regularPrice,type&pageSize=25&format=json`)
     const response = await data.json()
     this.setState({
         data: response.products,
@@ -42,9 +44,8 @@ export default class SuggestionsPage extends Component {
     return (
       <div style={{paddingTop: "10vh", textAlign: "center"}}>
         <h1>Gifts Suggestions</h1>
-        <h2>Budget: TBA {}</h2>< br />
+        <h2>Budget: $ {this.state.this_budget}</h2>< br />
         <Container>{myApiList}</Container>
-            
       </div>
     );
   }

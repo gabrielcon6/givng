@@ -4,6 +4,7 @@ import { Router } from "@reach/router";
 import DashboardPage from "./pages/dashboardPage";
 import HomePage from "./pages/homePage";
 import SuggestionsPage from "./pages/suggestionsPage";
+import LoginForm from "./pages/LoginForm";
 
 import NavBar from "./components/NavBar";
 import { SERVER_URL } from "./config.js";
@@ -77,9 +78,10 @@ export default class App extends Component {
 
         <Router>
           <HomePage path="/" user={userProps} />
+          {/* <LoginForm path="/login" user={userProps} /> */}
           <DashboardPage path="dashboard" user={userProps} />
           <GivngDetailsPage path="givngs/:givngId" user={userProps} />
-          <SuggestionsPage path="suggestions" user={userProps} />
+          <SuggestionsPage path="suggestions/:budget" user={userProps} />
         </Router>
       </>
     );

@@ -76,11 +76,11 @@ class GivngList extends Component {
           <MyCard>
             <CardImage className={`${givng.theme}`}></CardImage>
             <CardContent>
-              <CardTitle>{givng.name}</CardTitle>
+              <CardTitle><Link to={`/givngs/${givng.id}`}>{givng.name}</Link></CardTitle>
               <CardText>{givng.date}</CardText>
               <CardText>Budget: $ {givng.budget}</CardText>
-              <MyButton ><Link to={`/givngs/${givng.id}`}>access your list</Link></MyButton>
-                <button type="submit" onClick={() => this.removeHandler(givng.id)}>Delete</button>
+                <BottomButtons primary delete type="submit" onClick={() => this.removeHandler(givng.id)}>Delete</BottomButtons>
+                <BottomButtons primary type="submit" onClick={() => this.updateHandler(givng.id)}>Edit</BottomButtons>
             </CardContent>
           </MyCard>
         </CardsItem>
