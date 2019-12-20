@@ -188,3 +188,9 @@ export const BottomButtons = styled.button`
   }
  }
 `;
+
+  
+export const MiddleContainer = styled.div`
+    background-color: #DFE3E8;
+    text-align: center;
+    `;

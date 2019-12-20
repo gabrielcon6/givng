@@ -3,6 +3,8 @@ import axios from 'axios';
 import { SERVER_URL } from "../config";
 // import { Container } from "react-bootstrap";
 import { StyledContainer } from "../styles/StyledGivngDetailList";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 class GivngDetailList extends Component {
   state = {
@@ -23,8 +25,8 @@ class GivngDetailList extends Component {
     const givngTitle = this.state.givngList.map((givngList, index) => {
       return (
         <div>
+          
           <StyledContainer key={index}>
-            <h1>{givngList.theme}</h1>
             <h2>Total Budget: {givngList.budget}</h2>
           </StyledContainer>
         </div>

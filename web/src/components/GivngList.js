@@ -3,10 +3,12 @@ import axios from "axios";
 import { Card, CardDeck } from "react-bootstrap";
 import { Link } from "@reach/router";
 import { SERVER_URL } from "../config";
-import { CardsParent, Title, StyledCards, CardsItem, MyCard, CardImage, CardTitle, Select,
-   CardContent, CardText, MyButton, Input, BottomContainer, BottomButtons, Container, SubContainer } 
-  from "../styles/StyledGivngList.js"
 import "../index.css"
+import { CardsParent, Title, StyledCards, CardsItem, MyCard, 
+        CardImage, CardTitle, Select,
+        CardContent, CardText, MyButton, Input, BottomContainer, 
+        BottomButtons, Container, SubContainer } 
+        from "../styles/StyledGivngList.js"
 
 class GivngList extends Component {
   constructor(props) {
