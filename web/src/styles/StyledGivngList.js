@@ -193,4 +193,7 @@ export const BottomButtons = styled.button`
 export const MiddleContainer = styled.div`
     background-color: #DFE3E8;
     text-align: center;
+    font-family: inherit;
+    letter-spacing: 0.2rem;
+
     `;

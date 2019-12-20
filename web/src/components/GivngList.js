@@ -84,7 +84,7 @@ class GivngList extends Component {
             <CardContent>
             <CardTitle>{givng.name}</CardTitle>
               <CardText>{givng.date}</CardText>
-              <CardText>Budget: $ {givng.budget}</CardText>
+              <CardText>Budget: $ {givng.budget}0</CardText>
                 <Link to={`/givngs/${givng.id}`}><BottomButtons primary type="submit">View</BottomButtons></Link>
                 <BottomButtons primary delete type="submit" onClick={() => this.removeHandler(givng.id)}>Delete</BottomButtons>
             </CardContent>
