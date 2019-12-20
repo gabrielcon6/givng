@@ -44,7 +44,7 @@ export default class SuggestionsPage extends Component {
     return (
       <div style={{paddingTop: "10vh", textAlign: "center"}}>
         <h1>Gifts Suggestions</h1>
-        {/* <h2>Budget: $ {Math.round(((groupBudget/size) + 0.00001) * 100) / 100}{this.state.this_budget}</h2>< br /> */}
+        <h2>Budget: $ {Math.round(((Number(this.state.this_budget)) + 0.00001) * 100) / 100}</h2>< br />
         <Container>{myApiList}</Container>
       </div>
     );
