@@ -51,7 +51,7 @@ export default class LoginForm extends Component {
               onChange={this.handlePasswordChange}
               />
             
-            <BottomButtons style={{marginTop: "-1vh", marginBottom: "1vh"}} primary value="Login" className="loginBtn" onClick={() => this.onLoginClick() }>LOGIN</BottomButtons>
+            <BottomButtons style={{marginTop: "-1vh", marginBottom: "1vh", borderRadius: "2px"}} primary value="Login" className="loginBtn" onClick={() => this.onLoginClick() }>LOGIN</BottomButtons>
             
         </div>
 

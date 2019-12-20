@@ -21,7 +21,7 @@
     "react-scripts": "3.3.0",
     "save": "^2.4.0",
     "styled-components": "^4.4.1"
-  },
+},
   "scripts": {
     "start": "PORT=3006 react-scripts start",
     "build": "react-scripts build",
