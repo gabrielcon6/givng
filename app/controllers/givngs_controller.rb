@@ -5,6 +5,8 @@ class GivngsController < ApiController
   # GET /givngs
   # GET /givngs.json
   def index
+    # @givngs = Givng.where(:user_id => 1)
+    # render json: @givngs
     @givngs = Givng.all
     render json: @givngs
   end
