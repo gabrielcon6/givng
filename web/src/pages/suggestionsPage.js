@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "@reach/router";
-import { Container, CardsItem, MyCard, CardContent, CardTitle, CardText, MyButton } from "../styles/StyledGivngList"
+// import { Link } from "@reach/router";
+import { Container, CardsItem, MyCard, CardContent, CardTitle, CardText } from "../styles/StyledGivngList"
 
 export default class SuggestionsPage extends Component {
   constructor(props) {
