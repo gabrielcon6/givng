@@ -13,7 +13,7 @@ class GivngDetail extends React.Component {
       <StyledContainer>
         <Title>{givng.name}</Title>
         <H2>Total Budget: {givng.budget}</H2>
-        <EditGivng givng={givng.id}/>
+        {/* <EditGivng givng={givng.id}/> */}
         <H3>Your groups:</H3>
       </StyledContainer>
       
