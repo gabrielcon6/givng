@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-// import { Link } from "@reach/router";
 import { Container, CardsItem, MyCard, CardContent, CardTitle, CardText } from "../styles/StyledGivngList"
+import { Title, H2 } from "../styles/StyledGivngDetailList";
 
 export default class SuggestionsPage extends Component {
   constructor(props) {
@@ -43,8 +43,8 @@ export default class SuggestionsPage extends Component {
     ));
     return (
       <div style={{paddingTop: "10vh", textAlign: "center"}}>
-        <h1>Gifts Suggestions</h1>
-        <h2>Budget: $ {Math.round(((Number(this.state.this_budget)) + 0.00001) * 100) / 100}</h2>< br />
+        <Title>Gifts Suggestions</Title>
+        <H2>Budget: $ {Math.round(((Number(this.state.this_budget)) + 0.00001) * 100) / 100}</H2>< br />
         <Container>{myApiList}</Container>
       </div>
     );
