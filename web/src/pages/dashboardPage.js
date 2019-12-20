@@ -4,7 +4,6 @@ import { Redirect } from "@reach/router";
 
 class DashboardPage extends Component {
   render() {
-    console.log(this.props.user)
     return (
       <div>
         {!this.props.user.isLoggedIn && <Redirect to="/" noThrow />}        
@@ -13,5 +12,4 @@ class DashboardPage extends Component {
     );
   }
 }
-
 export default DashboardPage;

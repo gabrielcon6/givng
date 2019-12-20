@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import RegisterForm from "./RegisterForm";
 import { StyledNav, StyledNavLinks, LogoImg } from "../styles/StyledNavBar";
+import LoginForm from "./LoginForm"
 
 export default class NavBar extends Component {
   handleLogoutClick(event) {
@@ -20,7 +21,9 @@ export default class NavBar extends Component {
           </Link>
             {!user.isLoggedIn && (
               <>
-                <StyledNavLinks style={{float:'right'}}><Link to="/login">Login</Link></StyledNavLinks>
+                <StyledNavLinks style={{float:'right'}}>
+                  <LoginForm user={user}/>
+                </StyledNavLinks>
                 {/* <StyledNavLinks style={{float:'right'}}><Link to="/register">Register</Link></StyledNavLinks> */}
                 <StyledNavLinks style={{ float: "right" }}>
                   <RegisterForm />

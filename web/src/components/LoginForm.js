@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Login, LoginTriangle, LoginHeader, LoginContainer, P, Input, BottomButtons } 
  from "../styles/StyledForm";
 import { Redirect } from "@reach/router";
+import { StyledNav, StyledNavLinks, LogoImg } from "../styles/StyledNavBar";
 
 
 export default class LoginForm extends Component {
@@ -28,39 +29,33 @@ export default class LoginForm extends Component {
 
     render() {
         return (
-        <div>
-          {this.props.user.isLoggedIn && <Redirect to="/dashboard" noThrow />}    
-          <br /><br /><br /><br /><br />
-          <Login>
-            <LoginTriangle />
-            <LoginHeader>
-                Login
-            </LoginHeader>
-            <LoginContainer>
+        <div style={{
+            display: 'flex', 
+            flexDirection: 'row'
+        }}>
+          {/* {this.props.user.isLoggedIn && <Redirect to="/dashboard" noThrow />}     */}
               <label htmlFor="email"></label>
-              <P><Input
+              <input 
               type="text"
               placeholder="Enter Email"
               name="email"
               required
               value={this.state.email}
               onChange={this.handleEmailChange}
-              /></P>
+              />
   
               <label htmlFor="password"></label>
-              <P><Input
+              <input
               type="password"
               placeholder="Enter Password"
               name="password"
               required
               value={this.state.password}
               onChange={this.handlePasswordChange}
-              /></P><br />
-  
-              <div className="clearfix">
-              <P><BottomButtons value="Login" className="loginBtn" onClick={() => this.onLoginClick() }></BottomButtons></P>
-              </div>
-            </LoginContainer>
-          </Login>
+              />
+            
+            <button value="Login" className="loginBtn" onClick={() => this.onLoginClick() }>LOGIN</button>
+            
         </div>
+
     )}}
