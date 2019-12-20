@@ -63,6 +63,7 @@ export default class App extends Component {
   handleLogout() {
     sessionStorage.setItem("auth", null);
     this.setState({ currentUser: null, isLoggedIn: false });
+    window.location.href = "/"
   }
 
   render() {

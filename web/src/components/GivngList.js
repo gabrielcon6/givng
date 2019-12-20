@@ -23,7 +23,6 @@ class GivngList extends Component {
       date: [],
       budget: []
     };
-    console.log(this.props.userProps.currentUser.id + 'SEILAAA')
   }
 
   changeHandler = (e) => {

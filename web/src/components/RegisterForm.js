@@ -20,7 +20,6 @@ class SigUpContent extends Component {
     }
 
     onSignupClick() {
-        // TODO: validate inputs
         this.props.onSignup(this.state);
     }
 
