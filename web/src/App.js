@@ -20,7 +20,8 @@ export default class App extends Component {
     let auth = JSON.parse(sessionStorage.getItem("auth"));
     this.state = {
       isLoggedIn: !!auth ? true : false,
-      currentUser: null
+      currentUser: null,
+      userId: ""
     };
   }
 
@@ -37,9 +38,11 @@ export default class App extends Component {
         headers: { Authorization: `Bearer ${auth.token}` }
       })
       .then(response => {
+        console.log(auth.userId);
         this.setState({
           currentUser: response.data,
-          isLoggedIn: true
+          isLoggedIn: true,
+          userId: auth.userId
         });
       });
   }
@@ -64,9 +67,10 @@ export default class App extends Component {
     sessionStorage.setItem("auth", null);
     this.setState({ currentUser: null, isLoggedIn: false });
   }
-
   render() {
+    const userId = this.state.userId;
     const userProps = {
+      userId: this.state.userId,
       isLoggedIn: this.state.isLoggedIn,
       currentUser: this.state.currentUser,
       logout: () => this.handleLogout(),
@@ -80,7 +84,7 @@ export default class App extends Component {
         <Router>
           <HomePage path="/" user={userProps} />
           <LoginForm path="/login" user={userProps} />
-          <DashboardPage path="dashboard" user={userProps} />
+          <DashboardPage path="dashboard/" user={userProps} />
           <GivngDetailsPage path="givngs/:givngId" user={userProps} />
           <SuggestionsPage path="suggestions/:budget" user={userProps} />
         </Router>

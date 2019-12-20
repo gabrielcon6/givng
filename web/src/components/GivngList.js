@@ -14,16 +14,17 @@ import { CardsParent, Title, StyledCards, CardsItem, MyCard,
 class GivngList extends Component {
   
   constructor(props) {
+    const auth = JSON.parse(sessionStorage.getItem("auth"));
     super(props);
     this.state = {
       givngList: [],
       name: [],
       theme: [],
-      userId:[],// THIS IS HARDCODED - SHOULD ACCEPT PARAMS - USER ID
+      userId: auth.userId,// THIS IS HARDCODED - SHOULD ACCEPT PARAMS - USER ID
       date: [],
-      budget: []
+      budget: [],
+      // auth: JSON.parse(sessionStorage.getItem("auth"))
     };
-    console.log(this.props.userProps.currentUser.id + 'SEILAAA')
   }
 
   changeHandler = (e) => {
