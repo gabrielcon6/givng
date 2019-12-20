@@ -53,6 +53,26 @@ export const Input = styled.input`
   border-color: #888;
 }
 `;
+export const InputLogin = styled.input`
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 0.05rem;
+  border-style: solid;
+  /* padding: 0.9rem; */
+  margin-top: -1vh;
+  margin-bottom: 1vh;
+  margin-right: 0.8rem;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+  &:focus {
+  border-color: #888;
+}
+`;
 
 export const BottomButtons = styled.input`
   box-sizing: border-box;

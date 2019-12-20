@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import { Login, LoginTriangle, LoginHeader, LoginContainer, P, Input, BottomButtons } 
+import { InputLogin } 
  from "../styles/StyledForm";
-import { Redirect } from "@reach/router";
-import { StyledNav, StyledNavLinks, LogoImg } from "../styles/StyledNavBar";
-
-
+import { BottomButtons } from "../styles/StyledGivngList";
 export default class LoginForm extends Component {
 
     constructor(props) {
@@ -35,7 +32,7 @@ export default class LoginForm extends Component {
         }}>
           {/* {this.props.user.isLoggedIn && <Redirect to="/dashboard" noThrow />}     */}
               <label htmlFor="email"></label>
-              <input 
+              <InputLogin 
               type="text"
               placeholder="Enter Email"
               name="email"
@@ -45,7 +42,7 @@ export default class LoginForm extends Component {
               />
   
               <label htmlFor="password"></label>
-              <input
+              <InputLogin
               type="password"
               placeholder="Enter Password"
               name="password"
@@ -54,7 +51,7 @@ export default class LoginForm extends Component {
               onChange={this.handlePasswordChange}
               />
             
-            <button value="Login" className="loginBtn" onClick={() => this.onLoginClick() }>LOGIN</button>
+            <BottomButtons style={{marginTop: "-1vh", marginBottom: "1vh"}} primary value="Login" className="loginBtn" onClick={() => this.onLoginClick() }>LOGIN</BottomButtons>
             
         </div>
 
