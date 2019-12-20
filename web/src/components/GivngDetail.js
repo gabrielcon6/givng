@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledContainer, Title, H2, H3 } from "../styles/StyledGivngDetailList";
-import EditGivng from "./EditGivng"
+// import EditGivng from "./EditGivng"
 // import { Title } from "../styles/StyledHomeContent";
 
 class GivngDetail extends React.Component {
@@ -12,7 +12,7 @@ class GivngDetail extends React.Component {
     return (
       <StyledContainer>
         <Title>{givng.name}</Title>
-        <H2>Total Budget: {givng.budget}</H2>
+        <H2>Total Budget: $ {givng.budget}0</H2>
         {/* <EditGivng givng={givng.id}/> */}
         <H3>Your groups:</H3>
       </StyledContainer>
