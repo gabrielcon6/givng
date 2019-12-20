@@ -1,5 +1,7 @@
 import React from "react";
-import { StyledContainer } from "../styles/StyledGivngDetailList";
+import { StyledContainer, Title, H2, H3 } from "../styles/StyledGivngDetailList";
+import EditGivng from "./EditGivng"
+// import { Title } from "../styles/StyledHomeContent";
 
 class GivngDetail extends React.Component {
 
@@ -9,9 +11,12 @@ class GivngDetail extends React.Component {
     const givng = this.props.givng;
     return (
       <StyledContainer>
-        <h1>{givng.theme}</h1>
-        <h2>Total Budget: {givng.budget}</h2>
+        <Title>{givng.name}</Title>
+        <H2>Total Budget: {givng.budget}</H2>
+        <EditGivng givng={givng.id}/>
+        <H3>Your groups:</H3>
       </StyledContainer>
+      
     );
   }
 }

@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import { Container, Jumbotron } from "react-bootstrap";
 import People from "./People";
 import { StyledDiv, Title, Budget, StyledContainer } from "../styles/StyledGroups";
-
+import { BottomButtons, Input, MiddleContainer } from "../styles/StyledGivngList.js"
 
 class Groups extends React.Component {
   constructor() {
@@ -68,8 +68,8 @@ class Groups extends React.Component {
           <StyledDiv key={index}>
             <Title>{group.name}</Title>
             <Budget>{group.budget}</Budget>
-            <button className="btn btn-outline-info" onClick={() => this.toggleHidden(group.id)}> Learn More </button>
-            <button className="btn btn-outline-info" onClick={() => this.handleDeleteGroupClick(group.id)}> Delete Group</button>
+            <button className="btn btn-outline-info" onClick={() => this.toggleHidden(group.id)}> View List </button>
+            <button className="btn btn-outline-info" onClick={() => this.handleDeleteGroupClick(group.id)}> Delete </button>
             {this.state.expandedGroups.includes(group.id) && <People 
               people={group.people}
               onAddPerson={(person) => this.onAddPerson(group.id, person)}
@@ -84,34 +84,34 @@ class Groups extends React.Component {
     const { name, budget } = this.state;
     return (
       <div>
-        <StyledContainer>
+        <MiddleContainer>
           
           <form onSubmit={this.submitHandler}>
             Name:{" "}
-            <input
+            <Input
               type="text"
               placeholder="Name"
               name="name"
               value={name}
               onChange={this.changeHandler}
-            ></input>
+            ></Input>
             Budget:{" "}
-            <input
+            <Input
               type="decimal"
               placeholder="Budget"
               name="budget"
               value={budget}
               onChange={this.changeHandler}
-            ></input>
-
-            <button type="submit" className="btn btn-outline-primary ">
+            ></Input>
+          
+            <BottomButtons type="submit">
               Add a new group
-            </button>
+            </BottomButtons>
           </form>
           {groupElements}
           <br />
           
-        </StyledContainer>
+        </MiddleContainer>
         
       </div>
     );

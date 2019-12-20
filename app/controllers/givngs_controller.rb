@@ -58,14 +58,19 @@ class GivngsController < ApiController
   # PATCH/PUT /givngs/1
   # PATCH/PUT /givngs/1.json
   def update
-    respond_to do |format|
-      if @givng.update(givng_params)
-        format.html { redirect_to @givng, notice: 'Givng was successfully updated.' }
-        format.json { render :show, status: :ok, location: @givng }
-      else
-        format.html { render :edit }
-        format.json { render json: @givng.errors, status: :unprocessable_entity }
-      end
+    # respond_to do |format|
+    #   if @givng.update(givng_params)
+    #     format.html { redirect_to @givng, notice: 'Givng was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @givng }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @givng.errors, status: :unprocessable_entity }
+    #   end
+    # end
+    if @givng.update(givng_params)
+      render json: @givng
+    else
+      render json: @givng.errors, status: :unprocessable_entity
     end
   end
 

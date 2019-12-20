@@ -82,6 +82,7 @@ export const CardContent = styled.div`
   padding: 1rem;
   min-width: 15vw;
   min-height: 10vw;
+
 `;
 
 
@@ -126,6 +127,7 @@ export const CardText = styled.p`
   line-height: 1.5;
   margin-bottom: 1.25rem;
   color: #999999;
+  align-self: flex-end;
 `;
 
 export const BottomContainer = styled.div`
@@ -186,3 +188,9 @@ export const BottomButtons = styled.button`
   }
  }
 `;
+
+  
+export const MiddleContainer = styled.div`
+    background-color: #DFE3E8;
+    text-align: center;
+    `;

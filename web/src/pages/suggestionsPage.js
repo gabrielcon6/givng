@@ -33,9 +33,9 @@ export default class SuggestionsPage extends Component {
             <img src={s.image} width="300px" height="300vh"></img>
             <CardContent>
               <CardTitle>{s.name}</CardTitle>
-              <CardText>Price: $ {s.regularPrice}</CardText>
-              <CardText>{s.type}</CardText>
-              <MyButton ><Link to={s.addToCartUrl}>Buy it Now</Link></MyButton>
+              <CardText bottom>Price: $ {s.regularPrice}</CardText>
+              <CardText bottom>Category: {s.type}</CardText>
+              {/* <MyButton ><Link to={s.addToCartUrl}>Buy it Now</Link></MyButton> */}
             </CardContent>
           </MyCard>
         </CardsItem>

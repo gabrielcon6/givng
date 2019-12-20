@@ -4,6 +4,7 @@ import Groups from "../components/Groups";
 import { Redirect } from "@reach/router";
 import { SERVER_URL } from "../config";
 import axios from 'axios';
+import EditGivng from "../components/EditGivng";
 
 class GivngDetailsPage extends Component {
   state = {
@@ -88,7 +89,7 @@ class GivngDetailsPage extends Component {
     return (
       <div>
         {/* {!this.props.user.isLoggedIn && <Redirect to="/" noThrow />} */}
-        dashboard page works Giving details page: {this.props.givngId}
+        {/* dashboard page works Giving details page: {this.props.givngId} */}
         <GivngDetail givng={this.state.givng} />
         <Groups
           groups={this.state.givng.groups}
@@ -97,6 +98,7 @@ class GivngDetailsPage extends Component {
           onDeleteGroup={this.deleteGivngGroup}
           onDeletePerson={this.deletePerson}
         />
+
       </div>
     );
   }

@@ -43,7 +43,7 @@ class People extends React.Component {
           {/* <Route path="/suggestions" budget={groupBudget/size}><button className="btn btn-outline-primary">Gift Suggestion</button></Route> */}
 
           <button className="btn btn-outline-primary" onClick={() => this.props.onDeletePerson(person.id)}>
-            Delete people
+            Delete Person
           </button>
         </div>
       );
@@ -71,7 +71,7 @@ const { name, budget } = this.state;
             onChange={this.changeHandler}
           ></input> */}
           <button className="btn btn-outline-primary" onClick={this.addNewPerson}>
-            Add people
+            Add Person
           </button>
           {peopleElements}
         </form>
