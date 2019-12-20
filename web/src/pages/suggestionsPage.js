@@ -30,7 +30,7 @@ export default class SuggestionsPage extends Component {
     this.state.data.map(s => (
         <CardsItem key={s.id}>
           <MyCard>
-            <img src={s.image} width="300px" height="300vh"></img>
+            <img src={s.image} alt="Best Buy" width="300px" height="300vh"></img>
             <CardContent>
               <CardTitle>{s.name}</CardTitle>
               <CardText bottom>Price: $ {s.regularPrice}</CardText>

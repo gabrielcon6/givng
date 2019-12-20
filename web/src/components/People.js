@@ -1,9 +1,7 @@
 import React from "react";
-// import { SERVER_URL } from "../config";
-// import axios from "axios";
 import { Link } from "@reach/router";
-import { PeopleTitle, Budget, PeopleContainer, Person, XButton, XPerson, Underline } from "../styles/StyledGroups"
-import { BottomButtons, Input, MiddleContainer } from "../styles/StyledGivngList.js"
+import { PeopleContainer, Person, XButton, XPerson, Underline } from "../styles/StyledGroups"
+import { BottomButtons, Input } from "../styles/StyledGivngList.js"
 
 class People extends React.Component {
   
@@ -50,7 +48,7 @@ class People extends React.Component {
         </div>
       );
     });
-const { name, budget } = this.state;
+const { name } = this.state;
 
     return (
       <PeopleContainer>

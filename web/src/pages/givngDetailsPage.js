@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import GivngDetail from "../components/GivngDetail";
 import Groups from "../components/Groups";
-import { Redirect } from "@reach/router";
 import { SERVER_URL } from "../config";
 import axios from 'axios';
-import EditGivng from "../components/EditGivng";
 
 class GivngDetailsPage extends Component {
   state = {

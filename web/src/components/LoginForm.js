@@ -4,7 +4,7 @@ import { Login, LoginTriangle, LoginHeader, LoginContainer, P, Input, BottomButt
 import { Redirect } from "@reach/router";
 
 
-export default class LoginForm extends React.Component {
+export default class LoginForm extends Component {
 
     constructor(props) {
         super(props);

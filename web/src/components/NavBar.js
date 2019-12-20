@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import RegisterForm from "./RegisterForm";
-import LoginForm from "./LoginForm";
 import { StyledNav, StyledNavLinks, LogoImg } from "../styles/StyledNavBar";
 
 export default class NavBar extends Component {

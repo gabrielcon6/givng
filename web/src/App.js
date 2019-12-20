@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router, Redirect } from "@reach/router";
+import { Router } from "@reach/router";
 
 import DashboardPage from "./pages/dashboardPage";
 import HomePage from "./pages/homePage";
@@ -69,7 +69,7 @@ export default class App extends Component {
     window.location.href = "/"
   }
   render() {
-    const userId = this.state.userId;
+    // const userId = this.state.userId;
     const userProps = {
       userId: this.state.userId,
       isLoggedIn: this.state.isLoggedIn,
