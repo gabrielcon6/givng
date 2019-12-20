@@ -95,9 +95,9 @@ class GivngList extends Component {
     const { name, theme, date, budget} = this.state
 
     return (
-      <>
+      <div style={{marginTop: "-1.5vh"}}>
         <Title>Your existing Givngs</Title>
-      <Container>
+      <Container >
         <CardsParent>{myGivngList}</CardsParent>
         </Container>
 
@@ -123,7 +123,7 @@ class GivngList extends Component {
           </Card>
         </CardDeck>
         <BottomContainer />
-      </>
+      </div>
     );
   }
 }
