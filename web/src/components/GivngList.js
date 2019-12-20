@@ -74,13 +74,13 @@ class GivngList extends Component {
     const myGivngList = this.state.givngList.map((givng, index) => (
         <CardsItem key={index}>
           <MyCard>
-            <CardImage className={`${givng.theme}`}></CardImage>
+          <Link to={`/givngs/${givng.id}`}><CardImage className={`${givng.theme}`}></CardImage></Link>
             <CardContent>
-              <CardTitle><Link to={`/givngs/${givng.id}`}>{givng.name}</Link></CardTitle>
+            <CardTitle>{givng.name}</CardTitle>
               <CardText>{givng.date}</CardText>
               <CardText>Budget: $ {givng.budget}</CardText>
+                <Link to={`/givngs/${givng.id}`}><BottomButtons primary type="submit">View</BottomButtons></Link>
                 <BottomButtons primary delete type="submit" onClick={() => this.removeHandler(givng.id)}>Delete</BottomButtons>
-                <BottomButtons primary type="submit" onClick={() => this.updateHandler(givng.id)}>Edit</BottomButtons>
             </CardContent>
           </MyCard>
         </CardsItem>
@@ -103,6 +103,7 @@ class GivngList extends Component {
               <form onSubmit={this.submitHandler}>
                 <Input type="text" placeholder="name" name="name" value={name} onChange={this.changeHandler}></Input><br />
                 <Select type="text" name="theme" value={theme} onChange={this.changeHandler}>
+                  <option></option>
                   <option>Christmas</option>
                   <option>Birthdays List</option> 
                   <option>Other</option> 
