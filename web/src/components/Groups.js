@@ -13,14 +13,7 @@ class Groups extends React.Component {
   }
 
   toggleHidden(groupId) {
-    // make a copy of our expandedGroups state variable
     const expandedGroups = [...this.state.expandedGroups];
-
-    //                    0   1   2
-    // expandedGroups = [ 10, 12, 3]
-    // indexOf(12) => 1
-    // indexOf(13) => -1
-
 
     // Add / remove the item from the expandedGroup array
     const index = expandedGroups.indexOf(groupId);

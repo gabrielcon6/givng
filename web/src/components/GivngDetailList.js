@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import { SERVER_URL } from "../config";
-// import { Container } from "react-bootstrap";
 import { StyledContainer } from "../styles/StyledGivngDetailList";
 import "bootstrap/dist/css/bootstrap.min.css";
 

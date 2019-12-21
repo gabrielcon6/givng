@@ -86,8 +86,6 @@ class GivngDetailsPage extends Component {
   render() {
     return (
       <div>
-        {/* {!this.props.user.isLoggedIn && <Redirect to="/" noThrow />} */}
-        {/* dashboard page works Giving details page: {this.props.givngId} */}
         <GivngDetail givng={this.state.givng} />
         <Groups
           groups={this.state.givng.groups}

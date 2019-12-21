@@ -81,7 +81,6 @@ export const BottomButtons = styled.input`
   border-width: 0.05rem;
   border-style: solid;
   padding: 0.9rem;
-  border-radius: 2rem;
   outline: 0;
   font-family: inherit;
   font-size: 0.95em;

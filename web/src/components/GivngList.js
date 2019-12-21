@@ -20,10 +20,9 @@ class GivngList extends Component {
       givngList: [],
       name: [],
       theme: [],
-      userId: auth.userId,// THIS IS HARDCODED - SHOULD ACCEPT PARAMS - USER ID
+      userId: auth.userId,
       date: [],
       budget: [],
-      // auth: JSON.parse(sessionStorage.getItem("auth"))
     };
   }
 
@@ -55,7 +54,7 @@ class GivngList extends Component {
 
   removeHandler = (props) => {
     axios
-    .delete(`${SERVER_URL}/givngs/${props}.json`) // THIS IS HARDCODED - SHOULD ACCEPT PARAMS - GIVNG ID
+    .delete(`${SERVER_URL}/givngs/${props}.json`) 
     .then(res => {
       window.location.reload();
     })

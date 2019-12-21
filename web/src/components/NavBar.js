@@ -33,8 +33,6 @@ export default class NavBar extends Component {
 
             {user.isLoggedIn && user.currentUser && (
               <>
-                {/* <StyledNavLinks>Special Dates</StyledNavLinks>
-                <StyledNavLinks>Favourite Friends</StyledNavLinks> */}
                 <StyledNavLinks>
                     <div onClick={e => this.handleLogoutClick(e)}>
                       Logout
