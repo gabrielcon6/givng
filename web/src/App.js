@@ -7,7 +7,6 @@ import SuggestionsPage from "./pages/suggestionsPage";
 import LoginForm from "./components/LoginForm";
 
 import NavBar from "./components/NavBar";
-// import { SERVER_URL } from "./config.js";
 import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.min.css";
