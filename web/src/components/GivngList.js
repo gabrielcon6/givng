@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Card, CardDeck } from "react-bootstrap";
 import { Link } from "@reach/router";
-import { SERVER_URL } from "../config";
+// import { SERVER_URL } from "../config";
 import "../index.css"
 import { CardsParent, Title, CardsItem, MyCard, 
         CardImage, CardTitle, Select,
@@ -43,7 +43,7 @@ class GivngList extends Component {
     }
     console.log(givngPost)
     axios
-      .post(`${SERVER_URL}/givngs.json`, givngPost)
+      .post(`/givngs.json`, givngPost)
       .then(res => {
         window.location.reload();
       })
@@ -54,7 +54,7 @@ class GivngList extends Component {
 
   removeHandler = (props) => {
     axios
-    .delete(`${SERVER_URL}/givngs/${props}.json`) 
+    .delete(`/givngs/${props}.json`) 
     .then(res => {
       window.location.reload();
     })
@@ -66,7 +66,7 @@ class GivngList extends Component {
   componentDidMount() {
     // this.setState({userId: {this.props.userProps.currentUser.id}})
     axios
-    .get(`${SERVER_URL}/givngs.json`)
+    .get(`/givngs.json`)
     .then(res => {
       const myData = res.data;
       this.setState({
