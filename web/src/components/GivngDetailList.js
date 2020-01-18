@@ -33,7 +33,7 @@ class GivngDetailList extends Component {
     return (
       <div>
         {givngTitle}
-        Giving Details: {this.props.givngId}
+        Giving Details: {this.props.givngId} 0
       </div>
     );
   }
