@@ -1,47 +1,44 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "@reach/router";
 import RegisterForm from "./RegisterForm";
 import { StyledNav, StyledNavLinks, LogoImg } from "../styles/StyledNavBar";
-import LoginForm from "./LoginForm"
+import Login from "./Login"
+import Logout from "./Logout"
 
-export default class NavBar extends Component {
-  handleLogoutClick(event) {
-    event.preventDefault();
-    this.props.user.logout();
+const navBar = (props) => {
+
+  const user = props.user;
+
+  return (
+    <div>
+      <StyledNav>
+        <Link to="/">
+          <LogoImg src={"./givng_logo1.png"} />
+        </Link>
+          {!user.isLoggedIn && (
+            <>
+              <StyledNavLinks style={{ float: "right" }}>
+                <RegisterForm />
+              </StyledNavLinks>
+              <StyledNavLinks style={{float:'right'}}>
+                <Login user={user}/>
+              </StyledNavLinks>
+
+
+            </>
+          )}
+
+          {user.isLoggedIn && user.currentUser && (
+            <>
+              <StyledNavLinks style={{float:'right'}}>
+                <Logout user={user} />
+              </StyledNavLinks>
+            </>
+          )}
+      </StyledNav>
+    </div>
+  );
   }
 
-  render() {
-    const user = this.props.user;
 
-    return (
-      <div>
-        <StyledNav>
-          <Link to="/">
-            <LogoImg src={"./givng_logo1.png"} />
-          </Link>
-            {!user.isLoggedIn && (
-              <>
-                <StyledNavLinks style={{float:'right'}}>
-                  <LoginForm user={user}/>
-                </StyledNavLinks>
-                {/* <StyledNavLinks style={{float:'right'}}><Link to="/register">Register</Link></StyledNavLinks> */}
-                <StyledNavLinks style={{ float: "right" }}>
-                  <RegisterForm />
-                </StyledNavLinks>
-              </>
-            )}
-
-            {user.isLoggedIn && user.currentUser && (
-              <>
-                <StyledNavLinks>
-                    <div onClick={e => this.handleLogoutClick(e)}>
-                      Logout
-                    </div>
-                </StyledNavLinks>
-              </>
-            )}
-        </StyledNav>
-      </div>
-    );
-  }
-}
+export default navBar;

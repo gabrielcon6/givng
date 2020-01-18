@@ -7,7 +7,6 @@ import SuggestionsPage from "./pages/suggestionsPage";
 import LoginForm from "./components/LoginForm";
 
 import NavBar from "./components/NavBar";
-import { SERVER_URL } from "./config.js";
 import axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -34,7 +33,7 @@ export default class App extends Component {
     if (!auth) return;
 
     axios
-      .get(`${SERVER_URL}/api/users/${auth.userId}`, {
+      .get(`/api/users/${auth.userId}`, {
         headers: { Authorization: `Bearer ${auth.token}` }
       })
       .then(response => {
@@ -49,7 +48,7 @@ export default class App extends Component {
 
   handleLogin(email, password) {
     axios
-      .post(`${SERVER_URL}/api/auth/get_token`, {
+      .post(`/api/auth/get_token`, {
         email: email,
         password: password
       })

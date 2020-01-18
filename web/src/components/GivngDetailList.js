@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import { SERVER_URL } from "../config";
 import { StyledContainer } from "../styles/StyledGivngDetailList";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -12,7 +11,7 @@ class GivngDetailList extends Component {
 
   componentDidMount() {
     const givingId = this.props.givngId;
-    axios.get(`${SERVER_URL}/givngs/${}.json`).then(res => {
+    axios.get(`/givngs/${givingId}.json`).then(res => {
       const myGivng = res.data;
       this.setState({
         givngList: myGivng
@@ -34,7 +33,7 @@ class GivngDetailList extends Component {
     return (
       <div>
         {givngTitle}
-        Giving Details: {this.props.givngId}
+        Giving Details: {this.props.givngId} 0
       </div>
     );
   }

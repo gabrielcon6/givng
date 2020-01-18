@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import GivngDetail from "../components/GivngDetail";
 import Groups from "../components/Groups";
-import { SERVER_URL } from "../config";
 import axios from 'axios';
 
 class GivngDetailsPage extends Component {
@@ -20,7 +19,7 @@ class GivngDetailsPage extends Component {
 
   fetchGroupDetail() {
     const givingId = this.props.givngId;
-    axios.get(`${SERVER_URL}/givngs/${givingId}.json`).then(res => {
+    axios.get(`/givngs/${givingId}.json`).then(res => {
       this.setState({ givng: res.data });
     });
   }
@@ -28,7 +27,7 @@ class GivngDetailsPage extends Component {
   addNewGivng = newGivng => {
     newGivng.givng_id = this.state.givng.id;
     axios
-      .post(`${SERVER_URL}/groups.json`, { group: newGivng })
+      .post(`$/groups.json`, { group: newGivng })
       .then(res => {
         console.log("Added new group successfull");
         console.log(res);
@@ -44,7 +43,7 @@ class GivngDetailsPage extends Component {
     console.log(newPerson);
     // TODO: add axios request to post the person object.
     axios
-      .post(`${SERVER_URL}/people.json`, { person: newPerson })
+      .post(`$/people.json`, { person: newPerson })
       .then(res => {
         console.log("Added new person successfull");
         console.log(res);
@@ -59,7 +58,7 @@ class GivngDetailsPage extends Component {
   deleteGivngGroup = groupId => {
     console.log("DELETING GROUP");
     axios
-      .delete(`${SERVER_URL}/groups/${groupId}`)
+      .delete(`/groups/${groupId}`)
       .then(res => {
         console.log("DELETING GROUP SUCCESSFULL");
         this.fetchGroupDetail();
@@ -73,7 +72,7 @@ class GivngDetailsPage extends Component {
     console.log("DELETE PERSON");
     // todo: axios delete person
     axios
-      .delete(`${SERVER_URL}/people/${personId}`)
+      .delete(`/people/${personId}`)
       .then(res => {
         console.log("DELETEING PERSON SUCCESSFUL");
         this.fetchGroupDetail();

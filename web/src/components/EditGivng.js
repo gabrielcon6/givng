@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { SERVER_URL } from "../config";
 
 export default class EditGivng extends React.Component {
   constructor(props) {
@@ -38,7 +37,7 @@ export default class EditGivng extends React.Component {
     alert("You are submitting " + theme);
     alert("You are submitting " + date);
     alert("You are submitting " + budget);
-        axios.put(`${SERVER_URL}/givngs/${this.state.givngListId}.json`, this.state.givingList).then(res => {
+        axios.put(`/givngs/${this.state.givngListId}.json`, this.state.givingList).then(res => {
     });
     }
   

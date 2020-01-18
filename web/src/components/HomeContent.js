@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import { Container, Banner, Title, Icon, IconText, Text, WrappedContainer, H1, InnerContainer, Footer, FooterText } 
     from '../styles/StyledHomeContent';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList, faUsers, faEnvelopeOpenText, faHandHoldingUsd } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
-class HomeContent extends React.Component {
+class HomeContent extends Component {
   state = {};
   render() {
     return (
@@ -42,9 +42,15 @@ class HomeContent extends React.Component {
         <Footer>
             <InnerContainer>
                 <Text>
-                    <Icon backPrimary><FontAwesomeIcon icon={faEnvelopeOpenText}/></Icon>
-                    <Icon backPrimary><FontAwesomeIcon icon={faGithub} style={{padding: "0.3rem"}}/></Icon> 
-                    <Icon backPrimary><FontAwesomeIcon icon={faLinkedin} style={{padding: "0.3rem"}}/></Icon> 
+                    <a href="mailto:gabrielcon6cao@gmail.com?Subject=Hello%20again" target="_top">
+                        <Icon backPrimary><FontAwesomeIcon icon={faEnvelopeOpenText}/></Icon>
+                    </a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://github.com/gabrielcon6">
+                        <Icon backPrimary><FontAwesomeIcon icon={faGithub} style={{padding: "0.3rem"}}/></Icon>
+                    </a>
+                    <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/gabrielcon6">
+                        <Icon backPrimary><FontAwesomeIcon icon={faLinkedin} style={{padding: "0.3rem"}}/></Icon>
+                    </a>
                 </Text>
             </InnerContainer>
             <FooterText>© 2019 Chen He, Gabriel Conceicao, Paulo Amaral</FooterText>
