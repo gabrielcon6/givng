@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import GivngDetail from "../components/GivngDetail";
 import Groups from "../components/Groups";
-// import { SERVER_URL } from "../config";
 import axios from 'axios';
 
 class GivngDetailsPage extends Component {
@@ -28,7 +27,7 @@ class GivngDetailsPage extends Component {
   addNewGivng = newGivng => {
     newGivng.givng_id = this.state.givng.id;
     axios
-      .post(`/groups.json`, { group: newGivng })
+      .post(`$/groups.json`, { group: newGivng })
       .then(res => {
         console.log("Added new group successfull");
         console.log(res);
@@ -44,7 +43,7 @@ class GivngDetailsPage extends Component {
     console.log(newPerson);
     // TODO: add axios request to post the person object.
     axios
-      .post(`/people.json`, { person: newPerson })
+      .post(`$/people.json`, { person: newPerson })
       .then(res => {
         console.log("Added new person successfull");
         console.log(res);

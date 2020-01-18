@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Card, CardDeck } from "react-bootstrap";
 import { Link } from "@reach/router";
-// import { SERVER_URL } from "../config";
 import "../index.css"
 import { CardsParent, Title, CardsItem, MyCard, 
         CardImage, CardTitle, Select,
@@ -43,7 +42,7 @@ class GivngList extends Component {
     }
     console.log(givngPost)
     axios
-      .post(`/givngs.json`, givngPost)
+      .post(`$/givngs.json`, givngPost)
       .then(res => {
         window.location.reload();
       })
@@ -108,12 +107,11 @@ class GivngList extends Component {
               <form onSubmit={this.submitHandler}>
                 <Input type="text" placeholder="name" name="name" value={name} onChange={this.changeHandler}></Input><br />
                 <Select type="text" name="theme" value={theme} onChange={this.changeHandler}>
-                  <option></option>
+                  <option>please select:</option>
                   <option>Christmas</option>
                   <option>Birthdays List</option> 
                   <option>Other</option> 
                 </Select>< br/>
-                {/* <Input type="text" placeholder="theme: i.e 'Christmas" name="theme" value={theme} onChange={this.changeHandler}></Input> <br /> */}
                 <Input type="date" placeholder="date" name="date" value={date} onChange={this.changeHandler}></Input> <br />
                 <Input type="decimal" placeholder="budget" name="budget" value={budget} onChange={this.changeHandler}></Input><br />
               <BottomButtons type="submit">Submit</BottomButtons></form>

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { InputLogin } 
- from "../styles/StyledForm";
+import { InputLogin } from "../styles/StyledForm";
 import { BottomButtons } from "../styles/StyledGivngList";
-export default class LoginForm extends Component {
+
+class Login extends Component {
 
     constructor(props) {
         super(props);
@@ -30,7 +30,6 @@ export default class LoginForm extends Component {
             display: 'flex', 
             flexDirection: 'row'
         }}>
-          {/* {this.props.user.isLoggedIn && <Redirect to="/dashboard" noThrow />}     */}
               <label htmlFor="email"></label>
               <InputLogin 
               type="text"
@@ -56,3 +55,5 @@ export default class LoginForm extends Component {
         </div>
 
     )}}
+
+    export default Login;

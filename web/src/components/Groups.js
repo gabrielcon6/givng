@@ -27,7 +27,8 @@ class Groups extends React.Component {
     
   }
   changeHandler = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    // e.preventDefault();
+    this.setState({ [e.target.name]: "New Group" });
   };
 
   submitHandler = e => {
@@ -59,6 +60,7 @@ class Groups extends React.Component {
             <Budget> ${group.budget}0</Budget>
             <BottomButtons primary onClick={() => this.toggleHidden(group.id)}> View List </BottomButtons>
             <BottomButtons primary delete onClick={() => this.handleDeleteGroupClick(group.id)}> Delete </BottomButtons>
+            <BottomButtons primary delete onClick={() => this.changeHandler(group.id)}> Edit </BottomButtons>
             {this.state.expandedGroups.includes(group.id) && <People 
               people={group.people}
               onAddPerson={(person) => this.onAddPerson(group.id, person)}
