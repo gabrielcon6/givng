@@ -1,10 +1,7 @@
 {
   "name": "givng",
   "license": "MIT",
-  "engines": {
-    "node": "12.13.1",
-    "yarn": "1.21.1"
-  },
+
   "scripts": {
     "build": "yarn --cwd web install && yarn --cwd web build",
     "deploy": "cp -a web/build/. public/",
