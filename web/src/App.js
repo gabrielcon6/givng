@@ -4,16 +4,15 @@ import { Router } from "@reach/router";
 import DashboardPage from "./pages/dashboardPage";
 import HomePage from "./pages/homePage";
 import SuggestionsPage from "./pages/suggestionsPage";
-import LoginForm from "./components/LoginForm";
+import Login from "./components/Login";
 
 import NavBar from "./components/NavBar";
 import axios from "axios";
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import GivngDetailsPage from "./pages/givngDetailsPage";
 import "./index.css"
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     let auth = JSON.parse(sessionStorage.getItem("auth"));
@@ -37,7 +36,6 @@ export default class App extends Component {
         headers: { Authorization: `Bearer ${auth.token}` }
       })
       .then(response => {
-        console.log(auth.userId);
         this.setState({
           currentUser: response.data,
           isLoggedIn: true,
@@ -53,7 +51,6 @@ export default class App extends Component {
         password: password
       })
       .then(response => {
-        console.log('response:' + response)
         sessionStorage.setItem('auth', JSON.stringify(response.data));
         this.getUser();
       })
@@ -68,7 +65,6 @@ export default class App extends Component {
     window.location.href = "/"
   }
   render() {
-    // const userId = this.state.userId;
     const userProps = {
       userId: this.state.userId,
       isLoggedIn: this.state.isLoggedIn,
@@ -83,7 +79,7 @@ export default class App extends Component {
 
         <Router>
           <HomePage path="/" user={userProps} />
-          <LoginForm path="/login" user={userProps} />
+          <Login path="/login" user={userProps} />
           <DashboardPage path="dashboard/" user={userProps} />
           <GivngDetailsPage path="givngs/:givngId" user={userProps} />
           <SuggestionsPage path="suggestions/:budget" user={userProps} />
@@ -92,3 +88,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;
