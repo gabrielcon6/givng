@@ -41,7 +41,5 @@ ___
 #### App Screenshots:
 ---
 
-![User view 1](/public/screenshots/screenshot1.png)
-![User view 2](/public/screenshots/screenshot2.png)
-![User view 3](/public/screenshots/screenshot3.png)
-![User view 4](/public/screenshots/screenshot4.png)
+![User view 1](/public/screenshots/givngs.gif)
+!
