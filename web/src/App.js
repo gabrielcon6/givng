@@ -80,6 +80,7 @@ class App extends Component {
         <Router>
           <HomePage path="/" user={userProps} />
           <Login path="/login" user={userProps} />
+          {/* <SignUp path="/signup" user={userProps} /> */}
           <DashboardPage path="dashboard/" user={userProps} />
           <GivngDetailsPage path="givngs/:givngId" user={userProps} />
           <SuggestionsPage path="suggestions/:budget" user={userProps} />
