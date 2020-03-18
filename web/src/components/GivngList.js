@@ -8,6 +8,7 @@ import { CardsParent, Title, CardsItem, MyCard,
         CardContent, CardText, Input, BottomContainer, 
         BottomButtons, Container } 
         from "../styles/StyledGivngList.js"
+import EditGivng from "./EditGivng";
 
 
 class GivngList extends Component {
@@ -19,7 +20,7 @@ class GivngList extends Component {
       givngList: [],
       name: [],
       theme: [],
-      userId: auth.userId,
+      userId: 1,
       date: [],
       budget: [],
     };
@@ -95,6 +96,7 @@ class GivngList extends Component {
     return (
       <div style={{marginTop: "-1.5vh"}}>
         <Title>Your existing Givngs</Title>
+        {/* <EditGivng /> */}
       <Container >
         <CardsParent>{myGivngList}</CardsParent>
         </Container>

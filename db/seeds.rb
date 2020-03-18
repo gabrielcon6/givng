@@ -19,4 +19,4 @@ xmas_family = Group.create(name: 'Family', budget: 10000, givng_id: xmas_gabe.id
 xmas_friend = Group.create(name: 'Friend', budget: 5000, givng_id: xmas_gabe.id)
 xmas_person = Person.create(name: 'Mom', person_budget: 9000, is_bought: false, group_id: xmas_family.id)
 
-puts '--------> seed has been planted  <------------'
+puts '-------> seed has been planted  <-----------'

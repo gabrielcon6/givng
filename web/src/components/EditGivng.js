@@ -4,14 +4,12 @@ import axios from 'axios';
 export default class EditGivng extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { givngList: [ {
+    this.state = { 
         name: "Oi",
         theme: "Xmas",
         user_id: 1,
         date: "",
         budget: "12",
-    }
-    ],
     givngListId: this.props.givng
 };
     this.mySubmitHandler = this.mySubmitHandler.bind(this);
@@ -20,32 +18,30 @@ export default class EditGivng extends React.Component {
 
   myChangeHandler = (event) => {
     this.setState( {
-        givngList: [{ 
             [event.target.name]: event.target.value,
         }
-        ]
-    })
-    console.log(this.state.givngList)
+)
+    console.log(this.state.name)
+  }
+
+  myChangeHandler = (e) => {
+    this.setState({[e.target.name]: e.target.value})
   }
 
   mySubmitHandler = (event) => {
     event.preventDefault();
-    const { name, theme, date, budget } = this.state.givngList[0];
-    console.log(name);
-    console.log("qqr asneira");
-    alert("You are submitting " + name);
-    alert("You are submitting " + theme);
-    alert("You are submitting " + date);
-    alert("You are submitting " + budget);
-        axios.put(`/givngs/${this.state.givngListId}.json`, this.state.givingList).then(res => {
-    });
+    // const newGivngList = this.state.gi;
+    console.log('newGivngList');
+    alert("You are submitting " + 'newGivngList');
+    //     axios.put(`/givngs/${this.state.givngListId}.json`, newGivngList).then(res => {
+    // });
     }
   
 
 
   render() {
-      const { name, theme, date, budget } = this.state.givngList[0];
-      console.log(this.state.givngListId)
+      const { name, theme, date, budget } = this.state;
+      // console.log(this.state.givngListId)
 
     return (
       <form>

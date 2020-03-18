@@ -1,4 +1,4 @@
-# GIVGN APP
+# GIVNG APP
 -- Deployed demo version [Heroku]: https://givng.herokuapp.com/
 
 - This app was created as a group project for the third assignment of our Software Engineering Immersive course at General Assembly Sydney/Australia.
@@ -8,7 +8,7 @@ The code was written by Chen He, Gabriel Conceicao, and Paulo Amaral.
 
 - First, you create a new givng, let's say a 'Christmas List', inside this GIVNG you can have different categories (eg. family, colleagues, friends, etc).
 
-- Second, you set a budget for each category, let's use $100 for your family as an example. Inside your family list, you have added 4 people (Mum, Dad, Bro, and Sis).
+- Second, you set a budget for each category, let's use $100 for your family as an example. Inside your family list, you have added 4 people (Mom, Dad, Brother and Sister).
 
 - Third, the App will let will mark present as bought for each one of them, and furthermore give you suggestions of presents around $25 (split budget) to your loved ones :)
 
@@ -41,7 +41,5 @@ ___
 #### App Screenshots:
 ---
 
-![User view 1](/public/screenshots/screenshot1.png)
-![User view 2](/public/screenshots/screenshot2.png)
-![User view 3](/public/screenshots/screenshot3.png)
-![User view 4](/public/screenshots/screenshot4.png)
+![User view 1](/public/screenshots/givngs.gif)
+!

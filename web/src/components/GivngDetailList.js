@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { StyledContainer } from "../styles/StyledGivngDetailList";
 import "bootstrap/dist/css/bootstrap.min.css";
+import EditGivng from "./EditGivng";
 
 
 class GivngDetailList extends Component {
@@ -23,7 +24,7 @@ class GivngDetailList extends Component {
     const givngTitle = this.state.givngList.map((givngList, index) => {
       return (
         <div>
-          
+          <EditGivng />
           <StyledContainer key={index}>
             <h2>Total Budget: {givngList.budget}</h2>
           </StyledContainer>
