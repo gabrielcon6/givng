@@ -1,18 +1,18 @@
 import React from 'react';
-import UsersList from './UsersList';
+import GivngsList from './GivngsList';
 
 const Dashboard = () => {
-  const USERS = [
+  const GIVNGS = [
     {
       id: 'u1',
-      name: 'Max Schwarz',
-      image:
-        'https://images.pexels.com/photos/839011/pexels-photo-839011.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-      places: 3
+      name: 'Christmas',
+      theme: 'https://images.unsplash.com/photo-1543934638-bd2e138430c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
+      date: '25 Dec',
+      budget: '$10000'
     }
   ];
 
-  return <UsersList items={USERS} />;
+  return <GivngsList items={GIVNGS} />;
 };
 
 export default Dashboard;
