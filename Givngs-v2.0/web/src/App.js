@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch, NavLink } from 'react-router-dom';
-
+import Dashboard from './pages/Dashboard'
 import Auth from './pages/Auth';
 import { AuthContext } from './context/auth-context';
 
@@ -10,20 +10,20 @@ const App = () => {
   const login = useCallback(() => {
     setIsLoggedIn(true);
   }, []);
-
+ 
   const logout = useCallback(() => {
     setIsLoggedIn(false);
   }, []);
 
   let routes;
 
-  if (isLoggedIn) {
+  if (!isLoggedIn) {
     routes = (
       <Switch>
-        <Route path="/auth">
-          <Auth />
+        <Route path="/dashboard" exact>
+          <Dashboard />
         </Route>
-        <Redirect to="/auth" />
+        <Redirect to="/dashboard" />
       </Switch>
     );
   } else {
@@ -42,7 +42,8 @@ const App = () => {
       value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
     >
     <Router>
-      <NavLink to="/auth">AUTHENTICATE</NavLink>
+      {/* <NavLink to="/auth">SIGN IN</NavLink> */}
+      <main>{routes}</main>
     </Router>
     </AuthContext.Provider>
   );
