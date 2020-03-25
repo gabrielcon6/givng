@@ -52,3 +52,4 @@
 #### App view:
 
 ![User view 1](/public/screenshots/givngs.gif)
+
