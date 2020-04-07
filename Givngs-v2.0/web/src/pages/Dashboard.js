@@ -1,5 +1,6 @@
 import React from 'react';
 import GivngsList from './GivngsList';
+import NewGivng from './NewGivng';
 
 const Dashboard = () => {
   const GIVNGS = [
@@ -12,7 +13,12 @@ const Dashboard = () => {
     }
   ];
 
-  return <GivngsList items={GIVNGS} />;
+  return (
+    <div>
+      <GivngsList items={GIVNGS}/>
+      <NewGivng/>
+    </div>
+    );
 };
 
 export default Dashboard;
