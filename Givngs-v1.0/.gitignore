@@ -15,6 +15,7 @@
 /old/
 
 # Ignore uploaded files in development.
+.DS_Store
 /storage/*
 !/storage/.keep
 .byebug_history
