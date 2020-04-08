@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, preventDefault } from 'react';
 // import { useHistory } from 'react-router-dom';
 // import { Checkbox } from '@thumbtack/thumbprint-react';
 
@@ -41,6 +41,12 @@ const NewGivng = props => {
     },
     false
   );
+    const addNewGivng = (event) => {
+      event.preventDefault();
+      // console.log(formState.inputs.name.value);
+      props.items.push('name: hi')
+      console.log('I am clicked', props.items)
+    }
 
 //   const experienceSubmitHandler = async event => {
 //     event.preventDefault();
@@ -64,10 +70,9 @@ const NewGivng = props => {
 //   history.push('/');
 //   history.push('/' + auth.userId + '/profile');
 // };
-    console.log(props.items)
   return (
     <React.Fragment>
-      <form className="place-form">
+      <form className="place-form" onSubmit={addNewGivng}>
         <input
           id="id"
           element="input"
