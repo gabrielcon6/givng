@@ -43,7 +43,7 @@
 
 ###### Chen He: chenhe.elec@gmail.com
 
-###### Gabriel Conceicao: gabrielcon6cao@gmail.com
+###### Gabriel Conceicao: hello@gabriel-dev.com
 
 ###### Paulo Amaral: paulo@amaral.com.au
 
