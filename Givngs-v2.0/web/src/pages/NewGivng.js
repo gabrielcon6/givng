@@ -1,117 +1,92 @@
-import React, { useState, preventDefault } from 'react';
-// import { useHistory } from 'react-router-dom';
-// import { Checkbox } from '@thumbtack/thumbprint-react';
-
-// import Input from '../../../shared/components/FormElements/Input';
-// import Button from '../../../shared/components/FormElements/Button';
-// import ErrorModal from '../../../shared/components/UIElements/ErrorModal';
-// import LoadingSpinner from '../../../shared/components/UIElements/LoadingSpinner';
-// import { VALIDATOR_REQUIRE } from '../../../shared/util/validators';
-// import { useForm } from '../../../shared/hooks/form-hook';
-// import { useHttpClient } from '../../../shared/hooks/http-hook';
-// import { AuthContext } from '../context/auth-context';
-// import '../../../places/pages/PlaceForm.css';
+import React, { useState, preventDefault, useEffect } from 'react';
+import GivngsList from './GivngsList';
 
 const NewGivng = props => {
-//   const auth = useContext(AuthContext);
-//   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-//   const [check, setCheck] = useState(false);
-  const [formState, inputHandler] = useState(
+  const [enteredValue, setEnteredValue] = useState(
     {
-      id: {
-        value: '',
-        isValid: false
-      },
-      name: {
-        value: '',
-        isValid: false
-      },
-      theme: {
-        value: '',
-        isValid: false
-      },
-      date: {
-        value: null,
-        isValid: false
-      },
-      budget: {
-        value: null,
-        isValid: false
-      }
-    },
-    false
-  );
-    const addNewGivng = (event) => {
-      event.preventDefault();
-      // console.log(formState.inputs.name.value);
-      props.items.push('name: hi')
-      console.log('I am clicked', props.items)
+      id: '',
+      name: '',
+      theme: '',
+      date: '',
+      budget: ''
     }
+  );
 
-//   const experienceSubmitHandler = async event => {
-//     event.preventDefault();
-//   try {
-//     await sendRequest(
-//       '/api/experiences',
-//       'POST',
-//       JSON.stringify({
-//         title: formState.inputs.title.value,
-//         company: formState.inputs.company.value,
-//         startDate: formState.inputs.startDate.value,
-//         endDate: formState.inputs.endDate.value,
-//         description: formState.inputs.description.value,
-//       }),
-//       { 
-//       'Content-Type': 'application/json',
-//       Authorization: 'Bearer ' + auth.token
-//      }
-//     );
-//   } catch (err) {}
-//   history.push('/');
-//   history.push('/' + auth.userId + '/profile');
-// };
+  
+
+  useEffect(() => {
+    setEnteredValue(enteredValue)
+    console.log('Estou funcionando')
+    console.log('just inserted after useEffect:', enteredValue)
+  }, [enteredValue])
+
+  const handleInputChange = (e) => {
+    e.preventDefault();
+    setEnteredValue({
+      ...enteredValue,
+    [e.target.name]: e.target.value
+    })
+    console.log('just inserted:', enteredValue)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newValue = enteredValue
+
+    setEnteredValue(
+      {
+        id: '',
+        name: '',
+        theme: '',
+        date: '',
+        budget: ''
+      }
+    );
+    props.items(newValue)
+    console.log('my items now:', props.items)
+    console.log('my state now:', enteredValue)
+  }
+
   return (
     <React.Fragment>
-      <form className="place-form" onSubmit={addNewGivng}>
-        <input
-          id="id"
-          element="input"
+      <form className="place-form" onSubmit={handleSubmit}>
+      <input
           type="text"
-          label="id"
-          onInput={inputHandler}
+          name="id"
+          value={enteredValue.id}
+          placeholder={enteredValue.id ? enteredValue.id : 'insert id'}
+          onChange={handleInputChange}
         />
         <input
-          id="name"
-          element="input"
-          type="text"
-          label="name"
-          onInput={inputHandler}
+          type="input"
+          name="name"
+          placeholder={enteredValue.name ? enteredValue.name : 'insert name'}
+          onChange={handleInputChange}
         />
         <input
-          id="theme"
-          element="input"
-          type="text"
-          label="theme"
-          onInput={inputHandler}
+          type="input"
+          name="theme"
+          placeholder={enteredValue.theme ? enteredValue.theme : 'insert theme'}
+          onChange={handleInputChange}
         />
-         <input
-          id="date"
-          element="date"
+        <input
           type="date"
-          label="date"
-          onInput={inputHandler}
+          name="date"
+          placeholder={enteredValue.date ? enteredValue.date : 'insert date'}
+          onChange={handleInputChange}
         />
-         <input
-          id="budget"
-          element="input"
+        <input
           type="number"
-          label="budget"
-          onInput={inputHandler}
+          name="budget"
+          placeholder={enteredValue.budget ? enteredValue.budget : 'insert budget'}
+          onChange={handleInputChange}
         />
         <button type="submit" >
           add new GIVNG
         </button>
       </form>
+      
     </React.Fragment>
   );
 };
