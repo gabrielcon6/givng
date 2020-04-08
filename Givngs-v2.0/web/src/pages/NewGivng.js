@@ -12,7 +12,7 @@ import React, { useState } from 'react';
 // import { AuthContext } from '../context/auth-context';
 // import '../../../places/pages/PlaceForm.css';
 
-const NewGivng = () => {
+const NewGivng = props => {
 //   const auth = useContext(AuthContext);
 //   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 //   const [check, setCheck] = useState(false);
@@ -64,7 +64,7 @@ const NewGivng = () => {
 //   history.push('/');
 //   history.push('/' + auth.userId + '/profile');
 // };
-
+    console.log(props.items)
   return (
     <React.Fragment>
       <form className="place-form">

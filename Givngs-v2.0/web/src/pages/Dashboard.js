@@ -16,7 +16,7 @@ const Dashboard = () => {
   return (
     <div>
       <GivngsList items={GIVNGS}/>
-      <NewGivng/>
+      <NewGivng items={GIVNGS}/>
     </div>
     );
 };
