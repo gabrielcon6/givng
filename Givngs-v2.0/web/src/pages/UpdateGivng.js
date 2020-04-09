@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-const NewGivng = props => {
+const UpdateGivng = props => {
   const [enteredValue, setEnteredValue] = useState(
     {
-      id: '',
-      name: '',
-      theme: '',
-      date: '',
-      budget: ''
+      id: props.id,
+      name: props.name,
+      theme: props.theme,
+      date: props.date,
+      budget: props.budget
     }
   );
 
@@ -37,7 +37,7 @@ const NewGivng = props => {
         budget: ''
       }
     );
-    props.items(newValue)
+    props.edit(newValue)
   }
 
   return (
@@ -53,29 +53,33 @@ const NewGivng = props => {
         <input
           type="input"
           name="name"
+          value={enteredValue.name}
           placeholder={enteredValue.name ? enteredValue.name : 'insert name'}
           onChange={handleInputChange}
         />
         <input
           type="input"
           name="theme"
+          value={enteredValue.theme}
           placeholder={enteredValue.theme ? enteredValue.theme : 'insert theme'}
           onChange={handleInputChange}
         />
         <input
           type="date"
           name="date"
+          value={enteredValue.date}
           placeholder={enteredValue.date ? enteredValue.date : 'insert date'}
           onChange={handleInputChange}
         />
         <input
           type="number"
           name="budget"
+          value={enteredValue.budget}
           placeholder={enteredValue.budget ? enteredValue.budget : 'insert budget'}
           onChange={handleInputChange}
         />
         <button type="submit" >
-          add new GIVNG
+          edit this GIVNG
         </button>
       </form>
       
@@ -83,4 +87,4 @@ const NewGivng = props => {
   );
 };
 
-export default NewGivng;
+export default UpdateGivng;

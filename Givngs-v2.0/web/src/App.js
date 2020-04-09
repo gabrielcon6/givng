@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { BrowserRouter as Router, Route, Redirect, Switch, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import Dashboard from './pages/Dashboard'
 import Auth from './pages/Auth';
 import { AuthContext } from './context/auth-context';

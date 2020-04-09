@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import GivngsList from './GivngsList';
 import NewGivng from './NewGivng';
 
@@ -15,14 +15,34 @@ const Dashboard = () => {
     ]
   );
 
+  useEffect(() => {
+    setGivngs(givngs)
+    console.log('AHUAHAUHAUAHUAHA afterEffect:', givngs)
+  }, [givngs])
+
   const addNewGivngs = newGivng => {
     setGivngs(prevGivngs => prevGivngs.concat(newGivng))
+  }
+
+  const editGivng = givng => {
+    setGivngs( givngs.map((item) => {
+      if (item.id === givng.id) return {...item, 
+        id: givng.id,
+        name: givng.name,
+        theme: givng.theme,
+        date: givng.date,
+        budget: givng.budget
+      }
+      return item }
+      ))
+      console.log('AHUAHAUHAUAHUAHA after', givngs)
+
   }
 
   return (
     <div>
       <h1>Your Givngs</h1>
-      <GivngsList items={givngs}/>
+      <GivngsList items={givngs} edit={editGivng}/>
       <NewGivng items={addNewGivngs}/>
     </div>
     );

@@ -1,8 +1,8 @@
 import React from 'react';
-
 import GivngItem from './GivngItem';
 
 const GivngsList = props => {
+
   if (props.items.length === 0) {
     return (
       <div className="center">
@@ -23,6 +23,7 @@ const GivngsList = props => {
           name={givng.name}
           date={givng.date}
           budget={givng.budget}
+          edit={props.edit}
         />
       ))}
     </ul>
