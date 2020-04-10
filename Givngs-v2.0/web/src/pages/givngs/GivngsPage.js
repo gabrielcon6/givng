@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import GivngsList from './GivngsList';
-import NewGivng from './NewGivng';
+import GivngsList from './components/GivngsList';
+import NewGivng from './components/NewGivng';
 
 const Dashboard = () => {
   const [givngs, setGivngs] = useState(

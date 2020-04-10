@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
-import Dashboard from './pages/Dashboard'
+import GivngsPage from './pages/givngs/GivngsPage'
 import Auth from './pages/Auth';
 import { AuthContext } from './context/auth-context';
 
@@ -21,7 +21,7 @@ const App = () => {
     routes = (
       <Switch>
         <Route path="/dashboard" exact>
-          <Dashboard />
+          <GivngsPage />
         </Route>
         <Redirect to="/dashboard" />
       </Switch>
