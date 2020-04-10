@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import UpdateGivng from './UpdateGivng';
+import DeleteGivng from './DeleteGivng';
 
 const GivngItem = props => {
   const [form, setForm] = useState(false);
@@ -33,8 +34,9 @@ const GivngItem = props => {
               budget={props.budget}
             />
           </div>
-        )
-        }
+        )}
+        <DeleteGivng delete={props.delete} id={props.id} />
+
     </div>
   );
 };

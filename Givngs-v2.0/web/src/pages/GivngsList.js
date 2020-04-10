@@ -24,6 +24,7 @@ const GivngsList = props => {
           date={givng.date}
           budget={givng.budget}
           edit={props.edit}
+          delete={props.delete}
         />
       ))}
     </ul>

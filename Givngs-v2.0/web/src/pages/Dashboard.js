@@ -26,7 +26,7 @@ const Dashboard = () => {
 
   const editGivng = givng => {
     setGivngs( givngs.map((item) => {
-      if (item.id === givng.id) return {...item, 
+      if (item.id === givng.id ) return {...item, 
         id: givng.id,
         name: givng.name,
         theme: givng.theme,
@@ -35,14 +35,18 @@ const Dashboard = () => {
       }
       return item }
       ))
-      console.log('AHUAHAUHAUAHUAHA after', givngs)
+  }
 
+  const deleteGivng = givngId => {
+    let filteredGivngs = givngs.filter(item => item.id !== givngId)
+    setGivngs(filteredGivngs);
+    console.log(givngs, 'hi')
   }
 
   return (
     <div>
       <h1>Your Givngs</h1>
-      <GivngsList items={givngs} edit={editGivng}/>
+      <GivngsList items={givngs} edit={editGivng} delete={deleteGivng}/>
       <NewGivng items={addNewGivngs}/>
     </div>
     );
