@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import GivngsPage from './pages/givngs/GivngsPage'
 import Auth from './pages/Auth';
@@ -6,18 +6,21 @@ import { AuthContext } from './context/auth-context';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const auth = useContext(AuthContext);
+  
   const login = useCallback(() => {
+    auth.isLoggedIn = true;
     setIsLoggedIn(true);
   }, []);
  
   const logout = useCallback(() => {
+    auth.isLoggedIn = false;
     setIsLoggedIn(false);
   }, []);
 
   let routes;
 
-  if (isLoggedIn) {
+  if (auth.isLoggedIn) {
     routes = (
       <Switch>
         <Route path="/dashboard" exact>
