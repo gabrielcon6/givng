@@ -46,12 +46,10 @@ const Auth = () => {
     event.preventDefault();
     
     if (isLoginMode) {
-      console.log('Line 50',  formState)
       try {
         const responseData = await sendRequest(
           'http://localhost:5000/api/users/login',
           'POST',
-  
           JSON.stringify({
             email: formState.email,
             password: formState.password
@@ -60,7 +58,7 @@ const Auth = () => {
             'Content-Type': 'application/json'
           }
         );
-        auth.login(responseData.user.id);
+        auth.login(responseData.isLoggedIn);
       } catch (err) {}
     } else {
       try {
