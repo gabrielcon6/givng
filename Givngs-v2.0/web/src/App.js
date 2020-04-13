@@ -17,7 +17,7 @@ const App = () => {
 
   let routes;
 
-  if (!isLoggedIn) {
+  if (isLoggedIn) {
     routes = (
       <Switch>
         <Route path="/dashboard" exact>
