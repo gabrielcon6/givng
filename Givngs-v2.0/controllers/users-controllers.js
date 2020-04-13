@@ -42,19 +42,17 @@ const signup = (req, res, next) => {
 };
 
 const login = (req, res, next) => {
-  console.log('Logged in!')
 
 
   const { email, password } = req.body;
 
-  console.log('Logged in!', email)
 
   const identifiedUser = DUMMY_USERS.find(u => u.email === email);
   if (!identifiedUser || identifiedUser.password !== password) {
     throw new HttpError('Could not identify user, credentials seem to be wrong.', 401);
   }
-  console.log('Logged in!')
-  res.json({message: 'Logged in!'});
+  console.log('Logged in!!!')
+  res.json({isLoggedIn: true});
 };
 
 exports.getUsers = getUsers;
